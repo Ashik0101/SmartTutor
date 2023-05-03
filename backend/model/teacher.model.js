@@ -35,6 +35,7 @@ const teacherSchema = new mongoose.Schema({
     type : Number,
     default : 0
   }
+  // If required
 });
 
 const Teacher = mongoose.model("Teacher", teacherSchema);
