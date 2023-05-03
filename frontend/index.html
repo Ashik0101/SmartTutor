@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HOME PAGE</title>
+    <link rel="stylesheet" href="index.css" />
+    <!-- box icons url is here-->
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Navbar section is here -->
+    <nav class="navbar">
+      <div class="navbar-logo">
+        <img src="./images/smart_tutor_image_3.jpg" alt="Smart Tutor Logo" />
+      </div>
+      <div class="navbar-menu">
+        <div class="navbar-item">
+          <div>
+            <a href="#" class="navbar-link">Find Tutor</a>
+            <i class="bx bxs-chevron-down"></i>
+          </div>
+          <div class="navbar-dropdown">
+            <div><a href="#" class="navbar-dropdown-link">All Tutors</a></div>
+            <div>
+              <a href="#" class="navbar-dropdown-link">Online Tutors</a>
+            </div>
+            <div><a href="#" class="navbar-dropdown-link">Home Tutors</a></div>
+            <div>
+              <a href="#" class="navbar-dropdown-link">Request a Tutor</a>
+            </div>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <div>
+            <a href="#" class="navbar-link">Find Tutor Jobs</a>
+            <i class="bx bxs-chevron-down"></i>
+          </div>
+          <div class="navbar-dropdown">
+            <div><a href="#" class="navbar-dropdown-link">Job Option 1</a></div>
+            <div><a href="#" class="navbar-dropdown-link">Job Option 2</a></div>
+            <div><a href="#" class="navbar-dropdown-link">Job Option 3</a></div>
+            <div><a href="#" class="navbar-dropdown-link">Job Option 4</a></div>
+          </div>
+        </div>
+        <div
+          id="request-a-tutor-nav-sec"
+          class="navbar-item request-a-tutor-nav-sec"
+        >
+          <a href="#" class="navbar-link">Request a Tutor</a>
+        </div>
+        <div class="navbar-item login-nav-sec">
+          <a href="#" class="navbar-link">Login</a>
+          <div id="navbar-login-dropdown" class="navbar-dropdown">
+            <div id="Hnn">
+              <a href="#" class="navbar-dropdown-link">Login</a>
+            </div>
+            <div><a href="#">or</a></div>
+            <div id="signup">
+              <a href="#" class="navbar-dropdown-link">Signup</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- navbar ends here -->
+
+    <!-- body part start here -->
+    <div class="parent">
+      <div class="video-background">
+        <video autoplay muted loop>
+          <source src="/frontend/video/videoplayback.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div class="second-parent">
+        <div>
+          <h1>Find online teachers and home tutors for free</h1>
+          <div class="inputs-parent-div">
+            <input type="text" placeholder="Subject / Skill" />
+            <input type="text" placeholder="Location" />
+            <button id="search-button">
+              <i class="bx bx-search-alt-2"></i> Search
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
