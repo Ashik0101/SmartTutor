@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 
+
 const subjectSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -21,6 +22,9 @@ const teacherSchema = new mongoose.Schema({
   email: {
     type: String,
   },
+  image:{
+    type: String,
+  },
   subjects: {
     type: [subjectSchema],
   },
@@ -34,8 +38,20 @@ const teacherSchema = new mongoose.Schema({
   fees : {
     type : Number,
     default : 0
+  },
+  teachesOnline:{
+    type: String,
+    enum: ["Yes", "No"],
+  },
+  gender:{
+    type: String,
+    enum: ["Male","Female","Transgender"],
+  },
+  homeworkHelp:{
+    type: String,
+    enum: ["Yes","No"],
   }
-  // If required
+
 });
 
 const Teacher = mongoose.model("Teacher", teacherSchema);
