@@ -1,0 +1,129 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
+#lineOne{
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 3%;
+}
+
+#header{
+    display: flex;
+    justify-content: space-between;
+    padding: 0.2% 1%;
+    align-items: center;
+}
+
+#headerRight{
+    display: flex;
+    width: 45%;
+    justify-content: space-between;
+}
+
+#postBtn{
+    background-color: #16a085;
+    padding: 0% 2%;
+    color: #fafafa;
+}
+
+#postBtn:hover{
+    cursor: pointer;
+}
+#searchPortal{
+    text-align: center;
+    border: 1px solid rgb(236, 234, 234);
+    background-color: #fafafa;
+}
+
+#filterButtons{
+    display: flex;
+    justify-content: center;
+    gap: 2%;
+}
+
+input{
+    padding: 0.7%;
+    width: 22%;
+}
+
+#searchBtn{
+    padding: 0.7%;
+    width: 7%;
+}
+
+#content{
+    width: 94%;
+    margin: 0 auto;
+    margin: 2%;
+    /* border: 1px solid black; */
+    padding: 1%;
+    display: flex;
+}
+
+#tutors{
+    width: 75%;
+}
+
+.name{
+    display: flex;
+    gap: 1%;
+    align-items: last baseline;
+}
+
+.name>h2{
+    color:#5bc2f5 ;
+}
+.sub{
+    margin-top: -3%;
+    display: flex;
+    gap:1%;
+}
+
+.desc{
+    margin-top: -2%;
+    line-height: 150%;
+}
+.sub>h5{
+    border: 1px solid black;
+    padding: 1%;
+    
+}
+
+.extraDetail{
+    display: flex;
+    gap: 1%;
+    margin-top: -2%;
+}
+
+.tutor-box{
+    padding: 2%;
+}
+
+.tutor-box:hover{
+    cursor: pointer;
+    background-color: #fafafa;
+}
+
+#locations{
+    width: 25%;
+    padding: 2%;
+}
+#locations h2{
+    margin-top: -1%;
+}
+#footer{
+    display: flex;
+    justify-content: center;
+    gap: 2%;
+    background-color: #222;
+    color: white;
+}
+
+#footer>ul{
+    font-size: 20px;
+    line-height: 35px;
+}
+
+#footer>ul>h4{
+    border-bottom: 1px solid greenyellow;
+}
