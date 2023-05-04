@@ -18,9 +18,10 @@
       <div class="navbar-logo">
         <img src="./images/smart_tutor_image_3.jpg" alt="Smart Tutor Logo" />
       </div>
+      <i class="bx bx-menu" id="menu-icon"></i>
       <div class="navbar-menu">
         <div class="navbar-item">
-          <div>
+          <div class="active">
             <a href="#" class="navbar-link">Find Tutor</a>
             <i class="bx bxs-chevron-down"></i>
           </div>
@@ -41,10 +42,13 @@
             <i class="bx bxs-chevron-down"></i>
           </div>
           <div class="navbar-dropdown">
-            <div><a href="#" class="navbar-dropdown-link">Job Option 1</a></div>
-            <div><a href="#" class="navbar-dropdown-link">Job Option 2</a></div>
-            <div><a href="#" class="navbar-dropdown-link">Job Option 3</a></div>
-            <div><a href="#" class="navbar-dropdown-link">Job Option 4</a></div>
+            <div><a href="#" class="navbar-dropdown-link">All Tutors</a></div>
+            <div>
+              <a href="#" class="navbar-dropdown-link">Online Tutor Jobs</a>
+            </div>
+            <div>
+              <a href="#" class="navbar-dropdown-link">Home Tutor Jobs</a>
+            </div>
           </div>
         </div>
         <div
@@ -56,7 +60,7 @@
         <div class="navbar-item login-nav-sec">
           <a href="#" class="navbar-link">Login</a>
           <div id="navbar-login-dropdown" class="navbar-dropdown">
-            <div id="Hnn">
+            <div id="login">
               <a href="#" class="navbar-dropdown-link">Login</a>
             </div>
             <div><a href="#">or</a></div>
@@ -89,5 +93,82 @@
         </div>
       </div>
     </div>
+
+    <!-- Teacher and Student part starts here -->
+    <div class="container">
+      <div class="teacher-container mini-container">
+        <div class="heading teacher-heading">Teacher</div>
+        <div class="option teacher-option">
+          <div class="teacher-div div"><a href="#">Teachers</a></div>
+          <div class="teacher-div div"><a href="#">Online Teachers</a></div>
+          <div class="teacher-div div"><a href="#">Home Teachers</a></div>
+          <div class="teacher-div div"><a href="#">Assignment Help</a></div>
+        </div>
+      </div>
+      <div class="teaching-jobs-container mini-container">
+        <div class="heading teaching-jobs-heading">Teaching Jobs</div>
+        <div class="option teaching-jobs-option">
+          <div class="jobs-div div"><a href="#">Teaching Jobs</a></div>
+          <div class="jobs-div div"><a href="#">Online Teaching</a></div>
+          <div class="jobs-div div"><a href="#">Home Teaching</a></div>
+          <div class="jobs-div div"><a href="#">Assignment Jobs</a></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Teacher small banner -->
+    <div class="teacher-banner-container">
+      <h1 class="high-quality-teachers">High Quality Teachers</h1>
+      <h1 class="only55">
+        ONLY <span>55.1% </span> OF TEACHERS THAT APPLY MAKE THROUGH OUR
+        APPLICATION PROCESSs
+      </h1>
+    </div>
+
+    <!-- What we do part -->
+    <div class="what-we-do-container-child">
+      <h1>What We Do ?</h1>
+      <div>
+        <p>
+          SmartTutor.com is a free website, trusted by thousands of students and
+          teachers, all over the world.
+        </p>
+        <p>
+          SmartTutor.com is a free website, trusted by thousands of students and
+          teachers, all over the world.
+        </p>
+      </div>
+    </div>
+
+    <div class="what-we-do-container"></div>
   </body>
+  <script>
+    window.onscroll = function () {
+      var navbar = document.querySelector(".navbar");
+      var inputsParentDiv = document.querySelector(".inputs-parent-div");
+      var inputsParentDivTop = inputsParentDiv.getBoundingClientRect().top;
+
+      if (window.pageYOffset >= navbar.offsetTop) {
+        inputsParentDiv.classList.add("fixed-inputs");
+        document.getElementById("search-button").classList.add("fixed-button");
+        inputsParentDiv.style.width = navbar.offsetWidth + "px";
+      } else {
+        inputsParentDiv.classList.remove("fixed-inputs");
+        inputsParentDiv.style.width = "auto";
+        document
+          .getElementById("search-button")
+          .classList.remove("fixed-button");
+      }
+    };
+  </script>
+  <script>
+    let menuIcon = document.querySelector("#menu-icon");
+    let navMenu = document.querySelector(".navbar-menu");
+
+    menuIcon.onclick = () => {
+      menuIcon.classList.toggle("bx-x");
+      navMenu.classList.toggle("active");
+    };
+  </script>
+  <script src="./index.js"></script>
 </html>
