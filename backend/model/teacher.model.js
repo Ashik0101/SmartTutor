@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 
-
 const subjectSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -13,16 +12,16 @@ const subjectSchema = new mongoose.Schema({
 
 const degreeSchema = mongoose.Schema({
   name: String,
-  college : {
-    type : String
-  }
+  college: {
+    type: String,
+  },
 });
 
 const teacherSchema = new mongoose.Schema({
   email: {
     type: String,
   },
-  image:{
+  image: {
     type: String,
   },
   subjects: {
@@ -34,24 +33,23 @@ const teacherSchema = new mongoose.Schema({
     default: 0,
   },
   degrees: [degreeSchema],
-  address : String,
-  fees : {
-    type : Number,
-    default : 0
+  address: String,
+  fees: {
+    type: Number,
+    default: 0,
   },
-  teachesOnline:{
+  teachesOnline: {
     type: String,
     enum: ["Yes", "No"],
   },
-  gender:{
+  gender: {
     type: String,
-    enum: ["Male","Female","Transgender"],
+    enum: ["Male", "Female", "Transgender"],
   },
-  homeworkHelp:{
+  homeworkHelp: {
     type: String,
-    enum: ["Yes","No"],
-  }
-
+    enum: ["Yes", "No"],
+  },
 });
 
 const Teacher = mongoose.model("Teacher", teacherSchema);

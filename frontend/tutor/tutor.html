@@ -7,13 +7,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tutor Page</title>
     <link rel="stylesheet" href="tutor.css" />
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
 </head>
 
 <body>
     <div id="mainContainer">
         <div id="lineOne">
-            <div>Abhijeet Sen Gupta</div>
-            <div>Message</div>
+            <div style="display: flex;align-items: center;gap: 4%;">
+                <i class="uil uil-user-square"></i>
+                <p id="userName"></p>
+            </div>
+            <div style="display: flex;align-items: center;gap: 4%;">
+                <i class="uil uil-envelope-edit"></i>
+                <p>Message</p>
+            </div>
         </div>
         <div id="header">
             <div>
@@ -59,40 +66,14 @@
 
         <div id="content">
             <div id="tutors">
-                <div class="tutor-box">
-                    <div class="tutorIndividual">
-                        <div class="name">
-                            <h2>Abhijeet Sen Gupta</h2>
-                            <h4>Software Developer</h4>
-                        </div>
-                        <div class="sub">
-                            <h5>HTML</h5>
-                            <h5>CSS</h5>
-                            <h5>JS</h5>
-                        </div>
-                        <div class="desc">
-                            <p>
-                                I am passionate about teaching and can teach in a lucid manner
-                                which the learners can understand easily. Will make sure that
-                                the learner is taught to approch conceptually rather than just
-                                rote learning. Will explain real time concepts to make clear
-                                understanding of the subject. Have authored books on accounts
-                                and hence claim to be confident in
-                            </p>
-                        </div>
-                        <div class="extraDetail">
-                            <h6>Location</h6>
-                            <h6>Working Hours</h6>
-                            <h6>Experience</h6>
-                            <h6>Teaching Experience</h6>
-                        </div>
-                    </div>
-                </div>
+                <!-- Fetch the data from the Javascript -->
             </div>
             <div id="locations">
+                <h2>Locations</h2>
                 <div id="location-box">
-                    <h2>Locations</h2>
-                    <!-- Append the data from the Location Api -->
+                    <div class="countryName">
+                        <p>USA</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -131,9 +112,8 @@
                 <li>Privacy Policy</li>
                 <li>Terms</li>
             </ul>
-
         </div>
     </div>
 </body>
-
+<script src="./tutor.js"></script>
 </html>
