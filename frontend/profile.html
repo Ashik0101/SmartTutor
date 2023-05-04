@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="profile.css">
+    <link rel="stylesheet" href="../frontend/tutor/tutor.css">
+    <link rel="stylesheet" href="index.css">
+    <!-- <link rel="stylesheet" href="fonts/remixicon.css"> -->
+    <script src="https://kit.fontawesome.com/b471923b50.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-logo">
+          <img src="./images/smart_tutor_image_3.jpg" alt="Smart Tutor Logo" />
+        </div>
+        <div class="navbar-menu">
+          <div class="navbar-item">
+            <div>
+              <a href="#" class="navbar-link">Find Tutor</a>
+              <i class="bx bxs-chevron-down"></i>
+            </div>
+            <div class="navbar-dropdown">
+              <div><a href="#" class="navbar-dropdown-link">All Tutors</a></div>
+              <div>
+                <a href="#" class="navbar-dropdown-link">Online Tutors</a>
+              </div>
+              <div><a href="#" class="navbar-dropdown-link">Home Tutors</a></div>
+              <div>
+                <a href="#" class="navbar-dropdown-link">Request a Tutor</a>
+              </div>
+            </div>
+          </div>
+          <div class="navbar-item">
+            <div>
+              <a href="#" class="navbar-link">Find Tutor Jobs</a>
+              <i class="bx bxs-chevron-down"></i>
+            </div>
+            <div class="navbar-dropdown">
+              <div><a href="#" class="navbar-dropdown-link">Job Option 1</a></div>
+              <div><a href="#" class="navbar-dropdown-link">Job Option 2</a></div>
+              <div><a href="#" class="navbar-dropdown-link">Job Option 3</a></div>
+              <div><a href="#" class="navbar-dropdown-link">Job Option 4</a></div>
+            </div>
+          </div>
+          <div
+            id="request-a-tutor-nav-sec"
+            class="navbar-item request-a-tutor-nav-sec"
+          >
+            <a href="#" class="navbar-link">Request a Tutor</a>
+          </div>
+          <div class="navbar-item login-nav-sec">
+            <a href="#" class="navbar-link">Login</a>
+            <div id="navbar-login-dropdown" class="navbar-dropdown">
+              <div id="Hnn">
+                <a href="#" class="navbar-dropdown-link">Login</a>
+              </div>
+              <div><a href="#">or</a></div>
+              <div id="signup">
+                <a href="#" class="navbar-dropdown-link">Signup</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+    <div class="container">
+        <section class="userProfile card">
+            <div class="profile">
+                <figure><img src="./images/download.jpg" alt="profile" id="pic" ></figure>
+            </div>
+        </section>
+
+        <section class="work_skills card">
+
+            <!-- ===== ===== Work Contaienr ===== ===== -->
+            <div class="work">
+                <h1 class="heading">work</h1>
+                <div class="primary">
+                    <h1>Spotify New York</h1>
+                    <span>Primary</span>
+                    <p>170 William Street <br> New York, NY 10038-212-315-51</p>
+                </div>
+
+                <div class="secondary">
+                    <h1>Metropolitan <br> Museum</h1>
+                    <span>Secondary</span>
+                    <p>S34 E 65th Street <br> New York, NY 10651-78 156-187-60</p>
+                </div>
+            </div>
+
+            <!-- ===== ===== Skills Contaienr ===== ===== -->
+            <div class="skills">
+                <h1 class="heading">Skills</h1>
+                <ul>
+                    <li >Android</li>
+                    <li >Web-Design</li>
+                    <li >UI/UX</li>
+                    <li >Video Editing</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="userDetails card">
+            <i id="edit" class="fa-regular fa-pen-to-square"></i>
+            <div class="userName">
+                <input type="text" class="name" value="Amit Sir" readonly>
+                <input type="text" class="pp" value="Full-stak Developer" readonly>
+            </div>
+         
+
+            <div class="rank">
+                <h1 class="heading">Rankings</h1>
+                <span>8,6</span>
+                <div class="rating">
+                    <i class="fa-solid fa-star rate"></i>
+                    <i class="fa-solid fa-star rate"></i>
+                    <i class="fa-solid fa-star rate"></i>
+                    <i class="fa-solid fa-star-half-stroke rate"></i>
+                    <i class="fa-regular fa-star rate underrate"></i>
+                </div>
+            </div>
+
+            <div class="btns">
+                <ul>
+                    <li class="sendMsg active">
+                        <a href="#">Send Message</a>
+                    </li>
+
+                    <li class="sendMsg active">
+                        <a href="#">Contacts</a>
+                    </li>
+
+                    <li class="sendMsg active">
+                        <a href="#">Schedule_meet</a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+
+        <!-- ===== ===== Timeline & About Sections ===== ===== -->
+        <section class="timeline_about card">
+            <div class="tabs">
+                <ul>
+                    
+                    <li class="about active">
+                        <span>About</span>
+                    </li>
+                   
+                    <!-- <li class="timeline">
+                        <span>Timeline</span>
+                    </li> -->
+                </ul>
+            </div>
+
+            <div class="contact_Info">
+                <h1 class="heading">Contact Information</h1>
+                <ul>
+                    <li class="phone">
+                        <h1 class="label">Phone:</h1>
+                        <input type="number" class="p" value="453262627" readonly>
+                    </li>
+
+                    <li class="address">
+                        <h1 class="label">Address:</h1>
+                        <input type="text" value="Amit@gmail.com" readonly>
+                    </li>
+
+                    <li class="email">
+                        <h1 class="label">E-mail:</h1>
+                        <input type="text" class="p" value="Amit@gmail.com" readonly>
+                    </li>
+                    
+                    <li >
+                        <h1 class="label">Location:</h1>
+                    </li>
+                    
+                    <div class="map">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <input type="text" value="Bhilai,CG" readonly>
+                        <!-- <span>Bhilai, CG</span> -->
+                    </div>
+
+                </ul>
+            </div>
+            <br>
+            <div class="basic_info">
+                <h1 class="heading">Basic Information</h1>
+                <ul>
+                    <li class="birthday">
+                        <h1 class="label">Birthday:</h1>
+                        <input type="date" value="Amit@gmail.com" readonly>
+                    </li>
+
+                    <li class="sex">
+                        <h1 class="label">Gender:</h1>
+                        <input type="text" value="Male" readonly>
+                    </li>
+                </ul>
+            </div>
+            <button id="e_btn">Save & Continue</button>
+        </section>
+         
+        
+    </div>
+    <div id="footer">
+        <ul type="none">
+            <h4>Resources</h4>
+            <li>Learning mind</li>
+            <li>About</li>
+            <li>Stay Safe</li>
+            <li>Blog</li>
+            <li>Refer & earn coins</li>
+            <li>FAQs</li>
+            <li>Coins & Pricing</li>
+            <li>How it works - Students</li>
+            <li>Pay teachers</li>
+        </ul>
+        <ul type="none">
+            <h4>For teachers</h4>
+            <li>Get paid</li>
+            <li>Premium membership</li>
+            <li>Online teaching guide</li>
+            <li>How it works - Teachers</li>
+            <li>How to get jobs</li>
+            <li>Applying to jobs</li>
+            <li>Teacher Rankings</li>
+            <li>Share a story</li>
+        </ul>
+        <ul type="none">
+            <h4>Help and Feedback</h4>
+            <li>Feedback</li>
+            <li>Testimonials</li>
+            <li>Contact Us</li>
+            <li>Refund Policy</li>
+            <li>Privacy Policy</li>
+            <li>Terms</li>
+        </ul>
+
+    </div>
+</body>
+</html>
+<script src="profile.js"></script>
