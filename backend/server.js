@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const { connection } = require('./configs/connection');
 const { userRoute } = require('./route/userRoute.route');
 const { teacherRoute } = require('./route/teacherRoute.route');
@@ -9,7 +10,7 @@ require('dotenv').config();
 
 const app = express();
 app.use(express.json());
-
+app.use(cors());
 
 app.get('/',(req,res)=>{
     res.send('Welcome to SkillSphere!');

@@ -1,10 +1,20 @@
 *{
     font-family: Arial, Helvetica, sans-serif;
 }
+
+.logos{
+    display: flex;
+    align-items: center;
+    gap: 2%;
+    width: 10%;
+}
 #lineOne{
     display: flex;
     flex-direction: row-reverse;
-    gap: 3%;
+    gap: 20px;
+    position:absolute;
+    top: -10px;
+    right: 10px;
 }
 
 #header{
@@ -33,6 +43,8 @@
     text-align: center;
     border: 1px solid rgb(236, 234, 234);
     background-color: #fafafa;
+    position: sticky;
+    top: 0px;
 }
 
 #filterButtons{
@@ -72,6 +84,10 @@ input{
 
 .name>h2{
     color:#5bc2f5 ;
+}
+
+.name>h4{
+    font-size: 12px;
 }
 .sub{
     margin-top: -3%;
