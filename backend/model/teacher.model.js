@@ -18,6 +18,9 @@ const degreeSchema = mongoose.Schema({
 });
 
 const teacherSchema = new mongoose.Schema({
+  name:{
+    type:String,
+  },
   email: {
     type: String,
   },
@@ -27,8 +30,22 @@ const teacherSchema = new mongoose.Schema({
   subjects: {
     type: [subjectSchema],
   },
+  country: {
+    type: String,
+  },
   description: String,
+  designation:{
+    type: String,
+  },
+  teachingExp:{
+    type: Number,
+    default: 0,
+  },
   experience: {
+    type: Number,
+    default: 0,
+  },
+  workingHrs: {
     type: Number,
     default: 0,
   },
