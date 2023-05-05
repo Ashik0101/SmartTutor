@@ -28,7 +28,7 @@ const teacherSchema = new mongoose.Schema({
     type: String,
   },
   subjects: {
-    type: [subjectSchema],
+    type: [String],
   },
   country: {
     type: String,
@@ -49,7 +49,7 @@ const teacherSchema = new mongoose.Schema({
     type: Number,
     default: 0,
   },
-  degrees: [degreeSchema],
+  degrees: String,
   address: String,
   state:String,
   fees: {
