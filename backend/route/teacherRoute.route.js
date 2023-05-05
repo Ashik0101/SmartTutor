@@ -13,7 +13,7 @@ teacherRoute.post("/", async (req, res) => {
     res.status(500).send({
       msg: "Something went Wrong!",
     });
-    res.send(err)
+    res.send(err);
   }
 });
 
