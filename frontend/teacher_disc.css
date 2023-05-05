@@ -162,21 +162,86 @@ header {
   width: 18rem;
   height: 18rem;
   border-radius: 50%;
-
 }
 
-.profile{
-  border-radius: 10px;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  padding: 3rem;
-  background-color: #33333374;
-}
-#s{
-  border: 1px solid rgba(220, 20, 60, 0.149);
-  display: flex;
-  justify-content: space-evenly;
+/* ===== =====>>  Work & Skills Css Start  <<===== ===== */
+.container .work_skills {
+  padding: var(--p-1-5);
 }
 
+.work_skills .work .heading,
+.work_skills .skills .heading {
+  position: relative;
+  font-size: var(--xs-fs);
+  color: rgba(0, 0, 0, 0.6);
+  text-transform: uppercase;
+  margin-bottom: var(--m-1-5);
+}
+
+.work_skills .work .heading::before,
+.work_skills .skills .heading::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 0.1rem;
+  width: 88%;
+  background: var(--bg6-color);
+}
+
+.work_skills .work .primary,
+.work_skills .work .secondary {
+  position: relative;
+}
+
+.work_skills .work .primary h1,
+.work_skills .work .secondary h1 {
+  font-size: var(--l-fs);
+  color: var(--f3-color);
+  margin-bottom: var(--m-0-6);
+}
+
+.work_skills .work .primary span,
+.work_skills .work .secondary span {
+  position: absolute;
+  top: 0;
+  right: 3rem;
+  font-weight: 700;
+  font-size: var(--s-fs);
+  color: var(--f5-color);
+  background: #e6f2ff;
+  padding: var(--p-0-4) var(--p-1-0);
+  border-radius: 0.4rem;
+}
+
+.work_skills .work .primary p,
+.work_skills .work .secondary p {
+  margin-bottom: var(--m-1-8);
+  font-size: var(--m-fs);
+  color: rgba(0, 0, 0, 0.6);
+  line-height: 1.6rem;
+}
+
+/* =====>>  Skills Bars Css  <<===== */
+.work_skills .skills ul li {
+  position: relative;
+  font-size: var(--m-fs);
+  line-height: 1.8rem;
+  margin: var(--m-0-5);
+  color: var(--f2-color);
+  font-weight: 500;
+}
+
+.work_skills .skills ul li::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  height: 0.2rem;
+  background: var(--bg3-color);
+}
 
 /* ===== =====>>  User Details Css Start  <<===== ===== */
 .userDetails {
@@ -188,11 +253,10 @@ header {
   font-size: var(--xxxl-fs);
 }
 
-
 .userDetails .userName .map {
   position: absolute;
   top: 2.5rem;
-  left: 50rem;
+  left: 18.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -269,11 +333,14 @@ header {
   /* color: var(--f2-color); */
   color: var(--bg2-color);
   font-weight: 500;
+  border: 1px solid var(--f5-color) ;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  padding: var(--p-0-5);
 }
 
 .userDetails .btns ul li a:hover{
     color: var(--f5-color);
-    border-bottom: 1px solid var(--f5-color) ;
+    
     /* background: #e6f2ff; */
     /* padding: 5px; */
 }
@@ -384,17 +451,13 @@ input{
     position: absolute;
     right: 0px;
     cursor: pointer;
-    width: 2rem;
 }
 
 .editable{
-    border: 1px solid rgba(0, 0, 0, 0.253);
+    border: 1px solid black;
 }
 
 #e_btn{
-    position: absolute;
-    left: 40%;
-    margin-top: 3rem;
     padding: var(--p-1-0);
     background-color: var(--C-lg-bg);
     color: var(--f2-color);
@@ -407,30 +470,13 @@ input{
     background-color: var(--bg5-color);
     color: var(--bg1-color);
 }
-.pos input{
-  margin-left: 1.5rem;
-  font-size: medium;
-}
-  .pos{
-  margin: 2rem;
-  position: relative;
-  left: 6.5%;
-}
-
-
 .name{
-   /* position: absolute; */
-   margin: 1rem;
-   /* border: 1px solid black; */
     color: #000;
-    font-size: medium;
-    font-weight: 500;
+    font-size: x-large;
+    font-weight: 700;
 
 }
 .pp{
-  position: absolute;
-   left: 20%;
-   margin-left: 1rem;
     display: block;
 }
 
@@ -438,16 +484,6 @@ input{
     object-fit:cover;
     width:250px;
      height:250px;
-}
-
-#inform{
-  display: flex;
-  justify-content: space-evenly;
-}
-
-#inform>div input{
-  /* padding: 1rem; */
-  margin: 0.2rem;
 }
 
 /* Navbar */
@@ -615,3 +651,31 @@ input{
   border-bottom: 1px solid greenyellow;
 }
 /* Footer */
+
+
+
+/* ===================================================ABout infoss =========================================*/
+
+.a{
+  display: none;
+}
+
+.b{
+  display: block;
+}
+
+#basic-lists{
+  /* border: 1px solid var(-); */
+ 
+
+}
+#basic-lists>ul{
+  padding: 2px;
+}
+#basic-lists>ul li{
+  /* border: 1px solid grey; */
+  background-color: #88cee626;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  padding: 0.5rem;
+  margin: 1rem;
+}
