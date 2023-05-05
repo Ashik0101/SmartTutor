@@ -51,6 +51,7 @@ const teacherSchema = new mongoose.Schema({
   },
   degrees: [degreeSchema],
   address: String,
+  state:String,
   fees: {
     type: Number,
     default: 0,
