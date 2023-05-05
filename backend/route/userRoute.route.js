@@ -1,11 +1,12 @@
-const express = require('express');
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
-const { UserModel } = require('../model/user.model');
+const express = require("express");
+const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
+const { UserModel } = require("../model/user.model");
 
-require('dotenv').config()
+require("dotenv").config();
 
 const userRoute = express.Router();
+
 
 
 userRoute.post('/register',async(req,res)=>{
@@ -61,15 +62,14 @@ userRoute.post('/login',async(req,res)=>{
             res.status(404).send({
                 'msg':'User Not Found!'
             })
+
         }
-    }catch(err){
-        res.status(500).send({
-            'msg':'Something went Wrong!'
-        })
-    }
-})
+      
+  } catch (err) {
+    res.status(500).send({
+      msg: "Something went Wrong!",
+    });
+  }
+});
 
-
-
-
-module.exports = {userRoute};
+module.exports = { userRoute };
