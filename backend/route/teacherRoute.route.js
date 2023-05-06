@@ -1,19 +1,33 @@
 const express = require("express");
 const { Teacher } = require("../model/teacher.model");
+const { UserModel } = require("../model/user.model");
 
 const teacherRoute = express.Router();
 
 teacherRoute.post("/", async (req, res) => {
   const data = req.body;
+  let email = data.email
   try {
-    let addDetails = new Teacher(data);
+    let user = await UserModel.findOne({email})
+    let teacher ={
+      password:user.password,
+      role:user.role,
+      registered_on:user.registered_on,
+      ...data
+    }
+    console.log(teacher)
+
+    let addDetails = new Teacher(teacher);
     await addDetails.save();
-    res.send(addDetails);
+    res.send({
+      msg: "added successfully",
+      addDetails
+    });
   } catch (err) {
     res.status(500).send({
       msg: "Something went Wrong!",
     });
-  
+
   }
 });
 

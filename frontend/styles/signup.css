@@ -9,10 +9,10 @@
     
 }
 .container{
-    height: 90vh;
+    height: 1000px;
     width: 100%;
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     justify-content: center;
  
     column-gap: 30px;
@@ -197,7 +197,7 @@ a.google span{
   font-family: 'Poppins',sans-serif;
 }
 body{
-  height: 100vh;
+  height: auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -338,7 +338,7 @@ form .user-details .input-box{
 
 
 
-#tgen,#sgen{
+#tgen,#sgen,#newRole,#newOnline,#newRole,#newHomework{
     height: 45px;
     width: 100%;
     outline: none;
