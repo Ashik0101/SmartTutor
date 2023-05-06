@@ -6,6 +6,7 @@ const subjectSchema = new mongoose.Schema({
   },
   level: {
     type: String,
+    default:"Beginner",
     enum: ["Beginner", "Intermediate"],
   },
 });
@@ -13,6 +14,7 @@ const subjectSchema = new mongoose.Schema({
 const degreeSchema = mongoose.Schema({
   name: String,
   college: {
+    default:"Masai School",
     type: String,
   },
 });
@@ -27,9 +29,9 @@ const teacherSchema = new mongoose.Schema({
   image: {
     type: String,
   },
-  subjects: {
-    type: [subjectSchema],
-  },
+
+  subjects: [subjectSchema],
+
   country: {
     type: String,
   },
@@ -49,8 +51,9 @@ const teacherSchema = new mongoose.Schema({
     type: Number,
     default: 0,
   },
-  degrees: String,
+  degrees: [degreeSchema],
   address: String,
+  address:String,
   state:String,
   fees: {
     type: Number,
