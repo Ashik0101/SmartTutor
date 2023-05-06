@@ -59,6 +59,22 @@ teacherRoute.get("/all", async (req, res) => {
 });
 
 
+teacherRoute.patch("/update", async (req, res) => {
+  try {
+    const data= req.body;
+    const id=res.cookie("userId");
+
+   await Teacher.findByIdAndUpdate({_id:id},data)
+    
+    res.status(200).send({ok:true,msg:"Profile Updated"});
+  } catch (err) {
+    res.status(500).send({
+      msg: "Something went Wrong!",
+    });
+  }
+});
+
+
 teacherRoute.get('/one/:id',async(req,res)=>{
   try{
     let id = req.params.id
@@ -72,4 +88,5 @@ teacherRoute.get('/one/:id',async(req,res)=>{
     })
   }
 })
+
 module.exports = { teacherRoute };
