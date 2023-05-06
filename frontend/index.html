@@ -99,7 +99,9 @@
       <div class="teacher-container mini-container">
         <div class="heading teacher-heading">Teacher</div>
         <div class="option teacher-option">
-          <div class="teacher-div div"><a href="#">Teachers</a></div>
+          <div class="teacher-div div">
+            <a href="./tutor/tutor.html">Teachers</a>
+          </div>
           <div class="teacher-div div"><a href="#">Online Teachers</a></div>
           <div class="teacher-div div"><a href="#">Home Teachers</a></div>
           <div class="teacher-div div"><a href="#">Assignment Help</a></div>
@@ -147,17 +149,23 @@
       var navbar = document.querySelector(".navbar");
       var inputsParentDiv = document.querySelector(".inputs-parent-div");
       var inputsParentDivTop = inputsParentDiv.getBoundingClientRect().top;
-
-      if (window.pageYOffset >= navbar.offsetTop) {
-        inputsParentDiv.classList.add("fixed-inputs");
-        document.getElementById("search-button").classList.add("fixed-button");
-        inputsParentDiv.style.width = navbar.offsetWidth + "px";
-      } else {
-        inputsParentDiv.classList.remove("fixed-inputs");
-        inputsParentDiv.style.width = "auto";
-        document
-          .getElementById("search-button")
-          .classList.remove("fixed-button");
+      if (window.innerWidth > 386) {
+        runScript();
+      }
+      function runScript() {
+        if (window.pageYOffset >= navbar.offsetTop) {
+          inputsParentDiv.classList.add("fixed-inputs");
+          document
+            .getElementById("search-button")
+            .classList.add("fixed-button");
+          inputsParentDiv.style.width = navbar.offsetWidth + "px";
+        } else {
+          inputsParentDiv.classList.remove("fixed-inputs");
+          inputsParentDiv.style.width = "auto";
+          document
+            .getElementById("search-button")
+            .classList.remove("fixed-button");
+        }
       }
     };
   </script>
