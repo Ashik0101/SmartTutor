@@ -162,21 +162,86 @@ header {
   width: 18rem;
   height: 18rem;
   border-radius: 50%;
-
 }
 
-.profile{
-  border-radius: 10px;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  padding: 3rem;
-  background-color: #33333374;
-}
-#s{
-  border: 1px solid rgba(220, 20, 60, 0.149);
-  display: flex;
-  justify-content: space-evenly;
+/* ===== =====>>  Work & Skills Css Start  <<===== ===== */
+.container .work_skills {
+  padding: var(--p-1-5);
 }
 
+.work_skills .work .heading,
+.work_skills .skills .heading {
+  position: relative;
+  font-size: var(--xs-fs);
+  color: rgba(0, 0, 0, 0.6);
+  text-transform: uppercase;
+  margin-bottom: var(--m-1-5);
+}
+
+.work_skills .work .heading::before,
+.work_skills .skills .heading::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 0.1rem;
+  width: 88%;
+  background: var(--bg6-color);
+}
+
+.work_skills .work .primary,
+.work_skills .work .secondary {
+  position: relative;
+}
+
+.work_skills .work .primary h1,
+.work_skills .work .secondary h1 {
+  font-size: var(--l-fs);
+  color: var(--f3-color);
+  margin-bottom: var(--m-0-6);
+}
+
+.work_skills .work .primary span,
+.work_skills .work .secondary span {
+  position: absolute;
+  top: 0;
+  right: 3rem;
+  font-weight: 700;
+  font-size: var(--s-fs);
+  color: var(--f5-color);
+  background: #e6f2ff;
+  padding: var(--p-0-4) var(--p-1-0);
+  border-radius: 0.4rem;
+}
+
+.work_skills .work .primary p,
+.work_skills .work .secondary p {
+  margin-bottom: var(--m-1-8);
+  font-size: var(--m-fs);
+  color: rgba(0, 0, 0, 0.6);
+  line-height: 1.6rem;
+}
+
+/* =====>>  Skills Bars Css  <<===== */
+.work_skills .skills ul li {
+  position: relative;
+  font-size: var(--m-fs);
+  line-height: 1.8rem;
+  margin: var(--m-0-5);
+  color: var(--f2-color);
+  font-weight: 500;
+}
+
+.work_skills .skills ul li::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  height: 0.2rem;
+  background: var(--bg3-color);
+}
 
 /* ===== =====>>  User Details Css Start  <<===== ===== */
 .userDetails {
@@ -188,11 +253,10 @@ header {
   font-size: var(--xxxl-fs);
 }
 
-
 .userDetails .userName .map {
   position: absolute;
   top: 2.5rem;
-  left: 50rem;
+  left: 18.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -269,11 +333,14 @@ header {
   /* color: var(--f2-color); */
   color: var(--bg2-color);
   font-weight: 500;
+  border: 1px solid var(--f5-color) ;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  padding: var(--p-0-5);
 }
 
 .userDetails .btns ul li a:hover{
     color: var(--f5-color);
-    border-bottom: 1px solid var(--f5-color) ;
+    
     /* background: #e6f2ff; */
     /* padding: 5px; */
 }
@@ -381,21 +448,16 @@ input{
 }
 
 #edit{
-    position: relative;
-    left: 90%;
+    position: absolute;
+    right: 0px;
     cursor: pointer;
-    /* width: 2rem; */
-    border: 1px solid black;
 }
 
 .editable{
-    border: 1px solid rgba(0, 0, 0, 0.253);
+    border: 1px solid black;
 }
 
 #e_btn{
-    position: absolute;
-    left: 30%;
-    margin-top: 3rem;
     padding: var(--p-1-0);
     background-color: var(--C-lg-bg);
     color: var(--f2-color);
@@ -408,46 +470,13 @@ input{
     background-color: var(--bg5-color);
     color: var(--bg1-color);
 }
-#e_btn2{
-    position: absolute;
-    left: 50%;
-    margin-top: 3rem;
-    padding: var(--p-1-0);
-    background-color: var(--C-lg-bg);
-    color: var(--f2-color);
-    cursor: pointer;
-    border-radius: 10px;
-    display: none;
-}
-
-#e_btn2:hover{
-    background-color: var(--bg5-color);
-    color: var(--bg1-color);
-}
-.pos input{
-  margin-left: 1.5rem;
-  font-size: medium;
-}
-  .pos{
-  margin: 2rem;
-  position: relative;
-  left: 6.5%;
-}
-
-
 .name{
-   /* position: absolute; */
-   margin: 1rem;
-   /* border: 1px solid black; */
     color: #000;
-    font-size: medium;
-    font-weight: 500;
+    font-size: x-large;
+    font-weight: 700;
 
 }
 .pp{
-  position: absolute;
-   left: 20%;
-   margin-left: 1rem;
     display: block;
 }
 
@@ -455,16 +484,6 @@ input{
     object-fit:cover;
     width:250px;
      height:250px;
-}
-
-#inform{
-  display: flex;
-  justify-content: space-evenly;
-}
-
-#inform>div input{
-  /* padding: 1rem; */
-  margin: 0.2rem;
 }
 
 /* Navbar */
@@ -635,89 +654,28 @@ input{
 
 
 
-/*======================2nd form=====================================================*/
-#Tf {
-  background-color: white;
-}
-#Tf {
-  max-width: 700px;
-  width: 100%;
-  background-color: #fff;
-  padding: 25px 30px;
-  border-radius: 5px;
-  box-shadow: 0 5px 10px rgba(0,0,0,0.15);
-}
-#Tf {
-  width: 100%;
-  display: flex;
-  justify-content: center;
+/* ===================================================ABout infoss =========================================*/
+
+.a{
+  display: none;
 }
 
-.content form .user-details {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  /* margin: 20px 0 12px 0; */
-}
-form .user-details .input-box {
-  margin-bottom: 15px;
-  width: calc(100% / 2 - 20px);
-}
-
-form .input-box span.details {
+.b{
   display: block;
-  font-weight: 500;
-  /* margin-bottom: 5px; */
 }
 
-#tgen, #sgen, #newRole, #newOnline, #newRole, #newHomework {
-  height: 30px;
-  width: 100%;
-  outline: none;
-  font-size: 16px;
-  border-radius: 5px;
-  padding-left: 15px;
-  border: 1px solid #ccc;
-  border-bottom-width: 2px;
-  transition: all 0.3s ease;
-  color: grey;
-}
+#basic-lists{
+  /* border: 1px solid var(-); */
+ 
 
-.user-details .input-box input {
-  height: 30px;
-  width: 100%;
-  outline: none;
-  font-size: 16px;
-  border-radius: 5px;
-  padding-left: 15px;
-  border: 1px solid #ccc;
-  border-bottom-width: 2px;
-  transition: all 0.3s ease;
 }
-
-.button{
-  height: 100%;
-  width: 40%;
-  padding: 1rem;
-  border-radius: 5px;
-  border: none;
-  /* color: #fff; */
-  font-size: 18px;
-  font-weight: 500;
-  letter-spacing: 1px;
-  cursor: pointer;
-  transition: all 0.3s ease;
- }
-#btnn{
-  display: flex;
-  justify-content: space-between;
+#basic-lists>ul{
+  padding: 2px;
 }
-#btnn a{
-  text-align: center;
-   background-color: #f0f0f0;
-   color: #000;
-}
-.button:hover, #btnn a:hover{
-  background-color: var(--bg5-color);
-  color: var(--bg1-color);
+#basic-lists>ul li{
+  /* border: 1px solid grey; */
+  background-color: #88cee626;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  padding: 0.5rem;
+  margin: 1rem;
 }

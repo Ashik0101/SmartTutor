@@ -1,0 +1,116 @@
+*{
+    font-family: poppins;
+}
+body{
+    padding: -1px;
+    margin: -1px;
+}
+#adminContainer{
+    display: flex;
+    margin: 0px;
+    padding: 0px;
+}
+
+#navShortcuts{
+    border: 1px solid black;
+    width: 20%;
+    padding: 0% 2% 2% 2%;
+    background-color: #BC4AF2; 
+    color: white;
+    /* #5B56F6 */
+}
+
+#otherDetails{
+    width: 80%;
+    padding: 0% 2% 2% 2%;
+}
+
+.main-menu-shortcuts,#projectLogo,#adminSpace,#admin-change,#admin-new,#admin-right{
+    display: flex;
+    align-items: center;
+}
+
+#nav-bar-shortcuts,#content-head{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#searchBar{
+    width: 50%;
+}
+
+#admin-body-items{
+    display: flex;
+    gap: 10px;
+}
+#all-services{
+    display: grid;
+    width: 45%;
+    grid-template-columns: repeat(2,1fr);
+    gap: 20px;
+}
+
+#students-box{
+    display: flex;
+    align-items: center;
+    padding: 0% 4%;
+    border: 1px solid black;
+    border-radius:20px ;
+}
+#teachers-box{
+    display: flex;
+    align-items: center;
+    padding: 0% 4%;
+    border: 1px solid black;
+    border-radius:20px ;
+}
+#invoices-box{
+    display: flex;
+    align-items: center;
+    padding: 0% 4%;
+    border: 1px solid black;
+    border-radius:20px ;
+}
+#events-box{
+    display: flex;
+    align-items: center;
+    padding: 0% 4%;
+    border: 1px solid black;
+    border-radius:20px ;
+}
+#total-right{
+    border:1px solid black;
+}
+#admin-right i{
+    font-size: 20px;
+}
+#admin-change{
+    border: 1px solid black;
+    border-radius: 20px;
+    color: #5B56F6;
+    width: 50%;
+    justify-content: space-around;
+    font-size: 12px;
+}
+
+#admin-new{
+    border: 1px solid black;
+    border-radius: 20px;
+    background-color: #5B56F6;  
+    color: white; 
+    width: 50%;
+    justify-content: space-around;
+    font-size: 12px;
+}
+
+#admin-right{
+    gap: 10px;
+    width: 50%;
+}
+
+#total-right{
+    width: 45%;
+    padding: 10px;
+    border-radius: 20px;
+}

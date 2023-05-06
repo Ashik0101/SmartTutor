@@ -64,7 +64,7 @@ userRoute.post('/login',async(req,res)=>{
             })
 
         }
-      
+     
   } catch (err) {
     res.status(500).send({
       msg: "Something went Wrong!",
@@ -85,3 +85,4 @@ userRoute.get("/all", async (req, res) => {
   });
 
 module.exports = { userRoute };
+
