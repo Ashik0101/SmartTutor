@@ -119,6 +119,10 @@ input{
     cursor: pointer;
     background-color: #fafafa;
 }
+.state:hover{
+    cursor: pointer;
+    background-color: #fafafa;
+}
 
 #locations{
     width: 25%;
