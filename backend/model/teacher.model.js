@@ -28,7 +28,7 @@ const teacherSchema = new mongoose.Schema({
     type: String,
   },
   subjects: {
-    type: [subjectSchema],
+    type: [String],
   },
   country: {
     type: String,
@@ -49,8 +49,9 @@ const teacherSchema = new mongoose.Schema({
     type: Number,
     default: 0,
   },
-  degrees: [degreeSchema],
+  degrees: String,
   address: String,
+  state:String,
   fees: {
     type: Number,
     default: 0,
@@ -69,6 +70,9 @@ const teacherSchema = new mongoose.Schema({
   },
 });
 
-const Teacher = mongoose.model("Teacher", teacherSchema);
 
-module.exports = { Teacher };
+const Teacher = mongoose.model("teacher",teacherSchema);
+
+module.exports={
+  Teacher
+}

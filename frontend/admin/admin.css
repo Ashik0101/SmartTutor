@@ -1,0 +1,11 @@
+#adminContainer{
+    display: flex;
+}
+
+#navShortcuts{
+    border: 1px solid black;
+}
+
+#otherDetails{
+    border: 1px solid black;
+}

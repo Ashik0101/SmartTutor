@@ -1,7 +1,0 @@
-give a navbar which should contain the logo as smart tutor and Find Tutor(just
-beside it a down arrow should be there), Find Tutor Jobs(just beside it a down
-arrow should be there), and a login button and a button which contain as Request
-a Tutor. the logo should be on the left side of the navbar. The display should
-be flex. and after hovering Find Tutor a div below that should appear with and
-this should contain four options, All Tutors, Online Tutors, Home Tutors, and
-Reques a tutor

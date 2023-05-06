@@ -315,7 +315,7 @@ html {
   margin: auto;
 }
 .fixed-inputs {
-  /* border: 2px solid red; */
+  border: 2px solid red;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -328,6 +328,12 @@ html {
   background-color: white;
   padding: 10px;
 }
+.fixed-inputs input {
+  width: 25%;
+  margin-right: 1rem;
+  height: 3rem;
+}
+
 .fixed-button {
   padding: 0.8rem 2rem;
 }
@@ -355,42 +361,109 @@ html {
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
   }
-}
-@media (max-width: 101px) {
-  .navbar {
+  .inputs-parent-div {
+    /* border: 2px solid blueviolet; */
+    /* display: block; */
+    width: 80%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    height: 13rem;
-    z-index: 505;
-    /* align-items: stretch;
-    padding: 10px; */
-    border: 5px solid red;
+    /* justify-content: space-around; */
+    align-items: stretch;
   }
-  .navbar-logo {
-    /* display: none; */
-    /* margin-top: -0.8rem; */
-    width: 45%;
-    height: 35%;
+  .inputs-parent-div input {
+    width: 96.45%;
+    height: 3rem;
+  }
+  .inputs-parent-div input {
+    font-size: 1.4rem;
+    padding-left: 0.5rem;
+    margin-bottom: 0.2rem;
+    outline: none;
+  }
+
+  .fixed-inputs {
+    /* border: 2px solid red; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    height: 5rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    background-color: white;
+    padding: 10px;
+  }
+  .parent {
+    width: 100%;
+    height: 33rem;
+    /* border: 1px solid red; */
+    margin: auto;
     position: relative;
-    top: 1rem;
-    /* z-index: 5; */
-    opacity: 0.1;
   }
-  .navbar-logo img {
-    width: 9rem;
-    height: 9rem;
-    border-radius: 5rem;
+  .second-parent {
+    background-color: rgba(64, 72, 75, 0.6);
+    border-radius: 2rem;
+    /* border: 5px solid black; */
+    position: absolute;
+    top: 14%;
+    bottom: 14%;
+    left: 15%;
+    right: 15%;
+    color: white;
   }
-  .navbar-menu {
-    border: 1px solid blue;
-    /* width: 100%; */
-    /* margin-top: 1rem; */
-    /* flex-direction: column; */
-    /* align-items: stretch; */
-    display: none;
+  .second-parent h1 {
+    font-size: 2rem;
+  }
+  .second-parent > div {
+    /* border: 2px solid red; */
+    position: absolute;
+    top: 15%;
+    bottom: 15%;
+    left: 9%;
+    right: 9%;
+  }
+  .inputs-parent-div input {
+    height: 2.5rem;
+  }
+  .container {
+    width: 60%;
+    display: flex;
+    /* border: 2px solid red; */
+    flex-direction: column;
+    position: relative;
+    margin: auto;
+    top: 4rem;
+  }
+  .container > div {
+    margin-bottom: 8%;
+  }
+  .high-quality-teachers {
+    font-size: 3rem;
+  }
+  .only55 {
+    font-size: 1.5rem;
+  }
+  .what-we-do-container-child h1 {
+    text-align: center;
+    font-size: 2rem;
+    /* padding-top: 2rem; */
+  }
+  .what-we-do-container-child div {
+    /* border: 2px solid blue; */
+    width: 70%;
+    font-size: 1.4rem;
+    margin: auto;
+  }
+  .what-we-do-container {
+    width: 95%;
+    height: 30rem;
+    background: url("https://www.teacheron.com/resources/assets/img/customImages/global-presence-125-countries-blue.png");
   }
 }
+
 @media (max-width: 600px) {
   .navbar {
     display: flex;
@@ -423,6 +496,7 @@ html {
     /* align-items: stretch; */
     z-index: 2000;
   }
+
   .login-nav-sec {
     border: none;
   }
@@ -432,5 +506,156 @@ html {
   }
   .navbar-item > div:hover {
     border-bottom: none;
+  }
+  .container .option {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .parent {
+    width: 100%;
+    height: 28rem;
+  }
+
+  .second-parent h1 {
+    font-size: 1.5rem;
+  }
+  .inputs-parent-div input {
+    height: 1.9rem;
+  }
+  .container .option {
+    display: flex;
+    flex-direction: column;
+    font-size: 2rem;
+  }
+  .container .option > div {
+    width: 85%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 386px) {
+  .parent {
+    width: 100%;
+    height: 25rem;
+  }
+  .second-parent > div {
+    left: 0;
+    right: 0;
+  }
+  .second-parent h1 {
+    font-size: 1.5rem;
+  }
+  .inputs-parent-div {
+    margin: auto;
+  }
+  .inputs-parent-div input {
+    height: 1.5rem;
+    width: 95%;
+  }
+  #search-button {
+    display: block;
+    display: flex;
+    align-items: center;
+  }
+
+  .container .option {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.5rem;
+  }
+  .teacher-banner-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .high-quality-teachers {
+    font-size: 2rem;
+  }
+  .only55 {
+    font-size: 1rem;
+  }
+  .container .heading {
+    font-size: 2rem;
+  }
+  .navbar-logo img {
+    width: 3.7rem;
+    height: 3.7rem;
+  }
+}
+@media (max-width: 300px) {
+  .parent {
+    width: 100%;
+    height: 25rem;
+  }
+
+  .second-parent h1 {
+    font-size: 1.2rem;
+  }
+  .inputs-parent-div input {
+    height: 1.1rem;
+    width: 95%;
+  }
+}
+@media (max-width: 300px) {
+  .parent {
+    top: 6rem;
+  }
+  .inputs-parent-div input {
+    height: 1.1rem;
+    width: 95%;
+    font-size: 1rem;
+  }
+  #search-button {
+    font-size: 1rem;
+    margin: auto;
+    padding: 0 1rem;
+  }
+  .container {
+    top: 9rem;
+  }
+  .container .heading {
+    font-size: 1.8rem;
+  }
+  .container .option {
+    display: flex;
+    flex-direction: column;
+    font-size: 1rem;
+  }
+  .high-quality-teachers {
+    font-size: 1.7rem;
+  }
+  .only55 {
+    font-size: 1rem;
+  }
+  .what-we-do-container-child h1 {
+    text-align: center;
+    font-size: 1.4rem;
+    /* padding-top: 2rem; */
+  }
+  .what-we-do-container-child div {
+    /* border: 2px solid blue; */
+    width: 100%;
+    font-size: 1.4rem;
+    margin: auto;
+  }
+  .what-we-do-container {
+    width: 95%;
+    height: 30rem;
+    background: url("https://www.teacheron.com/resources/assets/img/customImages/global-presence-125-countries-blue.png");
+  }
+  .navbar-logo img {
+    width: 3rem;
+    height: 3rem;
+  }
+  .fixed-inputs {
+    display: none;
+  }
+  .navbar {
+    position: fixed;
+    left: 0;
+    right: 0;
+    margin-top: -1rem;
   }
 }
