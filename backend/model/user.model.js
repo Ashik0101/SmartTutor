@@ -7,7 +7,7 @@ const userSchema = mongoose.Schema(
     password: String,
     role: {
       type: String,
-      enum: ["student", "teacher", "admin"],
+      enum: ["student", "teacher", "admin","google"],
     },
     registered_on: {
       type: Date,

@@ -162,86 +162,21 @@ header {
   width: 18rem;
   height: 18rem;
   border-radius: 50%;
+
 }
 
-/* ===== =====>>  Work & Skills Css Start  <<===== ===== */
-.container .work_skills {
-  padding: var(--p-1-5);
+.profile{
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 3rem;
+  background-color: #33333374;
+}
+#s{
+  border: 1px solid rgba(220, 20, 60, 0.149);
+  display: flex;
+  justify-content: space-evenly;
 }
 
-.work_skills .work .heading,
-.work_skills .skills .heading {
-  position: relative;
-  font-size: var(--xs-fs);
-  color: rgba(0, 0, 0, 0.6);
-  text-transform: uppercase;
-  margin-bottom: var(--m-1-5);
-}
-
-.work_skills .work .heading::before,
-.work_skills .skills .heading::before {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  height: 0.1rem;
-  width: 88%;
-  background: var(--bg6-color);
-}
-
-.work_skills .work .primary,
-.work_skills .work .secondary {
-  position: relative;
-}
-
-.work_skills .work .primary h1,
-.work_skills .work .secondary h1 {
-  font-size: var(--l-fs);
-  color: var(--f3-color);
-  margin-bottom: var(--m-0-6);
-}
-
-.work_skills .work .primary span,
-.work_skills .work .secondary span {
-  position: absolute;
-  top: 0;
-  right: 3rem;
-  font-weight: 700;
-  font-size: var(--s-fs);
-  color: var(--f5-color);
-  background: #e6f2ff;
-  padding: var(--p-0-4) var(--p-1-0);
-  border-radius: 0.4rem;
-}
-
-.work_skills .work .primary p,
-.work_skills .work .secondary p {
-  margin-bottom: var(--m-1-8);
-  font-size: var(--m-fs);
-  color: rgba(0, 0, 0, 0.6);
-  line-height: 1.6rem;
-}
-
-/* =====>>  Skills Bars Css  <<===== */
-.work_skills .skills ul li {
-  position: relative;
-  font-size: var(--m-fs);
-  line-height: 1.8rem;
-  margin: var(--m-0-5);
-  color: var(--f2-color);
-  font-weight: 500;
-}
-
-.work_skills .skills ul li::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  margin: auto;
-  height: 0.2rem;
-  background: var(--bg3-color);
-}
 
 /* ===== =====>>  User Details Css Start  <<===== ===== */
 .userDetails {
@@ -253,10 +188,11 @@ header {
   font-size: var(--xxxl-fs);
 }
 
+
 .userDetails .userName .map {
   position: absolute;
   top: 2.5rem;
-  left: 18.5rem;
+  left: 50rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -354,6 +290,7 @@ header {
   display: flex;
   align-items: center;
   margin-bottom: var(--m-2-5);
+  margin-left: 10px;
 }
 
 .timeline_about .tabs ul::before {
@@ -371,6 +308,7 @@ header {
   display: flex;
   align-items: center;
   margin-right: var(--m-2-5);
+  
   padding-bottom: var(--p-0-8);
   cursor: pointer;
 }
@@ -399,6 +337,7 @@ header {
   color: var(--f4-color);
   text-transform: uppercase;
   margin-bottom: var(--m-1-5);
+  
 }
 
 .timeline_about .contact_info ul,
@@ -417,11 +356,13 @@ header {
   font-weight: 500;
   font-size: var(--m-fs);
   min-width: 12rem;
+  
 }
 
 .timeline_about .contact_info ul li span,
 .timeline_about .basic_info ul li span {
   font-size: var(--m-fs);
+  
 }
 
 .timeline_about .contact_info ul .phone span,
@@ -443,13 +384,17 @@ input{
     position: absolute;
     right: 0px;
     cursor: pointer;
+    width: 2rem;
 }
 
 .editable{
-    border: 1px solid black;
+    border: 1px solid rgba(0, 0, 0, 0.253);
 }
 
 #e_btn{
+    position: absolute;
+    left: 40%;
+    margin-top: 3rem;
     padding: var(--p-1-0);
     background-color: var(--C-lg-bg);
     color: var(--f2-color);
@@ -462,13 +407,30 @@ input{
     background-color: var(--bg5-color);
     color: var(--bg1-color);
 }
+.pos input{
+  margin-left: 1.5rem;
+  font-size: medium;
+}
+  .pos{
+  margin: 2rem;
+  position: relative;
+  left: 6.5%;
+}
+
+
 .name{
+   /* position: absolute; */
+   margin: 1rem;
+   /* border: 1px solid black; */
     color: #000;
-    font-size: x-large;
-    font-weight: 700;
+    font-size: medium;
+    font-weight: 500;
 
 }
 .pp{
+  position: absolute;
+   left: 20%;
+   margin-left: 1rem;
     display: block;
 }
 
@@ -477,3 +439,179 @@ input{
     width:250px;
      height:250px;
 }
+
+#inform{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#inform>div input{
+  /* padding: 1rem; */
+  margin: 0.2rem;
+}
+
+/* Navbar */
+
+.navbar {
+  height: 7rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #fff;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-logo img {
+  height: 7rem;
+  border-radius: 3rem;
+}
+#menu-icon {
+  font-size: 3rem;
+  display: none;
+}
+.navbar-menu.active {
+  display: block;
+}
+.navbar-menu {
+  display: flex;
+  align-items: center;
+  /* border: 1px solid blue; */
+}
+
+.navbar-item {
+  position: relative;
+  margin-left: 2rem;
+}
+
+.navbar-link {
+  color: #333;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.navbar-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  display: none;
+  z-index: 1;
+  /* padding: 10px; */
+  background-color: #fff;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+.navbar-item > div:nth-child(1) {
+  display: block;
+  display: flex;
+  align-items: center;
+}
+.navbar-item > div,
+.navbar-item a {
+  color: rgb(42, 25, 25);
+  font-size: 2rem;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+.navbar-item > div:hover {
+  border-bottom: 2px solid blue;
+}
+.navbar-dropdown > div a {
+  text-decoration: none;
+  color: rgb(42, 25, 25);
+  font-size: 1.4rem;
+}
+
+.navbar-dropdown > div:hover {
+  background-color: aliceblue;
+}
+.navbar-dropdown > div {
+  display: flex;
+  align-items: center;
+  padding: 0.4rem;
+}
+.navbar-item:hover .navbar-dropdown {
+  display: flex;
+  flex-direction: column;
+  min-width: 15rem;
+}
+.navbar-item:hover .navbar-dropdown > div {
+  margin-bottom: 0.7rem;
+}
+.navbar-item:hover .navbar-dropdown > div a {
+  margin-left: 0.8rem;
+}
+.navbar-dropdown > div:hover {
+  border-bottom: 0.1rem blue solid;
+}
+.navbar-dropdown > div:hover a {
+  color: blue;
+}
+.request-a-tutor-nav-sec {
+  padding: 0.6rem 0.8rem;
+  background-color: rgb(70, 126, 70);
+}
+.request-a-tutor-nav-sec a {
+  color: white;
+}
+.login-nav-sec {
+  border: 1px solid rgb(70, 126, 70);
+  padding: 0.6rem 0.8rem;
+  color: white;
+}
+
+#navbar-login-dropdown {
+  /* border: 2px solid red; */
+  padding: 2rem 0;
+}
+
+#navbar-login-dropdown div {
+  /* border: 2px solid blue; */
+  padding: 0.5rem;
+  margin: 0.5rem;
+}
+#navbar-login-dropdown div a {
+  font-size: 2rem;
+}
+#login {
+  background-color: rgb(230, 122, 63, 0.6);
+}
+#navbar-login-dropdown > div:hover {
+  border-bottom: none;
+}
+#navbar-login-dropdown > div:nth-child(2):hover {
+  background-color: white;
+}
+#navbar-login-dropdown > div:nth-child(2):hover a {
+  color: rgb(42, 25, 25);
+}
+#login a {
+  color: white;
+}
+#signup {
+  background-color: rgb(70, 126, 70, 0.6);
+}
+#signup a {
+  color: white;
+}
+
+
+/* Navbar end */
+
+/* Footer */
+#footer{
+  display: flex;
+  justify-content: space-evenly;
+  /* gap: 2%;*********************************************************************** */
+  background-color: #222;
+  color: white;
+}
+
+#footer>ul{
+  font-size: 20px;
+  line-height: 35px;
+}
+
+#footer>ul>h4{
+  border-bottom: 1px solid greenyellow;
+}
+/* Footer */

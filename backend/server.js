@@ -3,6 +3,8 @@ const cors = require('cors');
 const { connection } = require('./configs/connection');
 const { userRoute } = require('./route/userRoute.route');
 const { teacherRoute } = require('./route/teacherRoute.route');
+const {googleRouter}  = require("./route/googleAuth.route")
+
 
 require('dotenv').config();
 
@@ -10,7 +12,9 @@ require('dotenv').config();
 
 const app = express();
 app.use(express.json());
+
 app.use(cors());
+
 
 app.get('/',(req,res)=>{
     res.send('Welcome to SkillSphere!');
@@ -19,6 +23,7 @@ app.get('/',(req,res)=>{
 
 app.use('/users',userRoute);
 app.use('/teachers',teacherRoute);
+app.use("/",googleRouter)
 
 app.listen(process.env.port,async()=>{
     try{
