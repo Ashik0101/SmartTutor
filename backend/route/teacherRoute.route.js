@@ -58,4 +58,18 @@ teacherRoute.get("/all", async (req, res) => {
   }
 });
 
+
+teacherRoute.get('/one/:id',async(req,res)=>{
+  try{
+    let id = req.params.id
+    let data = await Teacher.find({_id:id})
+    res.status(200).send({
+      'data':data
+    })
+  }catch(err){
+    res.status(404).send({
+      'msg':'Tutor Not Found!'
+    })
+  }
+})
 module.exports = { teacherRoute };
