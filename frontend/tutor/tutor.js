@@ -1,7 +1,8 @@
 let tutors = document.getElementById("tutors");
 // Fetching the data from the Tutor-Route
+const url = 'http://localhost:9090/teachers/one'
 
-fetch("http://localhost:8080/teachers/all")
+fetch("http://localhost:9090/teachers/all")
   .then((res) => {
     return res.json();
   })
@@ -14,6 +15,7 @@ function TutorsDomain(data) {
   tutors.innerHTML = `${data
     .map((element, index) =>
       tutorCard(
+        element._id,
         element.name,
         element.designation,
         element.subjects,
@@ -28,6 +30,7 @@ function TutorsDomain(data) {
 }
 
 function tutorCard(
+  _id,
   name,
   designation,
   subjects,
@@ -37,8 +40,8 @@ function tutorCard(
   experience,
   teachingExp
 ) {
-  return `
-    <div class="tutor-box">
+  return `<a href= ${url}/${_id}>
+  <div class="tutor-box">
                     <div class="tutorIndividual">
                         <div class="name">
                             <h2>${name}</h2>
@@ -73,6 +76,7 @@ function tutorCard(
                         </div>
                     </div>
                 </div>
+  </a>
     `;
 }
 
