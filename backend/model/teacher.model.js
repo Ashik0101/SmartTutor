@@ -69,3 +69,9 @@ const teacherSchema = new mongoose.Schema({
   },
 });
 
+
+const Teacher = mongoose.model("teacher",teacherSchema);
+
+module.exports={
+  Teacher
+}

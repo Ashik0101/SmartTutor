@@ -13,7 +13,7 @@ teacherRoute.post("/", async (req, res) => {
     res.status(500).send({
       msg: "Something went Wrong!",
     });
-    res.send(err)
+  
   }
 });
 
@@ -37,9 +37,10 @@ teacherRoute.get("/all", async (req, res) => {
     let user = await Teacher.find();
     res.send(user);
   } catch (err) {
-    res.status(500).send({
-      msg: "Something went Wrong!",
-    });
+    // res.status(500).send({
+    //   msg: "Something went Wrong!",
+    // });
+    res.send("ji")
   }
 });
 
