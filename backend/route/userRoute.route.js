@@ -72,4 +72,16 @@ userRoute.post('/login',async(req,res)=>{
   }
 });
 
+
+userRoute.get("/all", async (req, res) => {
+    try {
+      let user = await UserModel.find();
+      res.send(user);
+    } catch (err) {
+      res.status(500).send({
+        msg: "Something went Wrong!",
+      });
+    }
+  });
+
 module.exports = { userRoute };
