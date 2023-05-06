@@ -6,6 +6,7 @@ fetch("http://localhost:8080/teachers/all")
     return res.json();
   })
   .then((data) => {
+    console.log(data);
     TutorsDomain(data);
   });
 
@@ -75,5 +76,5 @@ function tutorCard(
     `;
 }
 
-let userName = document.getElementById('userName')
-userName.innerText = localStorage.getItem('user-name');
+let userName = document.getElementById("userName");
+userName.innerText = localStorage.getItem("user-name");
