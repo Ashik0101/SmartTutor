@@ -128,3 +128,8 @@ html {
 #schedule-btn:hover {
   background-color: darkblue;
 }
+
+/* Applying display grid here */
+#dateCardContainer {
+  border: 2px solid red;
+}
