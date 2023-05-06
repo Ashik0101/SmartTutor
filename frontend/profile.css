@@ -381,10 +381,11 @@ input{
 }
 
 #edit{
-    position: absolute;
-    right: 0px;
+    position: relative;
+    left: 90%;
     cursor: pointer;
-    width: 2rem;
+    /* width: 2rem; */
+    border: 1px solid black;
 }
 
 .editable{
@@ -393,7 +394,7 @@ input{
 
 #e_btn{
     position: absolute;
-    left: 40%;
+    left: 30%;
     margin-top: 3rem;
     padding: var(--p-1-0);
     background-color: var(--C-lg-bg);
@@ -404,6 +405,22 @@ input{
 }
 
 #e_btn:hover{
+    background-color: var(--bg5-color);
+    color: var(--bg1-color);
+}
+#e_btn2{
+    position: absolute;
+    left: 50%;
+    margin-top: 3rem;
+    padding: var(--p-1-0);
+    background-color: var(--C-lg-bg);
+    color: var(--f2-color);
+    cursor: pointer;
+    border-radius: 10px;
+    display: none;
+}
+
+#e_btn2:hover{
     background-color: var(--bg5-color);
     color: var(--bg1-color);
 }
@@ -615,3 +632,92 @@ input{
   border-bottom: 1px solid greenyellow;
 }
 /* Footer */
+
+
+
+/*======================2nd form=====================================================*/
+#Tf {
+  background-color: white;
+}
+#Tf {
+  max-width: 700px;
+  width: 100%;
+  background-color: #fff;
+  padding: 25px 30px;
+  border-radius: 5px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+}
+#Tf {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.content form .user-details {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  /* margin: 20px 0 12px 0; */
+}
+form .user-details .input-box {
+  margin-bottom: 15px;
+  width: calc(100% / 2 - 20px);
+}
+
+form .input-box span.details {
+  display: block;
+  font-weight: 500;
+  /* margin-bottom: 5px; */
+}
+
+#tgen, #sgen, #newRole, #newOnline, #newRole, #newHomework {
+  height: 30px;
+  width: 100%;
+  outline: none;
+  font-size: 16px;
+  border-radius: 5px;
+  padding-left: 15px;
+  border: 1px solid #ccc;
+  border-bottom-width: 2px;
+  transition: all 0.3s ease;
+  color: grey;
+}
+
+.user-details .input-box input {
+  height: 30px;
+  width: 100%;
+  outline: none;
+  font-size: 16px;
+  border-radius: 5px;
+  padding-left: 15px;
+  border: 1px solid #ccc;
+  border-bottom-width: 2px;
+  transition: all 0.3s ease;
+}
+
+.button{
+  height: 100%;
+  width: 40%;
+  padding: 1rem;
+  border-radius: 5px;
+  border: none;
+  /* color: #fff; */
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+ }
+#btnn{
+  display: flex;
+  justify-content: space-between;
+}
+#btnn a{
+  text-align: center;
+   background-color: #f0f0f0;
+   color: #000;
+}
+.button:hover, #btnn a:hover{
+  background-color: var(--bg5-color);
+  color: var(--bg1-color);
+}

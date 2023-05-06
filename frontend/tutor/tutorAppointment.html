@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tutor Appointment</title>
+    <link rel="stylesheet" href="tutorAppointment.css" />
+  </head>
+  <body>
+    <div id="main-container" class="main-container">
+      <div class="appointment-heading">
+        <h1>
+          You Are Booking An Appointment with
+          <span id="tutor-name">Rohan Pandya</span> for
+          <span id="subject-name">Science and Technology </span>subject.
+        </h1>
+      </div>
+
+      <div class="select-a-date-div">
+        <p>Select A Date</p>
+        <div id="card-container" class="card-container"></div>
+      </div>
+
+      <!-- availabe card div -->
+      <div class="avalable-slot-div">
+        <p>Availabe Slots</p>
+        <div id="slot-card-container" class="slot-card-container"></div>
+      </div>
+
+      <!-- selected slot div-->
+      <div class="selected-slot-div">
+        <p>Selected Slots</p>
+        <div id="selected-slot" class="selected-slot">
+          <h3><span>07</span> <span>May</span></h3>
+          <h3><span>11:00 pm</span> to <span>12:00 pm</span></h3>
+        </div>
+      </div>
+
+      <!-- Schedule Button  -->
+      <div id="schedule-btn">Schedule</div>
+    </div>
+  </body>
+  <script src="./tutorAppointment.js"></script>
+</html>
