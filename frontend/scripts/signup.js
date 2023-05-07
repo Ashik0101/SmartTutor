@@ -108,7 +108,7 @@ Loginbutton.addEventListener("click", async () => {
   const email = Lform.querySelector('input[type="email"]').value;
   const password = Lform.querySelector('input[type="password"]').value;
 
-  const url = "http://localhost:9090/users/login";
+  const url = "http://localhost:8080/users/login";
 
   const data = {
     email: email,
@@ -126,7 +126,11 @@ Loginbutton.addEventListener("click", async () => {
 //   sessionStorage.setItem("status", true)
 
   if (response.msg === "Login successfull") {
-    window.location.href = "./index.html"
+    if(response.data.role == "admin"){
+      window.location.href = "./admin/admin.html"
+    }else {
+      window.location.href = "./index.html"
+    }
   }
   else {
     alert(response.msg)
