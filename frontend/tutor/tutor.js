@@ -1,6 +1,7 @@
 let tutors = document.getElementById("tutors");
 // Fetching the data from the Tutor-Route
-const url='http://localhost:8080/teachers/one';
+
+const url = "http://localhost:9090/teachers/one";
 
 let storedData={}
 
@@ -82,12 +83,14 @@ fetch("http://localhost:8080/teachers/all")
                   </div>
       `;
   }
+
 ///filtering by state & subjects
 
 let searchBtn = document.getElementById("searchBtn");
 let subjectInput = document.getElementById("subjectInput");
 let locationInput = document.getElementById("locationInput");
-let filteredData=[]
+let filteredData = [];
+
 
 
 searchBtn.addEventListener("click",()=>{
@@ -111,27 +114,39 @@ searchBtn.addEventListener("click",()=>{
      })
     // console.log(storedData.data)
 
-    TutorsDomain(filteredData);
-    subjectInput.value=null
-  }
-  else if(locationInput.value){
-    storedData.data.forEach((element,i)=>{
-     if(locationInput.value==element.state ){
-      filteredData.push(element) 
-   }
-    })
-   // console.log(storedData.data)
-   TutorsDomain(filteredData);
-   locationInput.value=null
- }
 
+    TutorsDomain(filteredData);
+    locationInput.value = null;
+    subjectInput.value = null;
+  } else if (subjectInput.value) {
+    storedData.data.forEach((element, i) => {
+      if (
+        subjectInput.value == element.subjects[0].name ||
+        subjectInput.value == element.subjects[1].name
+      ) {
+        filteredData.push(element);
+      }
+    });
+    // console.log(storedData.data)
+
+    TutorsDomain(filteredData);
+    subjectInput.value = null;
+  } else if (locationInput.value) {
+    storedData.data.forEach((element, i) => {
+      if (locationInput.value == element.state) {
+        filteredData.push(element);
+      }
+    });
+    // console.log(storedData.data)
+    TutorsDomain(filteredData);
+    locationInput.value = null;
+  }
 });
 
 ///filtering by state options
 
-let statesbtn= document.querySelectorAll(".state")
+let statesbtn = document.querySelectorAll(".state");
 
-statesbtn.forEach((btn,i)=>{
 
   btn.addEventListener("click",()=>{
     filteredData=[]
@@ -144,3 +159,4 @@ statesbtn.forEach((btn,i)=>{
 
   })
 })
+

@@ -1,3 +1,4 @@
+const url = "http://localhost:9090";
 let dateButton = document.getElementById("date");
 dateButton.addEventListener("input", (event) => {
   const selectedDate = new Date(event.target.value);
@@ -13,7 +14,7 @@ function doDateWork(selectedDate) {
   const monthName = selectedDate.getMonth() + 1;
   const year = selectedDate.getFullYear();
 
-  payload.dateMonthYear = `${year}-${monthName}-${date}`;
+  payload.dateMonthName = `${year}-${monthName}-${date}`;
 }
 // const selectedDate = new Date("2023-05-06");
 const today = new Date().toISOString().split("T")[0];
@@ -40,18 +41,16 @@ endTime.addEventListener("input", () => {
 /*Creating Slot here */
 let createSlotButton = document.getElementById("create-slot-button");
 createSlotButton.addEventListener("click", () => {
-  let getEmail = document.getElementById("email");
-  payload.email = getEmail.value;
   createSlotFunction(payload);
   console.log(payload);
 });
 
 function createSlotFunction(payload) {
-  fetch(`http://localhost:8080/slot/create`, {
+  fetch(`${url}/slot/create`, {
     method: "POST",
     headers: {
       "Content-type": "application/json",
-      // Authorization: "token" //yahan pe token bhejunga so that i cann apend in the body
+      Authorization: `Bearer ${localStorage.getItem("token")}`, //yahan pe token bhejunga so that i cann apend in the body
     },
     body: JSON.stringify(payload),
   })

@@ -10,19 +10,18 @@ const form = document.querySelector("#Sform"); // select the form element
 
 links.forEach((link) => {
   link.addEventListener("click", (event) => {
-    event.preventDefault()
+    event.preventDefault();
     //preventing form submit
     forms.classList.toggle("show-signup");
   });
 });
 
-
 // Next function
 let previousPageUrl = document.referrer;
-console.log(`url is ---- ${previousPageUrl}`)
-if(previousPageUrl=="http://127.0.0.1:5501/"){
-  let bool=true
-  NEXT(bool)
+console.log(`url is ---- ${previousPageUrl}`);
+if (previousPageUrl == "http://127.0.0.1:5501/") {
+  let bool = true;
+  NEXT(bool);
 }
 
 document.querySelector("#Next").addEventListener("click", ()=>{
@@ -30,8 +29,7 @@ document.querySelector("#Next").addEventListener("click", ()=>{
 });
 
 async function NEXT(bool) {
-
-  if(bool){
+  if (bool) {
     document.querySelector("#Tf").style.display = "block";
     document.querySelector("#nf").style.display = "none";
     // bool=false
@@ -42,6 +40,7 @@ async function NEXT(bool) {
   const email = form.querySelector('input[type="email"]').value;
   const password = form.querySelector('input[type="password"]').value;
   const role = form.querySelector("#role").value;
+
 
   let flag = await addDetails(name, email, password,role);
   if(flag==1){
@@ -62,16 +61,16 @@ async function NEXT(bool) {
     document.querySelector("#nf").style.display = "none";
     localStorage.setItem("email", email);
     localStorage.setItem("password", password);
+
   }
 }
-}
 
-async function addDetails(name, email, password,role) {
 
   // console.log(name, email, password,role)
   if (name.length === 0 || email.length === 0 || password.length === 0 || role.length ===0) {
     alert("fill all details")
     return 2
+
   }
 
   const url = "http://localhost:9090/users/register";
@@ -80,20 +79,18 @@ async function addDetails(name, email, password,role) {
     name: name,
     email: email,
     password: password,
-    role:role
+    role: role,
   };
-
-  
 
   let res = await fetch(url, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(data)
+    body: JSON.stringify(data),
   });
   let response = await res.json();
   console.log(response);
-  if(response.msg=="user exists"){
-    alert("account already exists")
+  if (response.msg == "user exists") {
+    alert("account already exists");
     return 1;
     // alert("account already exists")
     // accountExists=true;
@@ -108,23 +105,24 @@ Loginbutton.addEventListener("click", async () => {
   const email = Lform.querySelector('input[type="email"]').value;
   const password = Lform.querySelector('input[type="password"]').value;
 
-  const url = "http://localhost:8080/users/login";
+  const url = "http://localhost:9090/users/login";
 
   const data = {
     email: email,
-    password: password
+    password: password,
   };
-  console.log(data)
+  console.log(data);
 
   let res = await fetch(url, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(data)
+    body: JSON.stringify(data),
   });
   const response = await res.json();
-//   sessionStorage.setItem("Userdetials", JSON.stringify(response));
-//   sessionStorage.setItem("status", true)
-
+  //   sessionStorage.setItem("Userdetials", JSON.stringify(response));
+  //   sessionStorage.setItem("status", true)
+  localStorage.setItem("token", response.token);
+  console.log(response);
   if (response.msg === "Login successfull") {
     if(response.data.role == "admin"){
       window.location.href = "./admin/admin.html"
@@ -134,11 +132,10 @@ Loginbutton.addEventListener("click", async () => {
   }
   else {
     alert(response.msg)
+
   }
   // console.log(response);
 });
-
-
 
 // Submit function for teacher
 
@@ -170,19 +167,17 @@ Tform.addEventListener("submit", async function (event) {
   // let city = Tform.querySelector("#tcity").value;
   // let state = Tform.querySelector("#tstate").value;
 
-// role.addEventListener("select",()=>{
-//   naam.setAttribute("disabled")
-//   NEXT()
-// })
-
-
+  // role.addEventListener("select",()=>{
+  //   naam.setAttribute("disabled")
+  //   NEXT()
+  // })
 
   let tex1 = Tform.querySelector("#tex1");
   let tex2 = Tform.querySelector("#tex2");
   let tex3 = Tform.querySelector("#tex3");
   let tex4 = Tform.querySelector("#tex4");
   let tex5 = Tform.querySelector("#tex5");
-  
+
   let val = []
   if (tex1.checked === true) {
     // val.push(tex1.value)
@@ -233,20 +228,23 @@ Tform.addEventListener("submit", async function (event) {
     email: email,
     image: image,
     subjects: expertise,
-    country:country,
+    country: country,
     description: desc,
     designation: desig,
     teachingExp: experience,
     experience: experience,
     workingHrs: hour,
+
     degrees:[{"name":qualification,"college":college}],
+
     address: addy,
     state:state,
     fees: fees,
     teachesOnline: teachesonline,
     gender: gender,
-    homeworkHelp: homework
+    homeworkHelp: homework,
   };
+
 
 //   {
 //     "_id": "6452a4792a78ee63a0399fd0",
@@ -292,10 +290,11 @@ Tform.addEventListener("submit", async function (event) {
 //     "state": "Anytown"
 // }
 
+
   // const nestedObject = {
-    // name: "John Doe",
-    // email: "johndoe@email.com",
-    // image: "https://example.com/image.jpg",
+  // name: "John Doe",
+  // email: "johndoe@email.com",
+  // image: "https://example.com/image.jpg",
   //   subjects: [
   //     {
   //       name: "Mathematics",
@@ -307,11 +306,11 @@ Tform.addEventListener("submit", async function (event) {
   //     },
   //   ],
   //   country: "USA",
-    // description: "I am a passionate teacher with over 10 years of experience.",
-    // designation: "Senior Teacher",
-    // teachingExp: 12,
-    // experience: 15,
-    // workingHrs: 40,
+  // description: "I am a passionate teacher with over 10 years of experience.",
+  // designation: "Senior Teacher",
+  // teachingExp: 12,
+  // experience: 15,
+  // workingHrs: 40,
   //   degrees: [
   //     {
   //       name: "Bachelor of Science in Education",
@@ -323,46 +322,37 @@ Tform.addEventListener("submit", async function (event) {
   //     },
   //   ],
   //   address: "123 Main St, Anytown, USA",
-    // fees: 50,
-    // teachesOnline: "Yes",
-    // gender: "Male",
-    // homeworkHelp: "No",
+  // fees: 50,
+  // teachesOnline: "Yes",
+  // gender: "Male",
+  // homeworkHelp: "No",
   // };
 
-
-
-
-  console.log(data)
+  console.log(data);
 
   if(role=="teacher"){
     let td = "http://localhost:9090/teachers/"
 
   let res = await fetch(td, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(data)
-  })
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
   const response = await res.json();
   console.log(response);
   if (response.msg === "added successfully") {
-    window.location.href = "./index.html"
+    window.location.href = "./index.html";
+  } else {
+    alert(response.msg);
   }
-  else {
-    alert(response.msg)
-  }
+
   }
 
   else{
     window.location.href = "./index.html"
   }
 
-  
-
 });
-
-
-
-
 
 // submit function for student
 
@@ -376,9 +366,9 @@ Sform.addEventListener("submit", async function (event) {
   let city = Sform.querySelector("#tcity1").value;
   let state = Sform.querySelector("#tstate1").value;
   let pincode = Sform.querySelector("#tpin1").value;
-  let phoneNumber = Sform.querySelector('#Mobile1').value;
+  let phoneNumber = Sform.querySelector("#Mobile1").value;
   let gender = Sform.querySelector("#tgen1").value;
-  let standard = Sform.querySelector("#standard").value
+  let standard = Sform.querySelector("#standard").value;
 
   let tex11 = Sform.querySelector("#tex11");
   let tex22 = Sform.querySelector("#tex22");
@@ -386,30 +376,29 @@ Sform.addEventListener("submit", async function (event) {
   let tex44 = Sform.querySelector("#tex44");
   let tex55 = Sform.querySelector("#tex55");
 
-
-  let val = []
+  let val = [];
   if (tex11.checked === true) {
-    val.push(tex11.value)
+    val.push(tex11.value);
   }
   if (tex22.checked === true) {
-    val.push(tex22.value)
+    val.push(tex22.value);
   }
   if (tex33.checked === true) {
-    val.push(tex33.value)
+    val.push(tex33.value);
   }
   if (tex44.checked === true) {
-    val.push(tex44.value)
+    val.push(tex44.value);
   }
   if (tex55.checked === true) {
-    val.push(tex55.value)
+    val.push(tex55.value);
   }
 
-  let subjects = val
-  console.log(val)
+  let subjects = val;
+  console.log(val);
   let address = {
     city,
     state,
-    pincode
+    pincode,
   };
 
   let data = {
@@ -417,30 +406,27 @@ Sform.addEventListener("submit", async function (event) {
     gender: gender,
     standard: standard,
     subjects: subjects,
-    address: address
+    address: address,
   };
 
-  console.log(data)
-  const sd = "http://localhost:9090/"
+  console.log(data);
+  const sd = "http://localhost:9090/";
 
-  console.log(data)
+  console.log(data);
   let res = await fetch(sd, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(data)
-  })
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
   const response = await res.json();
   console.log(response);
 
   if (response.msg === "details added") {
-    window.location.href = "signup.html"
+    window.location.href = "signup.html";
+  } else {
+    alert(response.msg);
   }
-  else {
-    alert(response.msg)
-  }
-
 });
-
 
 // let authe = document.getElementById("google")
 
@@ -450,7 +436,6 @@ Sform.addEventListener("submit", async function (event) {
 //     method: "GET"
 //   })
 
-
 //   let response = await res.json()
 //   console.log(response)
 //   if (response.msg === "Login succesfull") {
@@ -458,8 +443,7 @@ Sform.addEventListener("submit", async function (event) {
 //   }
 // }
 
-
-let authe = document.getElementById("google")
+let authe = document.getElementById("google");
 
 authe.onclick = async () => {
   location.href = "http://localhost:9090/auth/google";
@@ -471,12 +455,10 @@ authe.onclick = async () => {
 
   // let response = await res.json();
   // console.log(response);
-//   if (response.msg === "Login successful") {
-//     // Access the user's information in the response
-//     const user = response.user;
-//     console.log(user);
-//     window.location.href = "index.html";
-//   }
+  //   if (response.msg === "Login successful") {
+  //     // Access the user's information in the response
+  //     const user = response.user;
+  //     console.log(user);
+  //     window.location.href = "index.html";
+  //   }
 };
-
-
