@@ -5,84 +5,55 @@ dateButton.addEventListener("input", (event) => {
   doDateWork(selectedDate);
 });
 
-let dateObj = {};
+let payload = {};
+let timeArr = new Array(2);
 function doDateWork(selectedDate) {
-  const dayNames = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
-  const dayName = dayNames[selectedDate.getDay()];
+  const dayName = selectedDate.getDay();
   const date = selectedDate.getDate();
-  const monthNames = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
-  const monthName = selectedDate.toLocaleString("default", { month: "long" });
+  const monthName = selectedDate.getMonth() + 1;
   const year = selectedDate.getFullYear();
 
-  dateObj.day = dayName;
-  dateObj.date = date;
-  dateObj.month = monthName;
-  dateObj.year = year;
-  // Log the extracted values to the console
-  console.log(`Day name: ${dayName}`, `type:${typeof dayName}`);
-  console.log(`Date: ${date}`, `type:${typeof date}`);
-  console.log(`Month name: ${monthName}`, `type:${typeof monthName}`);
-  console.log(`Year: ${year}`, `type:${typeof year}`);
+  payload.dateMonthYear = `${year}-${monthName}-${date}`;
 }
 // const selectedDate = new Date("2023-05-06");
-
 const today = new Date().toISOString().split("T")[0];
 console.log("today is :", today);
 // Set the minimum selectable date to today
 document.getElementById("date").setAttribute("min", today);
 
 //start Time part
+
 let startTime = document.getElementById("start-time");
 startTime.addEventListener("input", () => {
-  dateObj.startTime = startTime.value;
-  console.log(startTime.value);
+  timeArr[0] = startTime.value;
+  console.log(timeArr[0]);
 });
 
 // end Time part
 let endTime = document.getElementById("end-time");
 endTime.addEventListener("input", () => {
-  dateObj.endTime = endTime.value;
-  console.log(endTime.value);
+  timeArr[1] = endTime.value;
+  console.log(timeArr[1]);
+  payload.slot_timing = timeArr;
 });
 
 /*Creating Slot here */
 let createSlotButton = document.getElementById("create-slot-button");
 createSlotButton.addEventListener("click", () => {
   let getEmail = document.getElementById("email");
-  dateObj.email = getEmail.value;
-  createSlotFunction(dateObj);
-
-  console.log(dateObj);
+  payload.email = getEmail.value;
+  createSlotFunction(payload);
+  console.log(payload);
 });
 
-function createSlotFunction(dateObj) {
+function createSlotFunction(payload) {
   fetch(`http://localhost:8080/slot/create`, {
     method: "POST",
     headers: {
       "Content-type": "application/json",
+      // Authorization: "token" //yahan pe token bhejunga so that i cann apend in the body
     },
-    body: JSON.stringify(dateObj),
+    body: JSON.stringify(payload),
   })
     .then((res) => {
       return res.json();

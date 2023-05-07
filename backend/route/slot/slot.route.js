@@ -4,19 +4,18 @@ const slotRoute = express.Router();
 
 /*creating the slot here */
 slotRoute.post("/create", async (req, res) => {
-  const { email, day, date, month, year, startTime, endTime } = req.body;
+  const { email, dateMonthYear, slot_timing, isBooked } = req.body;
   try {
     const slot = new SlotModel({
       email,
-      day,
-      date,
-      month,
-      year,
-      startTime,
-      endTime,
+      dateMonthYear,
+      slot_timing,
+      isBooked,
     });
     await slot.save();
-    res.send({ msg: `Slot Created for ${day},${date} ${month}, ${year} ! ` });
+    res.send({
+      msg: `Slot Created for ${dateMonthYear}, from ${slot_timing[0]} to ${slot_timing[1]} ! `,
+    });
     console.log(slot);
   } catch (error) {
     res.send({ msg: "Some Error in creating the slot", error: error.message });
