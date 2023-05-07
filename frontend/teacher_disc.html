@@ -67,7 +67,7 @@
     <div class="container">
         <section class="userProfile card">
             <div class="profile">
-                <figure><img src="./images/download.jpg" alt="profile" id="pic" ></figure>
+                <figure><img  alt="profile" id="pic" ></figure>
             </div>
         </section>
 
@@ -83,24 +83,29 @@
                    <span>: 5km</span>
                 </li>
                 <li>
-                   <b>Registered</b>
-                   <span>: backend data</span>
+                   <b>Registered:</b>
+                   <span id="re"> backend data</span>
+                   <span >months ago</span>
                 </li>
                 <li>
-                    <b>Teaches Online</b>
-                    <span>: Yes</span>
+                    <b>Teaches Online:</b>
+                    <span id="ol">: Yes</span>
                 </li>
                 <li>
-                   <b>Teaching exp</b>
-                   <span>: 0-4yrs</span>
+                   <b>Teaching exp :</b>
+                   <span id="expp"> 0-4yrs</span>
                 </li>
                 <li>
                    <b>Visit home</b>
                    <span>: Yes</span>
                 </li>
                 <li>
+                   <b>Working hours:</b>
+                   <span id="whrs">: Yes</span>
+                </li>
+                <li>
                    <b>Homework Help</b>
-                   <span>: Yes</span>
+                   <span id="HH">: Yes</span>
                 </li>
               
                 <li>
@@ -109,7 +114,7 @@
                 </li>
                 <li>
                    <b>Fees</b>
-                   <span>: backend</span>
+                   <span id="fee">: backend</span>
                 </li>
             </ul>
            </div>
@@ -173,7 +178,7 @@
 
             <div id="about_s" class="b">
             <div class="contact_Info" style="padding-left:10px ;">
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+              <p id="disc">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
                 Sint et eligendi laborum magni, quod earum? Veritatis, m
                 axime voluptates ducimus officiis eius ratione beatae animi
                  provident magni quidem temporibus quaerat eligendi.</p>
@@ -188,7 +193,7 @@
                     
                     <li class="sex">
                         <h1 class="label">Gender:</h1>
-                        <input type="text" value="Male" readonly>
+                        <input type="text" class="gender" value="Male" readonly>
                     </li>
                 </ul>
             </div>
@@ -204,12 +209,12 @@
 
                 <li class="address">
                     <h1 class="label">Address:</h1>
-                    <input type="text" value="Amit@gmail.com" readonly>
+                    <input type="text" id="addr" value="Amit@gmail.com" readonly>
                 </li>
 
                 <li class="email">
                     <h1 class="label">E-mail:</h1>
-                    <input type="text" class="p" value="Amit@gmail.com" readonly>
+                    <input type="text" class="p"  id="mai" value="Amit@gmail.com" readonly>
                 </li>
                 
                 <li >
@@ -218,8 +223,8 @@
                 
                 <div class="map">
                     <i class="fa-solid fa-location-dot"></i>
-                    <input type="text" value="Bhilai,CG" readonly>
-                    <!-- <span>Bhilai, CG</span> -->
+                    <input type="text" class="loc" value="Bhilai,CG" readonly>
+                    <span id="co"></span>
                 </div>
 
             </ul>

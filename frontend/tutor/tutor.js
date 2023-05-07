@@ -1,7 +1,7 @@
 let tutors = document.getElementById("tutors");
 // Fetching the data from the Tutor-Route
 
-const url = "http://localhost:9090/teachers/one";
+
 
 let storedData={}
 
@@ -13,6 +13,7 @@ fetch("http://localhost:9090/teachers/all")
     TutorsDomain(data);
     storedData={data}
     console.log(data)
+    forData();
 
   });
 
@@ -21,6 +22,7 @@ fetch("http://localhost:9090/teachers/all")
     tutors.innerHTML = `${data
       .map((element, index) =>
         tutorCard(
+          element._id,
           element.name,
           element.designation,
           element.subjects,
@@ -36,6 +38,7 @@ fetch("http://localhost:9090/teachers/all")
   }
   
   function tutorCard(
+    _id,
     name,
     designation,
     subjects,
@@ -46,7 +49,7 @@ fetch("http://localhost:9090/teachers/all")
     teachingExp
   ) {
     return `
-    <div class="tutor-box">
+    <div class="tutor-box" id="tutor-box" data-id="${_id}">
                       <div class="tutorIndividual">
                           <div class="name">
                               <h2>${name}</h2>
@@ -158,4 +161,19 @@ let statesbtn = document.querySelectorAll(".state");
      TutorsDomain(filteredData);
 
   })
+
+  ////Sending Id to teacherdetail_page
+
+  function forData() {
+    let teacherDivs = document.querySelectorAll("#tutor-box");
+  
+    console.log(teacherDivs);
+    teacherDivs.forEach((element) => {
+      element.addEventListener("click", () => {
+          //  console.log(element.dataset.id)
+                  localStorage.setItem("id",element.dataset.id)
+                  location.href= "../teacher_disc.html"
+      });
+    });
+  }
 
