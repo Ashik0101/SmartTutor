@@ -5,7 +5,7 @@ const url = "http://localhost:9090/teachers/one";
 
 let storedData={}
 
-fetch("http://localhost:8080/teachers/all")
+fetch("http://localhost:9090/teachers/all")
   .then((res) => {
     return res.json();
   })
@@ -158,5 +158,4 @@ let statesbtn = document.querySelectorAll(".state");
      TutorsDomain(filteredData);
 
   })
-})
 

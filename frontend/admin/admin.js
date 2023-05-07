@@ -1,4 +1,4 @@
-const url = 'http://localhost:8080/'
+const url = 'http://localhost:9090/'
 let teacherCount = document.getElementById('teacher-count');
 let studentCount = document.getElementById('student-count');
 let studentBox = document.getElementById('student-box');
