@@ -6,6 +6,7 @@ const teacherRoute = express.Router();
 
 teacherRoute.post("/", async (req, res) => {
   const data = req.body;
+
   // let email = data.email
   try {
     // let user = await UserModel.findOne({email})
@@ -17,17 +18,17 @@ teacherRoute.post("/", async (req, res) => {
     // }
     // console.log(teacher)
 
+
     let addDetails = new Teacher(data);
     await addDetails.save();
     res.send({
       msg: "added successfully",
-      addDetails
+      addDetails,
     });
   } catch (err) {
     res.status(500).send({
       msg: "Something went Wrong!",
     });
-
   }
 });
 
@@ -54,19 +55,18 @@ teacherRoute.get("/all", async (req, res) => {
     // res.status(500).send({
     //   msg: "Something went Wrong!",
     // });
-    res.send("ji")
+    res.send("ji");
   }
 });
 
-
 teacherRoute.patch("/update", async (req, res) => {
   try {
-    const data= req.body;
-    const id=res.cookie("userId");
+    const data = req.body;
+    const id = res.cookie("userId");
 
-   await Teacher.findByIdAndUpdate({_id:id},data)
-    
-    res.status(200).send({ok:true,msg:"Profile Updated"});
+    await Teacher.findByIdAndUpdate({ _id: id }, data);
+
+    res.status(200).send({ ok: true, msg: "Profile Updated" });
   } catch (err) {
     res.status(500).send({
       msg: "Something went Wrong!",
@@ -74,19 +74,18 @@ teacherRoute.patch("/update", async (req, res) => {
   }
 });
 
-
-teacherRoute.get('/one/:id',async(req,res)=>{
-  try{
-    let id = req.params.id
-    let data = await Teacher.find({_id:id})
+teacherRoute.get("/one/:id", async (req, res) => {
+  try {
+    let id = req.params.id;
+    let data = await Teacher.find({ _id: id });
     res.status(200).send({
-      'data':data
-    })
-  }catch(err){
+      data: data,
+    });
+  } catch (err) {
     res.status(404).send({
-      'msg':'Tutor Not Found!'
-    })
+      msg: "Tutor Not Found!",
+    });
   }
-})
+});
 
 module.exports = { teacherRoute };

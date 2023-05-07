@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const slotSchema = mongoose.Schema({
-  email: {
+  userEmail: {
     type: String,
     required: true,
   },
