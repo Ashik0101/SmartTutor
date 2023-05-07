@@ -57,10 +57,13 @@ async function NEXT(bool) {
     localStorage.setItem("email", email);
     localStorage.setItem("password", password);
   } else if (role == "student") {
-    document.querySelector("#Sf").style.display = "block";
-    document.querySelector("#nf").style.display = "none";
-    localStorage.setItem("email", email);
-    localStorage.setItem("password", password);
+
+    // document.querySelector("#Sf").style.display = "block";
+    // document.querySelector("#nf").style.display = "none";
+    // localStorage.setItem("email", email);
+    // localStorage.setItem("password", password);
+    alert("registered succesfully pls login again")
+    window.location.href = "./signup.html"
 
   }
 }
@@ -101,7 +104,8 @@ async function NEXT(bool) {
 const Loginbutton = document.querySelector("#login");
 const Lform = document.querySelector("#Lform");
 
-Loginbutton.addEventListener("click", async () => {
+Loginbutton.addEventListener("click", async (event) => {
+  event.preventDefault()
   const email = Lform.querySelector('input[type="email"]').value;
   const password = Lform.querySelector('input[type="password"]').value;
 
@@ -160,10 +164,10 @@ Tform.addEventListener("submit", async function (event) {
   let gender = Tform.querySelector("#tgen").value;
   let qualification = Tform.querySelector("#Qualification").value;
   let experience = Tform.querySelector("#Experience").value;
-  let role = Tform.querySelector("#newRole");
-  let state = Tform.querySelector("#newState");
-  let college = Tform.querySelector("#newCollege");
-  let level = Tform.querySelector("#newLevel");
+  let role = Tform.querySelector("#newRole").value;
+  let state = Tform.querySelector("#newState").value;
+  let college = Tform.querySelector("#newCollege").value;
+  let level = Tform.querySelector("#newLevel").value;
   // let city = Tform.querySelector("#tcity").value;
   // let state = Tform.querySelector("#tstate").value;
 
@@ -330,7 +334,7 @@ Tform.addEventListener("submit", async function (event) {
 
   console.log(data);
 
-  if(role=="teacher"){
+  if(role=="teacher" || role=="Teacher"){
     let td = "http://localhost:9090/teachers/"
 
   let res = await fetch(td, {
@@ -341,9 +345,13 @@ Tform.addEventListener("submit", async function (event) {
   const response = await res.json();
   console.log(response);
   if (response.msg === "added successfully") {
-    window.location.href = "./index.html";
-  } else {
-    alert(response.msg);
+
+    alert("added successfully please login again")
+    window.location.href = "./signup.html"
+  }
+  else {
+    alert(response.msg)
+
   }
 
   }
