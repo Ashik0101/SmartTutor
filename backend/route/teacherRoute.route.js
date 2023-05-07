@@ -6,18 +6,18 @@ const teacherRoute = express.Router();
 
 teacherRoute.post("/", async (req, res) => {
   const data = req.body;
-  let email = data.email
+  // let email = data.email
   try {
-    let user = await UserModel.findOne({email})
-    let teacher ={
-      password:user.password,
-      role:user.role,
-      registered_on:user.registered_on,
-      ...data
-    }
-    console.log(teacher)
+    // let user = await UserModel.findOne({email})
+    // let teacher ={
+    //   password:user.password,
+    //   role:user.role,
+    //   registered_on:user.registered_on,
+    //   ...data
+    // }
+    // console.log(teacher)
 
-    let addDetails = new Teacher(teacher);
+    let addDetails = new Teacher(data);
     await addDetails.save();
     res.send({
       msg: "added successfully",
