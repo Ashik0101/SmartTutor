@@ -84,5 +84,19 @@ userRoute.get("/all", async (req, res) => {
     }
   });
 
+
+userRoute.get('/find',async(req,res)=>{
+    let role = req.query.role
+    try{
+        let data = await UserModel.find({role});
+        res.status(200).send({
+            'data':data
+        })
+    }catch(err){
+        res.status(404).send({
+            'msg' : 'Students not found!'
+        })
+    }
+})
 module.exports = { userRoute };
 
