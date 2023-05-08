@@ -8,6 +8,7 @@ const slotSchema = mongoose.Schema({
   dateMonthName: { type: String },
   slot_timing: [String],
   isBooked: { type: Boolean, default: false },
+  studentEmail: { type: String, default: null },
 });
 
 const SlotModel = mongoose.model("slots", slotSchema);

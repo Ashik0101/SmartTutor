@@ -8,15 +8,46 @@
     <link rel="stylesheet" href="createSlot.css" />
   </head>
   <body>
-    <label for="date-picking">Choose a Date:</label>
-    <input id="date" type="date" />
+    <div id="parent">
+      <div id="form-container" class="form-container">
+        <div id="input-div-wrapper-div">
+          <div><h1>Create A Slot</h1></div>
+          <div id="choose-date">
+            <label for="date-picking">Choose a Date:</label>
+            <input id="date" type="date" />
+          </div>
 
-    <label for="start-time-picking">Start Time :</label>
-    <input type="time" id="start-time" />
-    <label for="end-time-picking">End Time :</label>
-    <input type="time" id="end-time" />
-    <button id="create-slot-button">Create Slot</button>
+          <div id="start-time-picking-div">
+            <label for="start-time-picking">Start Time :</label>
+            <input type="time" id="start-time" />
+          </div>
+          <div id="end-time-picking-div">
+            <label for="end-time-picking">End Time :</label>
+            <input type="time" id="end-time" />
+          </div>
+          <div id="create-button-div">
+            <button id="create-slot-button">Create Slot</button>
+          </div>
+        </div>
+      </div>
+      <div id="main-container" class="main-container">
+        <div class="appointment-heading">
+          <h1>Your Appointments</h1>
+        </div>
+
+        <div class="select-a-date-div">
+          <p>Select A Date</p>
+          <div id="card-container" class="card-container"></div>
+        </div>
+
+        <!-- availabe card div -->
+        <div class="avalable-slot-div">
+          <p>Total Slots</p>
+          <div id="slot-card-container" class="slot-card-container"></div>
+        </div>
+      </div>
+    </div>
   </body>
-  <script></script>
+
   <script src="createSlot.js"></script>
 </html>

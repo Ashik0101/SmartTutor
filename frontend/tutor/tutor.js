@@ -1,6 +1,7 @@
 let tutors = document.getElementById("tutors");
 // Fetching the data from the Tutor-Route
-
+let userName = document.getElementById('userName');
+userName.innerText = localStorage.getItem('name')
 
 
 let storedData={}
@@ -151,16 +152,28 @@ searchBtn.addEventListener("click",()=>{
 let statesbtn = document.querySelectorAll(".state");
 
 
-  btn.addEventListener("click",()=>{
-    filteredData=[]
-    storedData.data.forEach((element,i)=>{
-      if(btn.innerText==element.state ){
-       filteredData.push(element) 
-    }
-     })
-     TutorsDomain(filteredData);
+  // btn.addEventListener("click",()=>{
+  //   filteredData=[]
+  //   storedData.data.forEach((element,i)=>{
+  //     if(btn.innerText==element.state ){
+  //      filteredData.push(element) 
+  //   }
+  //    })
+  //    TutorsDomain(filteredData);
 
-  })
+  // })
+
+  statesbtn.forEach((btn, i) => {
+    btn.addEventListener("click", () => {
+      filteredData = [];
+      storedData.data.forEach((element, i) => {
+        if (btn.innerText == element.state) {
+          filteredData.push(element);
+        }
+      });
+      TutorsDomain(filteredData);
+    });
+  });
 
   ////Sending Id to teacherdetail_page
 

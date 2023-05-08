@@ -73,36 +73,37 @@ async function NEXT(bool) {
   // console.log(name, email, password,role)
 
   async function addDetails(name, email, password, role) {
-  if (name.length === 0 || email.length === 0 || password.length === 0 || role.length ===0) {
-    alert("fill all details")
-    return 2
+    if (name.length == 0 || email.length == 0 || password.length == 0) {
+      alert("fill all details");
+      return 2;
+    }
+  
+    const url = "http://localhost:9090/users/register";
+  
+    const data = {
+      name: name,
+      email: email,
+      password: password,
+      role: role,
+    };
+  
+    let res = await fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    });
+    let response = await res.json();
+    console.log(response);
+    if (response.msg == "user exists") {
+      alert("account already exists");
+      return 1;
+      // alert("account already exists")
+      // accountExists=true;
+    }
 
   }
 
-  const url = "http://localhost:9090/users/register";
-
-  const data = {
-    name: name,
-    email: email,
-    password: password,
-    role: role,
-  };
-
-  let res = await fetch(url, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(data),
-  });
-  let response = await res.json();
-  console.log(response);
-  if (response.msg == "user exists") {
-    alert("account already exists");
-    return 1;
-    // alert("account already exists")
-    // accountExists=true;
-  }
 }
-
 
 // login function
 const Loginbutton = document.querySelector("#login");
@@ -132,6 +133,7 @@ Loginbutton.addEventListener("click", async (event) => {
   localStorage.setItem("token", response.token);
   console.log(response);
   if (response.msg === "Login successfull") {
+    localStorage.setItem('name',response.data.name)
     if(response.data.role == "admin"){
       window.location.href = "./admin/admin.html"
     }else {

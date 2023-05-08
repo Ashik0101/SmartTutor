@@ -21,6 +21,7 @@ fetch(`${url}/slot/one-tutor/all`, {
     convertObjIntoArray(segregatedDateObject);
     /*till here all the slots is updated */
     showSlots();
+    // clickHandlerOnScheduleButton();
   })
   .catch((error) => {
     console.log("some error while getting the slots :", error);
@@ -187,16 +188,39 @@ function clickHandlerOnSlots() {
 }
 
 function showTheSelectedSlot(startTime, endTime, id, inputDate) {
-  document.getElementById("startTime").innerText = null;
-  document.getElementById("endTime").innerText = null;
-  document.getElementById("date").innerText = null;
-  document.getElementById("month").innerText = null;
   console.log(startTime, endTime, id, inputDate);
   document.getElementById("startTime").innerText = startTime;
+
   document.getElementById("endTime").innerText = endTime;
   const selectedDate = new Date(inputDate);
   let date = selectedDate.getDate();
   let month = monthNames[selectedDate.getMonth()];
   document.getElementById("date").innerText = date;
+  document.getElementById("to").innerText = "to";
   document.getElementById("month").innerText = month;
+  clickHandlerOnScheduleButton(id);
+}
+
+function clickHandlerOnScheduleButton(id) {
+  document.getElementById("schedule-btn").addEventListener("click", () => {
+    // console.log(id);
+    patchIsBookToTrueFunction(id);
+  });
+}
+
+function patchIsBookToTrueFunction(id) {
+  fetch(`${url}/slot/book/${id}`, {
+    method: "PATCH",
+    Authorization: `Bearer ${localStorage.getItem("token")}`,
+  })
+    .then((res) => res.json())
+    .then((res) => {
+      console.log(res);
+    })
+    .catch((error) => {
+      console.log(
+        "some error while booking the slot from catch block :",
+        error
+      );
+    });
 }
