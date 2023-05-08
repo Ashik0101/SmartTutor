@@ -103,7 +103,7 @@ async function NEXT(bool) {
 
   }
 
-}
+
 
 // login function
 const Loginbutton = document.querySelector("#login");
