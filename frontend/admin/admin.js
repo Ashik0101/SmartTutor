@@ -54,15 +54,16 @@ let changeOnClick = document.getElementById('change-on-click');
 function renderOneStudent(name,email,registered_on){
     changeOnClick.innerHTML = null;
     return `
-    <div>
+    <div class = 'student-card'>
     <h2>Name: ${name}</h2>
     <h3>Email: ${email}</h3>
     <h3>Registered On: ${registered_on}</h3>
+    </div>
     `
 }
 
 function renderAllStudent(data){
-    changeOnClick.innerHTML = `${data.map((element)=> renderOneStudent(element.name,element.email,element.registered_on))}`;
+    changeOnClick.innerHTML = `${data.map((element)=> renderOneStudent(element.name,element.email,element.registered_on)).join(' ')}`;
 }
 // Students render on the admin panel
 
@@ -80,5 +81,11 @@ function renderAllStudent(data){
 let logOut = document.getElementById('logOut-btn');
 
 logOut.addEventListener('click',()=>{
-    console.log('hi');
+    localStorage.setItem('token',null);
+    localStorage.setItem('name',null);
+    window.location.href="../signup.html"
 })
+
+
+let adminName = document.getElementById('admin-name');
+adminName.innerText = localStorage.getItem('name');
