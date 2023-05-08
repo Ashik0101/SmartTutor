@@ -128,6 +128,7 @@ Loginbutton.addEventListener("click", async (event) => {
   localStorage.setItem("token", response.token);
   console.log(response);
   if (response.msg === "Login successfull") {
+    localStorage.setItem('name',response.data.name)
     if(response.data.role == "admin"){
       window.location.href = "./admin/admin.html"
     }else {

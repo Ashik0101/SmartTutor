@@ -1,6 +1,7 @@
 let tutors = document.getElementById("tutors");
 // Fetching the data from the Tutor-Route
-
+let userName = document.getElementById('userName');
+userName.innerText = localStorage.getItem('name')
 
 
 let storedData={}
