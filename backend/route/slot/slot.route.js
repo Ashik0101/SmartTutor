@@ -3,16 +3,19 @@ const express = require("express");
 const { SlotModel } = require("../../model/slot.model");
 const slotRoute = express.Router();
 const { authenticate } = require("../authenticate");
+const { userAuthenticate } = require("../../middleware/userAuthenticate");
 
 /*creating the slot here */
 slotRoute.post("/create", authenticate, async (req, res) => {
-  const { userEmail, dateMonthName, slot_timing, isBooked } = req.body;
+  const { userEmail, dateMonthName, slot_timing, isBooked, studentEmail } =
+    req.body;
   try {
     const slot = new SlotModel({
       userEmail,
       dateMonthName,
       slot_timing,
       isBooked,
+      studentEmail,
     });
     await slot.save();
     res.send({
@@ -126,6 +129,43 @@ slotRoute.patch("/update/:id", authenticate, async (req, res) => {
       msg: "Something went Wrong !",
     });
     console.log("some error while updating the slot :", error);
+  }
+});
+
+/* Update the isBooked to True and studentEmail to true*/
+slotRoute.patch("/book/:id", userAuthenticate, async (req, res) => {
+  const slotId = req.params.id;
+  const studentEmail = req.body.studentEmail;
+  if (!studentEmail) {
+    return res.send({
+      msg: "Either Student Email is missing or isBooked is still false.",
+    });
+  }
+
+  let obj = { studentEmail, isBooked: true };
+
+  try {
+    const data = await SlotModel.findOne({ _id: slotId });
+    if (!data) {
+      return res.send({ msg: "No Slots Available with this ID" });
+    }
+
+    await SlotModel.findByIdAndUpdate({ _id: slotId }, obj);
+    res.status(200).send({
+      msg: `Slot having id ${slotId} is booked !!`,
+      bookedSlot: {
+        dateMonthName: data.dateMonthName,
+        slot_timing: data.slot_timing,
+        isBooked: true,
+        tutorEmail: data.userEmail,
+        studentEmail: req.body.studentEmail,
+      },
+    });
+  } catch (error) {
+    res.status(500).send({
+      msg: "Something went Wrong while booking of the slot !",
+    });
+    console.log("some error while booking the slot :", error);
   }
 });
 
