@@ -24,12 +24,15 @@ if (previousPageUrl == "http://127.0.0.1:5501/") {
   NEXT(bool);
 }
 
-document.querySelector("#Next").addEventListener("click", NEXT);
+document.querySelector("#Next").addEventListener("click", ()=>{
+  NEXT()
+});
 
 async function NEXT(bool) {
   if (bool) {
     document.querySelector("#Tf").style.display = "block";
     document.querySelector("#nf").style.display = "none";
+    // bool=false
     return;
   }
 
@@ -38,61 +41,75 @@ async function NEXT(bool) {
   const password = form.querySelector('input[type="password"]').value;
   const role = form.querySelector("#role").value;
 
-  let flag = await addDetails(name, email, password, role);
-  if (flag == 1) {
-  } else if (flag == 2) {
-  } else {
-    if (role == "teacher") {
-      document.querySelector("#Tf").style.display = "block";
-      document.querySelector("#nf").style.display = "none";
-      localStorage.setItem("email", email);
-      localStorage.setItem("password", password);
-    } else if (role == "student") {
-      document.querySelector("#Sf").style.display = "block";
-      document.querySelector("#nf").style.display = "none";
-      localStorage.setItem("email", email);
-      localStorage.setItem("password", password);
+
+  let flag = await addDetails(name, email, password,role);
+  if(flag==1){
+    
+  }
+  else if(flag==2){
+    
+  }
+  else{
+   console.log(flag)
+  if (role == "teacher") {
+    document.querySelector("#Tf").style.display = "block";
+    document.querySelector("#nf").style.display = "none";
+    localStorage.setItem("email", email);
+    localStorage.setItem("password", password);
+  } else if (role == "student") {
+
+    // document.querySelector("#Sf").style.display = "block";
+    // document.querySelector("#nf").style.display = "none";
+    // localStorage.setItem("email", email);
+    // localStorage.setItem("password", password);
+    alert("registered succesfully pls login again")
+    window.location.href = "./signup.html"
+
+  }
+}
+
+
+  // console.log(name, email, password,role)
+  async function addDetails(name, email, password, role) {
+    if (name.length == 0 || email.length == 0 || password.length == 0) {
+      alert("fill all details");
+      return 2;
+    }
+  
+    const url = "http://localhost:9090/users/register";
+  
+    const data = {
+      name: name,
+      email: email,
+      password: password,
+      role: role,
+    };
+  
+    let res = await fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    });
+    let response = await res.json();
+    console.log(response);
+    if (response.msg == "user exists") {
+      alert("account already exists");
+      return 1;
+      // alert("account already exists")
+      // accountExists=true;
     }
   }
+
 }
-
-async function addDetails(name, email, password, role) {
-  if (name.length == 0 || email.length == 0 || password.length == 0) {
-    alert("fill all details");
-    return 2;
-  }
-
-  const url = "http://localhost:9090/users/register";
-
-  const data = {
-    name: name,
-    email: email,
-    password: password,
-    role: role,
-  };
-
-  let res = await fetch(url, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(data),
-  });
-  let response = await res.json();
-  console.log(response);
-  if (response.msg == "user exists") {
-    alert("account already exists");
-    return 1;
-    // alert("account already exists")
-    // accountExists=true;
-  }
-}
-
 // login function
 const Loginbutton = document.querySelector("#login");
 const Lform = document.querySelector("#Lform");
 
-Loginbutton.addEventListener("click", async () => {
+Loginbutton.addEventListener("click", async (event) => {
+  event.preventDefault()
   const email = Lform.querySelector('input[type="email"]').value;
   const password = Lform.querySelector('input[type="password"]').value;
+
   const url = "http://localhost:9090/users/login";
 
   const data = {
@@ -112,9 +129,16 @@ Loginbutton.addEventListener("click", async () => {
   localStorage.setItem("token", response.token);
   console.log(response);
   if (response.msg === "Login successfull") {
-    window.location.href = "./index.html";
-  } else {
-    alert(response.msg);
+    localStorage.setItem('name',response.data.name)
+    if(response.data.role == "admin"){
+      window.location.href = "./admin/admin.html"
+    }else {
+      window.location.href = "./index.html"
+    }
+  }
+  else {
+    alert(response.msg)
+
   }
   // console.log(response);
 });
@@ -142,7 +166,10 @@ Tform.addEventListener("submit", async function (event) {
   let gender = Tform.querySelector("#tgen").value;
   let qualification = Tform.querySelector("#Qualification").value;
   let experience = Tform.querySelector("#Experience").value;
-  let role = Tform.querySelector("#newRole");
+  let role = Tform.querySelector("#newRole").value;
+  let state = Tform.querySelector("#newState").value;
+  let college = Tform.querySelector("#newCollege").value;
+  let level = Tform.querySelector("#newLevel").value;
   // let city = Tform.querySelector("#tcity").value;
   // let state = Tform.querySelector("#tstate").value;
 
@@ -157,24 +184,44 @@ Tform.addEventListener("submit", async function (event) {
   let tex4 = Tform.querySelector("#tex4");
   let tex5 = Tform.querySelector("#tex5");
 
-  let val = [];
+  let val = []
   if (tex1.checked === true) {
-    val.push(tex1.value);
+    // val.push(tex1.value)
+    val.push({
+      "name":tex1.value,
+      "level":level
+    })
   }
   if (tex2.checked === true) {
-    val.push(tex2.value);
+    val.push({
+      "name":tex1.value,
+      "level":level
+    })
   }
   if (tex3.checked === true) {
-    val.push(tex3.value);
+    val.push({
+      "name":tex2.value,
+      "level":level
+    })
   }
   if (tex4.checked === true) {
-    val.push(tex4.value);
+    val.push({
+      "name":tex3.value,
+      "level":level
+    })
   }
   if (tex5.checked === true) {
-    val.push(tex5.value);
+    val.push({
+      "name":tex4.value,
+      "level":level
+    })
   }
+  
+  
+  console.log(val)
 
-  let expertise = val;
+
+  let expertise = val
 
   // let address = {
   //   city,
@@ -193,13 +240,62 @@ Tform.addEventListener("submit", async function (event) {
     teachingExp: experience,
     experience: experience,
     workingHrs: hour,
-    degrees: qualification,
+
+    degrees:[{"name":qualification,"college":college}],
+
     address: addy,
+    state:state,
     fees: fees,
     teachesOnline: teachesonline,
     gender: gender,
     homeworkHelp: homework,
   };
+
+
+//   {
+//     "_id": "6452a4792a78ee63a0399fd0",
+//     "email": "johndoe@example.com",
+//     "image": "https://randomuser.me/api/portraits/men/72.jpg",
+//     "subjects": [
+//         {
+//             "name": "Mathematics",
+//             "level": "Intermediate",
+//             "_id": "6452a4792a78ee63a0399fd1"
+//         },
+//         {
+//             "name": "English",
+//             "level": "Beginner",
+//             "_id": "6452a4792a78ee63a0399fd2"
+//         }
+//     ],
+//     "description": "I am a highly experienced teacher with over 10 years of experience teaching mathematics and English.",
+//     "experience": 12,
+//     "degrees": [
+//         {
+//             "name": "Bachelor of Science in Mathematics",
+//             "college": "University of California, Los Angeles",
+//             "_id": "6452a4792a78ee63a0399fd3"
+//         },
+//         {
+//             "name": "Master of Arts in English Literature",
+//             "college": "Stanford University",
+//             "_id": "6452a4792a78ee63a0399fd4"
+//         }
+//     ],
+//     "address": "123 Main Street, Anytown USA",
+//     "fees": 50,
+//     "teachesOnline": "Yes",
+//     "gender": "Male",
+//     "homeworkHelp": "Yes",
+//     "__v": 0,
+//     "designation": "Software Developer",
+//     "name": "John Doe",
+//     "teachingExp": 5,
+//     "workingHrs": 8,
+//     "country": "USA",
+//     "state": "Anytown"
+// }
+
 
   // const nestedObject = {
   // name: "John Doe",
@@ -240,7 +336,8 @@ Tform.addEventListener("submit", async function (event) {
 
   console.log(data);
 
-  let td = "http://localhost:9090/teachers/";
+  if(role=="teacher" || role=="Teacher"){
+    let td = "http://localhost:9090/teachers/"
 
   let res = await fetch(td, {
     method: "POST",
@@ -250,10 +347,21 @@ Tform.addEventListener("submit", async function (event) {
   const response = await res.json();
   console.log(response);
   if (response.msg === "added successfully") {
-    window.location.href = "./index.html";
-  } else {
-    alert(response.msg);
+
+    alert("added successfully please login again")
+    window.location.href = "./signup.html"
   }
+  else {
+    alert(response.msg)
+
+  }
+
+  }
+
+  else{
+    window.location.href = "./index.html"
+  }
+
 });
 
 // submit function for student

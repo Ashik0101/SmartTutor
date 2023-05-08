@@ -9,7 +9,7 @@
     
 }
 .container{
-    height: 1000px;
+    height: 1100px;
     width: 100%;
     display: flex;
     /* align-items: center; */
@@ -338,7 +338,7 @@ form .user-details .input-box{
 
 
 
-#tgen,#sgen,#newRole,#newOnline,#newRole,#newHomework{
+#tgen,#sgen,#newRole,#newOnline,#newRole,#newHomework,#newState,#newLevel{
     height: 45px;
     width: 100%;
     outline: none;

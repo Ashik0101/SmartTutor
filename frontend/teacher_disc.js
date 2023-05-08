@@ -104,3 +104,37 @@ document.addEventListener("DOMContentLoaded", function() {
     contact_s.classList.add("a");
   });
 });
+
+let storedId =localStorage.getItem("id")
+console.log(storedId)
+const url = "http://localhost:9090/teachers/one";
+
+fetch(`${url}/${storedId}`)
+    .then((res) => res.json())
+    .then((res) => {
+      // console.log(res.data[0])
+      display(res.data[0]);
+    }).catch(err=>{
+      console.log(err)
+    })
+
+   function display(data){
+    document.querySelector('.name').value=data.name;
+    document.querySelector('.pp').value=data.designation;
+    document.querySelector('.gender').value=data.gender;
+    document.querySelector('#mai').value=data.email;
+    document.querySelector('.loc').value=data.state;
+    document.querySelector('#addr').value=data.address;
+    document.querySelector('#co').innerText=data.country;
+    document.querySelector('#expp').innerText=data.teachingExp;
+    document.querySelector('#re').innerText=data.experience;
+    document.querySelector('#whrs').innerText=data.workingHrs;
+    document.querySelector('#disc').innerText=data.description;
+    document.querySelector('#ol').innerText=data.teachesOnline;
+    document.querySelector('#HH').innerText=data.homeworkHelp;
+    document.querySelector('#fee').innerText=data.fees;
+    let imageUrl = data.image;
+    let imageElement = document.getElementById('pic');
+    imageElement.setAttribute('src', imageUrl);
+    
+   }

@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Admin Portal</title>
     <link rel="stylesheet" href="admin.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,10 +18,10 @@
     <div id="adminContainer">
         <div id="navShortcuts">
             <div id="projectLogo">
-                <img src="../tutor/Smart.png" width="100px" style="border-radius: 50%" />
+                <img src="../tutor/Smart.png" width="60px" style="border-radius: 50%" />
                 <div>
                     <h2>Smart Tutor</h2>
-                    <h4>Appointment Portal</h4>
+                    <p>Appointment Portal</p>
                 </div>
             </div>
             <div id="project-shortcuts">
@@ -62,17 +63,17 @@
         <div id="otherDetails">
             <div id="nav-bar-shortcuts">
                 <input type="search" id="searchBar" placeholder="Search here..." />
-                <div>
+                <div id="icons-nav">
                     <i class="uil uil-bell"></i>
                     <i class="uil uil-gift"></i>
                     <i class="uil uil-power"></i>
                     <i class="uil uil-file"></i>
                 </div>
                 <div id="adminSpace">
-                    <img src="" alt="Admin.jpg" />
+                    <img src="../images/smart_tutor_image_3.jpg" alt="Admin.jpg" width="60" style="border-radius:50% ;"/>
                     <div id="adminName">
-                        <h2>Admin-Name</h2>
-                        <h3>Admin</h3>
+                        <h3 id="admin-name"></h3>
+                        <p>Admin</p>
                     </div>
                 </div>
             </div>
@@ -95,43 +96,51 @@
                 </div>
                 <div id="admin-body-items">
                     <div id="all-services">
-                        <div id="students-box">
-                            <div>
+                        <div id="students-box" onclick="studentBoxClick()">
+                            <div data-aos="fade-up">
                                 <h1 id="student-count">0</h1>
                                 <p>Total Students</p>
                             </div>
                             <img src="../images/students.jpg" alt="" width="60%"/>
                         </div>
-                        <div id="teachers-box">
-                            <div>
+                        <div id="teachers-box" onclick="teacherBoxClick()">
+                            <div data-aos="fade-up">
                                 <h1 id="teacher-count">0</h1>
                                 <p>Total Teachers</p>
                             </div>
                             <img src="../images/teachers.webp" alt=""  width="60%"/>
                         </div>
-                        <div id="events-box">
-                            <div>
+                        <div id="events-box" onclick="eventBoxClick()">
+                            <div data-aos="fade-up">
                                 <h1 id="event-count">0</h1>
                                 <p>Total Events</p>
                             </div>
                             <img src="../images/events.gif" alt="" width="60%"/>
                         </div>
-                        <div id="invoices-box">
-                            <div>
+                        <div id="invoices-box" onclick="statusBoxClick()">
+                            <div data-aos="fade-up">
                                 <h1 id="invoice-count">0</h1>
                                 <p>Total Status</p>
                             </div>
                             <img src="../images/status.jpeg" alt="" width="60%"/>
                         </div>
                     </div>
-                    <div id="total-right">
+                    <div id="total-right" data-aos="fade-in" data-aos-duration="4000">
                         <h2>Increase your Knowledge <br> By Learning</h2>
                         <p>We have new method to new learning process, More faster, secure and easy to use!</p>
                     </div>
                 </div>
             </div>
+
+            <div id="logOut-btn">
+                Logout
+            </div>
         </div>
     </div>
 </body>
-
+<script src="./admin.js"></script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
 </html>

@@ -1,116 +1,197 @@
-*{
-    font-family: poppins;
+* {
+  font-family: poppins;
 }
-body{
-    padding: -1px;
-    margin: -1px;
+body {
+  padding: -1px;
+  margin: -1px;
 }
-#adminContainer{
-    display: flex;
-    margin: 0px;
-    padding: 0px;
+#adminContainer {
+  display: flex;
+  margin: 0px;
+  padding: 0px;
 }
 
-#navShortcuts{
-    border: 1px solid black;
-    width: 20%;
-    padding: 0% 2% 2% 2%;
-    background-color: #BC4AF2; 
+#navShortcuts {
+  width: 20%;
+  padding: 0% 2% 2% 2%;
+  background-color: #bc4af2;
+  color: white;
+  /* #5B56F6 */
+}
+
+#otherDetails {
+  width: 100%;
+  padding: 0% 2% 2% 2%;
+}
+
+.main-menu-shortcuts,
+#projectLogo,
+#adminSpace,
+#admin-change,
+#admin-new,
+#admin-right {
+  display: flex;
+  align-items: center;
+}
+#adminName p {
+  margin-top: -20px;
+}
+
+#adminName {
+  padding: 0px 10px 0px 0px;
+}
+#projectLogo {
+  width: 100%;
+}
+#projectLogo > img {
+  padding: 0px 10px;
+}
+#projectLogo > div {
+  padding: 0px 5px;
+}
+#projectLogo p {
+  margin-top: -20px;
+}
+
+#project-shortcuts {
+  padding: 0px 10px;
+}
+
+.main-menu-shortcuts {
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.main-menu-shortcuts i {
+  font-size: 30px;
+}
+#nav-bar-shortcuts,
+#content-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#nav-bar-shortcuts {
+  margin-top: 10px;
+  width: 100%;
+}
+#searchBar {
+  width: 50%;
+  padding: 5px 30px;
+}
+
+#admin-body-items {
+  display: flex;
+  gap: 10px;
+}
+#all-services {
+  display: grid;
+  width: 45%;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+#students-box {
+  display: flex;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  align-items: center;
+  padding: 0% 4%;
+  border-radius: 20px;
+}
+
+.student-card{
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  padding: 0% 4%;
+  border-radius: 20px;
+}
+#teachers-box {
+  display: flex;
+  align-items: center;
+  padding: 0% 4%;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-radius: 20px;
+}
+#invoices-box {
+  display: flex;
+  align-items: center;
+  padding: 0% 4%;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-radius: 20px;
+}
+#events-box {
+  display: flex;
+  align-items: center;
+  padding: 0% 4%;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-radius: 20px;
+}
+#total-right {
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  margin-left: 40px;
+  padding: 10px;
+}
+#admin-right i {
+  font-size: 20px;
+}
+#admin-change {
+  border: 1px solid black;
+  border-radius: 20px;
+  color: #5b56f6;
+  width: 50%;
+  justify-content: space-around;
+  font-size: 12px;
+}
+
+#admin-new {
+  border-radius: 20px;
+  background-color: #5b56f6;
+  color: white;
+  width: 50%;
+  justify-content: space-around;
+  font-size: 12px;
+}
+
+#adminSpace {
+  width: 25%;
+  justify-content: space-around;
+}
+
+#icons-nav {
+  font-size: 20px;
+}
+#adminSpace img {
+  padding: 0px 10px;
+}
+#admin-right {
+  gap: 10px;
+  width: 50%;
+}
+
+#total-right {
+  width: 45%;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+#logOut-btn{
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
     color: white;
-    /* #5B56F6 */
+    background-color: red;
+    padding: 5px 20px;
+    border-radius: 10px;
+    font-weight: bolder;
 }
+body[data-aos-duration='4000'] [data-aos],
+  [data-aos][data-aos][data-aos-duration='4000'] {
+    transition-duration: 4000ms;
+  }
 
-#otherDetails{
-    width: 80%;
-    padding: 0% 2% 2% 2%;
-}
-
-.main-menu-shortcuts,#projectLogo,#adminSpace,#admin-change,#admin-new,#admin-right{
-    display: flex;
-    align-items: center;
-}
-
-#nav-bar-shortcuts,#content-head{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-#searchBar{
-    width: 50%;
-}
-
-#admin-body-items{
-    display: flex;
-    gap: 10px;
-}
-#all-services{
-    display: grid;
-    width: 45%;
-    grid-template-columns: repeat(2,1fr);
-    gap: 20px;
-}
-
-#students-box{
-    display: flex;
-    align-items: center;
-    padding: 0% 4%;
-    border: 1px solid black;
-    border-radius:20px ;
-}
-#teachers-box{
-    display: flex;
-    align-items: center;
-    padding: 0% 4%;
-    border: 1px solid black;
-    border-radius:20px ;
-}
-#invoices-box{
-    display: flex;
-    align-items: center;
-    padding: 0% 4%;
-    border: 1px solid black;
-    border-radius:20px ;
-}
-#events-box{
-    display: flex;
-    align-items: center;
-    padding: 0% 4%;
-    border: 1px solid black;
-    border-radius:20px ;
-}
-#total-right{
-    border:1px solid black;
-}
-#admin-right i{
-    font-size: 20px;
-}
-#admin-change{
-    border: 1px solid black;
-    border-radius: 20px;
-    color: #5B56F6;
-    width: 50%;
-    justify-content: space-around;
-    font-size: 12px;
-}
-
-#admin-new{
-    border: 1px solid black;
-    border-radius: 20px;
-    background-color: #5B56F6;  
-    color: white; 
-    width: 50%;
-    justify-content: space-around;
-    font-size: 12px;
-}
-
-#admin-right{
-    gap: 10px;
-    width: 50%;
-}
-
-#total-right{
-    width: 45%;
-    padding: 10px;
-    border-radius: 20px;
-}
+  #logOut-btn:hover{
+    cursor: pointer;
+    background-color: rgb(250, 109, 109);
+  }
