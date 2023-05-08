@@ -67,9 +67,11 @@ async function NEXT(bool) {
 
   }
 }
+}
 
 
   // console.log(name, email, password,role)
+
   async function addDetails(name, email, password, role) {
     if (name.length == 0 || email.length == 0 || password.length == 0) {
       alert("fill all details");
@@ -98,9 +100,11 @@ async function NEXT(bool) {
       // alert("account already exists")
       // accountExists=true;
     }
+
   }
 
 }
+
 // login function
 const Loginbutton = document.querySelector("#login");
 const Lform = document.querySelector("#Lform");
