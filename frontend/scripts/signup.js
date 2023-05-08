@@ -67,9 +67,12 @@ async function NEXT(bool) {
 
   }
 }
+}
 
 
   // console.log(name, email, password,role)
+
+  async function addDetails(name, email, password, role) {
   if (name.length === 0 || email.length === 0 || password.length === 0 || role.length ===0) {
     alert("fill all details")
     return 2
@@ -99,6 +102,7 @@ async function NEXT(bool) {
     // accountExists=true;
   }
 }
+
 
 // login function
 const Loginbutton = document.querySelector("#login");
