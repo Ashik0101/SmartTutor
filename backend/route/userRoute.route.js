@@ -1,6 +1,6 @@
 const express = require("express");
 const bcrypt = require("bcrypt");
-
+const sgMail = require("@sendgrid/mail");
 const jwt = require("jsonwebtoken");
 const { UserModel } = require("../model/user.model");
 
@@ -58,9 +58,12 @@ userRoute.post("/login", async (req, res) => {
             { expiresIn: "7d" }
           );
 
-          res
-            .status(200)
-            .send({ data: data[0], token: token, msg: "Login successfull" });
+          res.status(200).send({
+            data: data[0],
+            token: token,
+            email,
+            msg: "Login successfull",
+          });
         } else {
           res.status(401).send({
             msg: "Wrong Credentials!",
@@ -79,32 +82,74 @@ userRoute.post("/login", async (req, res) => {
   }
 });
 
-
 userRoute.get("/all", async (req, res) => {
-    try {
-      let user = await UserModel.find();
-      res.send(user);
-    } catch (err) {
-      res.status(500).send({
-        msg: "Something went Wrong!",
-      });
-    }
-  });
+  try {
+    let user = await UserModel.find();
+    res.send(user);
+  } catch (err) {
+    res.status(500).send({
+      msg: "Something went Wrong!",
+    });
+  }
+});
 
+userRoute.get("/find", async (req, res) => {
+  let role = req.query.role;
+  try {
+    let data = await UserModel.find({ role });
+    res.status(200).send({
+      data: data,
+    });
+  } catch (err) {
+    res.status(404).send({
+      msg: "Students not found!",
+    });
+  }
+});
 
-userRoute.get('/find',async(req,res)=>{
-    let role = req.query.role
-    try{
-        let data = await UserModel.find({role});
-        res.status(200).send({
-            'data':data
-        })
-    }catch(err){
-        res.status(404).send({
-            'msg' : 'Students not found!'
-        })
+userRoute.post("/generate", async (req, res) => {
+  try {
+    // const { email } = req.body;
+    sgMail.setApiKey(process.env.api_key);
+
+    function generateOTP() {
+      const digits = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+
+      let generatedOtp = "";
+
+      for (let i = 0; i < 4; i++) {
+        const index = Math.floor(Math.random() * digits.length);
+
+        generatedOtp += digits[index];
+      }
+      return generatedOtp;
     }
-})
+
+    const otp = generateOTP();
+
+    const msg = {
+      to: "aashiqmohd04@gmail.com",
+      from: "abhi.bunnny@gmail.com",
+      subject: "One Time Password",
+      text: `Otp is ${otp}`,
+    };
+
+    sgMail.send(msg).then(
+      () => {},
+      (error) => {
+        console.error(error);
+
+        if (error.response) {
+          console.error(error.response.body);
+        }
+      }
+    );
+
+    res.send(otp);
+  } catch (err) {
+    res.send(err);
+    console.log(err);
+  }
+});
+
 module.exports = { userRoute };
-
-

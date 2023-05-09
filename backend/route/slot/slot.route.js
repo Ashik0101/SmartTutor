@@ -9,6 +9,7 @@ const { userAuthenticate } = require("../../middleware/userAuthenticate");
 slotRoute.post("/create", authenticate, async (req, res) => {
   const { userEmail, dateMonthName, slot_timing, isBooked, studentEmail } =
     req.body;
+  console.log(req.body);
   try {
     const slot = new SlotModel({
       userEmail,
@@ -33,6 +34,42 @@ slotRoute.get("/one-tutor/all", authenticate, async (req, res) => {
   const userEmail = req.body.userEmail;
   try {
     const slots = await SlotModel.find({ userEmail: userEmail });
+    return res.send(slots);
+  } catch (error) {
+    res.send({
+      msg: "Some Error in getting the slot",
+      error: error.message,
+    });
+    console.log(`Some Error in getting all the slot : ${error}`);
+  }
+});
+/*Get alll the slot of selected tutor by email id (for students) */
+slotRoute.get("/one-tutor/all/:id", async (req, res) => {
+  const userEmail = req.params.id;
+  console.log(userEmail);
+  try {
+    const slots = await SlotModel.find({
+      userEmail: userEmail,
+      isBooked: false,
+    });
+    return res.send(slots);
+  } catch (error) {
+    res.send({
+      msg: "Some Error in getting the slot",
+      error: error.message,
+    });
+    console.log(`Some Error in getting all the slot : ${error}`);
+  }
+});
+
+/*getting all the slot update to a particular tutor(this is for the dashboard of the tutor) */
+slotRoute.get("/one-tutor/dashboard/:id", async (req, res) => {
+  const userEmail = req.params.id;
+  console.log(userEmail);
+  try {
+    const slots = await SlotModel.find({
+      userEmail: userEmail,
+    });
     return res.send(slots);
   } catch (error) {
     res.send({
