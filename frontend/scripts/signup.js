@@ -24,8 +24,8 @@ if (previousPageUrl == "http://127.0.0.1:5501/") {
   NEXT(bool);
 }
 
-document.querySelector("#Next").addEventListener("click", ()=>{
-  NEXT()
+document.querySelector("#Next").addEventListener("click", () => {
+  NEXT();
 });
 
 async function NEXT(bool) {
@@ -41,31 +41,26 @@ async function NEXT(bool) {
   const password = form.querySelector('input[type="password"]').value;
   const role = form.querySelector("#role").value;
 
-
-  let flag = await addDetails(name, email, password,role);
-  if(flag==1){
-    
+  let flag = await addDetails(name, email, password, role);
+  if (flag == 1) {
+  } else if (flag == 2) {
+  } else {
+    console.log(flag);
+    if (role == "teacher") {
+      document.querySelector("#Tf").style.display = "block";
+      document.querySelector("#nf").style.display = "none";
+      localStorage.setItem("email", email);
+      localStorage.setItem("password", password);
+    } else if (role == "student") {
+      // document.querySelector("#Sf").style.display = "block";
+      // document.querySelector("#nf").style.display = "none";
+      // localStorage.setItem("email", email);
+      // localStorage.setItem("password", password);
+      alert("registered succesfully pls login again");
+      window.location.href = "./signup.html";
+    }
   }
-  else if(flag==2){
-    
-  }
-  else{
-   console.log(flag)
-  if (role == "teacher") {
-    document.querySelector("#Tf").style.display = "block";
-    document.querySelector("#nf").style.display = "none";
-    localStorage.setItem("email", email);
-    localStorage.setItem("password", password);
-  } else if (role == "student") {
 
-    // document.querySelector("#Sf").style.display = "block";
-    // document.querySelector("#nf").style.display = "none";
-    // localStorage.setItem("email", email);
-    // localStorage.setItem("password", password);
-    alert("registered succesfully pls login again")
-    window.location.href = "./signup.html"
-
-  }
 }
 }
 
@@ -77,16 +72,16 @@ async function NEXT(bool) {
       alert("fill all details");
       return 2;
     }
-  
+
     const url = "http://localhost:9090/users/register";
-  
+
     const data = {
       name: name,
       email: email,
       password: password,
       role: role,
     };
-  
+
     let res = await fetch(url, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -105,12 +100,14 @@ async function NEXT(bool) {
 
 
 
+
+
 // login function
 const Loginbutton = document.querySelector("#login");
 const Lform = document.querySelector("#Lform");
 
 Loginbutton.addEventListener("click", async (event) => {
-  event.preventDefault()
+  event.preventDefault();
   const email = Lform.querySelector('input[type="email"]').value;
   const password = Lform.querySelector('input[type="password"]').value;
 
@@ -131,18 +128,17 @@ Loginbutton.addEventListener("click", async (event) => {
   //   sessionStorage.setItem("Userdetials", JSON.stringify(response));
   //   sessionStorage.setItem("status", true)
   localStorage.setItem("token", response.token);
+  localStorage.setItem("userEmail", response.data.email);
   console.log(response);
   if (response.msg === "Login successfull") {
-    localStorage.setItem('name',response.data.name)
-    if(response.data.role == "admin"){
-      window.location.href = "./admin/admin.html"
-    }else {
-      window.location.href = "./index.html"
+    localStorage.setItem("name", response.data.name);
+    if (response.data.role == "admin") {
+      window.location.href = "./admin/admin.html";
+    } else {
+      window.location.href = "./index.html";
     }
-  }
-  else {
-    alert(response.msg)
-
+  } else {
+    alert(response.msg);
   }
   // console.log(response);
 });
@@ -188,44 +184,42 @@ Tform.addEventListener("submit", async function (event) {
   let tex4 = Tform.querySelector("#tex4");
   let tex5 = Tform.querySelector("#tex5");
 
-  let val = []
+  let val = [];
   if (tex1.checked === true) {
     // val.push(tex1.value)
     val.push({
-      "name":tex1.value,
-      "level":level
-    })
+      name: tex1.value,
+      level: level,
+    });
   }
   if (tex2.checked === true) {
     val.push({
-      "name":tex1.value,
-      "level":level
-    })
+      name: tex1.value,
+      level: level,
+    });
   }
   if (tex3.checked === true) {
     val.push({
-      "name":tex2.value,
-      "level":level
-    })
+      name: tex2.value,
+      level: level,
+    });
   }
   if (tex4.checked === true) {
     val.push({
-      "name":tex3.value,
-      "level":level
-    })
+      name: tex3.value,
+      level: level,
+    });
   }
   if (tex5.checked === true) {
     val.push({
-      "name":tex4.value,
-      "level":level
-    })
+      name: tex4.value,
+      level: level,
+    });
   }
-  
-  
-  console.log(val)
 
+  console.log(val);
 
-  let expertise = val
+  let expertise = val;
 
   // let address = {
   //   city,
@@ -245,61 +239,59 @@ Tform.addEventListener("submit", async function (event) {
     experience: experience,
     workingHrs: hour,
 
-    degrees:[{"name":qualification,"college":college}],
+    degrees: [{ name: qualification, college: college }],
 
     address: addy,
-    state:state,
+    state: state,
     fees: fees,
     teachesOnline: teachesonline,
     gender: gender,
     homeworkHelp: homework,
   };
 
-
-//   {
-//     "_id": "6452a4792a78ee63a0399fd0",
-//     "email": "johndoe@example.com",
-//     "image": "https://randomuser.me/api/portraits/men/72.jpg",
-//     "subjects": [
-//         {
-//             "name": "Mathematics",
-//             "level": "Intermediate",
-//             "_id": "6452a4792a78ee63a0399fd1"
-//         },
-//         {
-//             "name": "English",
-//             "level": "Beginner",
-//             "_id": "6452a4792a78ee63a0399fd2"
-//         }
-//     ],
-//     "description": "I am a highly experienced teacher with over 10 years of experience teaching mathematics and English.",
-//     "experience": 12,
-//     "degrees": [
-//         {
-//             "name": "Bachelor of Science in Mathematics",
-//             "college": "University of California, Los Angeles",
-//             "_id": "6452a4792a78ee63a0399fd3"
-//         },
-//         {
-//             "name": "Master of Arts in English Literature",
-//             "college": "Stanford University",
-//             "_id": "6452a4792a78ee63a0399fd4"
-//         }
-//     ],
-//     "address": "123 Main Street, Anytown USA",
-//     "fees": 50,
-//     "teachesOnline": "Yes",
-//     "gender": "Male",
-//     "homeworkHelp": "Yes",
-//     "__v": 0,
-//     "designation": "Software Developer",
-//     "name": "John Doe",
-//     "teachingExp": 5,
-//     "workingHrs": 8,
-//     "country": "USA",
-//     "state": "Anytown"
-// }
-
+  //   {
+  //     "_id": "6452a4792a78ee63a0399fd0",
+  //     "email": "johndoe@example.com",
+  //     "image": "https://randomuser.me/api/portraits/men/72.jpg",
+  //     "subjects": [
+  //         {
+  //             "name": "Mathematics",
+  //             "level": "Intermediate",
+  //             "_id": "6452a4792a78ee63a0399fd1"
+  //         },
+  //         {
+  //             "name": "English",
+  //             "level": "Beginner",
+  //             "_id": "6452a4792a78ee63a0399fd2"
+  //         }
+  //     ],
+  //     "description": "I am a highly experienced teacher with over 10 years of experience teaching mathematics and English.",
+  //     "experience": 12,
+  //     "degrees": [
+  //         {
+  //             "name": "Bachelor of Science in Mathematics",
+  //             "college": "University of California, Los Angeles",
+  //             "_id": "6452a4792a78ee63a0399fd3"
+  //         },
+  //         {
+  //             "name": "Master of Arts in English Literature",
+  //             "college": "Stanford University",
+  //             "_id": "6452a4792a78ee63a0399fd4"
+  //         }
+  //     ],
+  //     "address": "123 Main Street, Anytown USA",
+  //     "fees": 50,
+  //     "teachesOnline": "Yes",
+  //     "gender": "Male",
+  //     "homeworkHelp": "Yes",
+  //     "__v": 0,
+  //     "designation": "Software Developer",
+  //     "name": "John Doe",
+  //     "teachingExp": 5,
+  //     "workingHrs": 8,
+  //     "country": "USA",
+  //     "state": "Anytown"
+  // }
 
   // const nestedObject = {
   // name: "John Doe",
@@ -340,32 +332,25 @@ Tform.addEventListener("submit", async function (event) {
 
   console.log(data);
 
-  if(role=="teacher" || role=="Teacher"){
-    let td = "http://localhost:9090/teachers/"
+  if (role == "teacher" || role == "Teacher") {
+    let td = "http://localhost:9090/teachers/";
 
-  let res = await fetch(td, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(data),
-  });
-  const response = await res.json();
-  console.log(response);
-  if (response.msg === "added successfully") {
-
-    alert("added successfully please login again")
-    window.location.href = "./signup.html"
+    let res = await fetch(td, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    });
+    const response = await res.json();
+    console.log(response);
+    if (response.msg === "added successfully") {
+      alert("added successfully please login again");
+      window.location.href = "./signup.html";
+    } else {
+      alert(response.msg);
+    }
+  } else {
+    window.location.href = "./index.html";
   }
-  else {
-    alert(response.msg)
-
-  }
-
-  }
-
-  else{
-    window.location.href = "./index.html"
-  }
-
 });
 
 // submit function for student

@@ -1,11 +1,10 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
   var skil = document.getElementById("skil");
   var line = document.getElementById("line");
   var abut = document.getElementById("abut");
   var exp = document.getElementById("exp");
 
-  
-  skil.addEventListener("click", function() {
+  skil.addEventListener("click", function () {
     skil.classList.add("active");
     line.classList.remove("active");
     abut.classList.remove("active");
@@ -24,14 +23,13 @@ document.addEventListener("DOMContentLoaded", function() {
     contact_s.classList.add("a");
   });
 });
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
   var abut = document.getElementById("abut");
   var skil = document.getElementById("skil");
   var line = document.getElementById("line");
   var exp = document.getElementById("exp");
 
-  
-  abut.addEventListener("click", function() {
+  abut.addEventListener("click", function () {
     abut.classList.add("active");
     line.classList.remove("active");
     skil.classList.remove("active");
@@ -51,14 +49,13 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
   var abut = document.getElementById("abut");
   var skil = document.getElementById("skil");
   var line = document.getElementById("line");
   var exp = document.getElementById("exp");
 
-  
-  line.addEventListener("click", function() {
+  line.addEventListener("click", function () {
     abut.classList.remove("active");
     line.classList.add("active");
     skil.classList.remove("active");
@@ -78,14 +75,13 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
   var abut = document.getElementById("abut");
   var skil = document.getElementById("skil");
   var line = document.getElementById("line");
   var exp = document.getElementById("exp");
 
-  
-  exp.addEventListener("click", function() {
+  exp.addEventListener("click", function () {
     abut.classList.remove("active");
     line.classList.remove("active");
     skil.classList.remove("active");
@@ -105,36 +101,54 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });
 
-let storedId =localStorage.getItem("id")
-console.log(storedId)
+let storedId = localStorage.getItem("id");
+console.log(storedId);
 const url = "http://localhost:9090/teachers/one";
 
 fetch(`${url}/${storedId}`)
-    .then((res) => res.json())
-    .then((res) => {
-      // console.log(res.data[0])
-      display(res.data[0]);
-    }).catch(err=>{
-      console.log(err)
-    })
+  .then((res) => res.json())
+  .then((res) => {
+    console.log(res.data[0]);
+    display(res.data[0]);
+    showAvailabeSlots(res.data[0].email);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 
-   function display(data){
-    document.querySelector('.name').value=data.name;
-    document.querySelector('.pp').value=data.designation;
-    document.querySelector('.gender').value=data.gender;
-    document.querySelector('#mai').value=data.email;
-    document.querySelector('.loc').value=data.state;
-    document.querySelector('#addr').value=data.address;
-    document.querySelector('#co').innerText=data.country;
-    document.querySelector('#expp').innerText=data.teachingExp;
-    document.querySelector('#re').innerText=data.experience;
-    document.querySelector('#whrs').innerText=data.workingHrs;
-    document.querySelector('#disc').innerText=data.description;
-    document.querySelector('#ol').innerText=data.teachesOnline;
-    document.querySelector('#HH').innerText=data.homeworkHelp;
-    document.querySelector('#fee').innerText=data.fees;
-    let imageUrl = data.image;
-    let imageElement = document.getElementById('pic');
-    imageElement.setAttribute('src', imageUrl);
-    
-   }
+function display(data) {
+  document.querySelector(".name").value = data.name;
+  document.querySelector(".pp").value = data.designation;
+  document.querySelector(".gender").value = data.gender;
+  document.querySelector("#mai").value = data.email;
+  document.querySelector(".loc").value = data.state;
+  document.querySelector("#addr").value = data.address;
+  document.querySelector("#co").innerText = data.country;
+  document.querySelector("#expp").innerText = data.teachingExp;
+  document.querySelector("#re").innerText = data.experience;
+  document.querySelector("#whrs").innerText = data.workingHrs;
+  document.querySelector("#disc").innerText = data.description;
+  document.querySelector("#ol").innerText = data.teachesOnline;
+  document.querySelector("#HH").innerText = data.homeworkHelp;
+  document.querySelector("#fee").innerText = data.fees;
+  localStorage.setItem("amo", data.fees);
+  let imageUrl = data.image;
+  let imageElement = document.getElementById("pic");
+  imageElement.setAttribute("src", imageUrl);
+}
+
+function showAvailabeSlots(email) {
+  let scheduleButton = document.getElementById("schedule-meet-btn");
+
+  scheduleButton.addEventListener("click", () => {
+    localStorage.setItem("teacherEmail", email);
+    console.log("email is ", email);
+    if (email == localStorage.getItem("userEmail")) {
+      console.log("tutor email and student email is same");
+      window.location.href = "slot/createSlot.html";
+    } else {
+      console.log("tutor email and student email is different");
+      window.location.href = "tutor/tutorAppointment.html";
+    }
+  });
+}

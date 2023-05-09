@@ -168,5 +168,26 @@ html {
 
 /* Applying display grid here */
 #dateCardContainer {
-  border: 2px solid red;
+  border: 2px solid rgb(255, 0, 0);
+}
+#true {
+  background-color: rgb(229, 249, 255);
+}
+button {
+  border: none;
+  padding: 0.4rem;
+  border-radius: 0.5rem;
+  /* background-color: red; */
+  color: rgb(255, 7, 7);
+  border: 1px solid lightblue;
+}
+button:hover {
+  cursor: pointer;
+}
+button:hover {
+  color: white;
+  background-color: red;
+}
+#booked {
+  color: red;
 }

@@ -74,12 +74,14 @@ function createSlotFunction(payload) {
 let segregatedDateObject = {};
 function fetchTutorData() {
   segregatedDateObject = {};
-  fetch(`${url}/slot/one-tutor/all`, {
-    headers: {
-      Authorization: `Bearer ${localStorage.getItem("token")}`,
-      "Content-Type": "application/json",
-    },
-  })
+  fetch(
+    `${url}/slot/one-tutor/dashboard/${localStorage.getItem("teacherEmail")}`,
+    {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  )
     .then((res) => {
       return res.json();
     })
@@ -127,12 +129,19 @@ function fetchTutorData() {
     data.forEach((element) => {
       if (!segregatedDateObject[element.dateMonthName]) {
         segregatedDateObject[element.dateMonthName] = [
-          { id: element._id, slot_timing: element.slot_timing },
+          {
+            id: element._id,
+            slot_timing: element.slot_timing,
+            isBooked: element.isBooked,
+            studentEmail: element.studentEmail,
+          },
         ];
       } else {
         segregatedDateObject[element.dateMonthName].push({
           id: element._id,
           slot_timing: element.slot_timing,
+          isBooked: element.isBooked,
+          studentEmail: element.studentEmail,
         });
       }
     });
@@ -142,7 +151,7 @@ function fetchTutorData() {
   let dateCardContainer = document.getElementById("card-container");
   function convertObjIntoArray(obj) {
     const arr = Object.entries(obj).map(([key, value]) => [key, value]);
-    console.log(arr);
+    console.log("here is the main :", arr);
     appendTheSlotCardToDom(arr);
   }
 
@@ -230,18 +239,37 @@ function fetchTutorData() {
     slotContainer.innerHTML = `
     ${selectedSlotArr
       .map((el, index) => {
-        return slotCard(el.id, el.slot_timing[0], el.slot_timing[1], id);
+        console.log("element is :", el);
+        return slotCard(
+          el.id,
+          el.slot_timing[0],
+          el.slot_timing[1],
+          id,
+          el.studentEmail,
+          el.isBooked
+        );
       })
       .join(" ")}
     `;
   }
 
   // Slot card part here
-  function slotCard(id, startTime, endTime, dateMonthYear) {
+  function slotCard(
+    id,
+    startTime,
+    endTime,
+    dateMonthYear,
+    studentEmail,
+    isBooked
+  ) {
     // console.log(--count);
     // console.log("after click in the dele:", ++count);
-    return `<div class="slot-card" data-id="${id}" data-date="${dateMonthYear}" data-starttime="${startTime}" data-endtime="${endTime}">
+    return `<div class="slot-card" data-id="${id}" data-date="${dateMonthYear}" data-starttime="${startTime}" data-endtime="${endTime}"  id="${
+      isBooked ? "true" : "false"
+    }" >
             <h3>${startTime} to ${endTime}</h3>
+            <h3 id="booked">${isBooked ? "Booked" : ""}</h3>
+            <h3>${isBooked ? "Booked by " + studentEmail : ""}</h3>
             <button data-id = "${id}" data-date="${dateMonthYear}" id = "delete_btn">Delete Slot</button>
           </div>`;
   }
