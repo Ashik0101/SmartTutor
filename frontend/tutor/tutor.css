@@ -152,3 +152,52 @@ input{
 #footer>ul>h4{
     border-bottom: 1px solid greenyellow;
 }
+
+@media (max-width: 901px) {
+    #header>div>img {
+      margin: 50%;
+    }
+  }
+  @media (max-width: 768px) {
+    #headerRight {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        /* justify-content: space-around; */
+        align-items: 20%;
+        margin-left: 50%;
+    }
+    #header > div {
+      padding-top: -1rem;
+      /* border: 2px solid rebeccapurple; */
+    }
+    #searchBoxes{
+      /* border: 2px solid blueviolet; */
+      /* display: block; */
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      /* justify-content: space-around; */
+      align-items: 20%;
+      margin-left: 50%;
+    } 
+    #searchBtn{
+        width: 24%;
+    }
+    #footer{
+        /* border: 2px solid blueviolet; */
+        /* display: block; */
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        /* justify-content: space-around; */
+        align-items: 20%;
+       
+      }
+      .extraDetail{
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        
+      }
+  }
