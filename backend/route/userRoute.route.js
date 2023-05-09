@@ -109,7 +109,8 @@ userRoute.get("/find", async (req, res) => {
 
 userRoute.post("/generate", async (req, res) => {
   try {
-    // const { email } = req.body;
+    let { email } = req.body;
+    console.log(email);
     sgMail.setApiKey(process.env.api_key);
 
     function generateOTP() {
@@ -128,12 +129,12 @@ userRoute.post("/generate", async (req, res) => {
     const otp = generateOTP();
 
     const msg = {
-      to: "aashiqmohd04@gmail.com",
+      to: email,
       from: "abhi.bunnny@gmail.com",
       subject: "One Time Password",
       text: `Otp is ${otp}`,
     };
-
+    console.log(msg);
     sgMail.send(msg).then(
       () => {},
       (error) => {
