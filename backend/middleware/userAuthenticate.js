@@ -8,10 +8,10 @@ const userAuthenticate = (req, res, next) => {
       req.body.studentEmail = decoded.userEmail;
       next();
     } else {
-      res.send({ msg: "Please login first!!!" });
+      res.send({ msg: "Please login first, wrong token!!!" });
     }
   } else {
-    res.send({ msg: "Please login first!!!" });
+    res.send({ msg: "Please login first means need a token!!!" });
   }
 };
 
