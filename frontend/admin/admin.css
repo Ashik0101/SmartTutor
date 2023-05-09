@@ -195,3 +195,28 @@ body[data-aos-duration='4000'] [data-aos],
     cursor: pointer;
     background-color: rgb(250, 109, 109);
   }
+
+  @media (max-width: 901px) {
+ 
+      #admin-right{
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+        margin-left: 20%;
+        
+      }
+      #all-services{
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+        
+      }
+      #projectLogo{
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+        justify-items: center;
+        margin-top: 20px;
+        
+      }
+  }
