@@ -102,7 +102,7 @@ body {
   border-radius: 20px;
 }
 
-.student-card{
+.student-card {
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   padding: 0% 4%;
   border-radius: 20px;
@@ -176,22 +176,44 @@ body {
   border-radius: 20px;
 }
 
-#logOut-btn{
-    position: fixed;
-    right: 10px;
-    bottom: 10px;
-    color: white;
-    background-color: red;
-    padding: 5px 20px;
-    border-radius: 10px;
-    font-weight: bolder;
+#logOut-btn {
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  color: white;
+  background-color: red;
+  padding: 5px 20px;
+  border-radius: 10px;
+  font-weight: bolder;
 }
-body[data-aos-duration='4000'] [data-aos],
-  [data-aos][data-aos][data-aos-duration='4000'] {
-    transition-duration: 4000ms;
-  }
+body[data-aos-duration="4000"] [data-aos],
+[data-aos][data-aos][data-aos-duration="4000"] {
+  transition-duration: 4000ms;
+}
 
-  #logOut-btn:hover{
-    cursor: pointer;
-    background-color: rgb(250, 109, 109);
-  }
+#logOut-btn:hover {
+  cursor: pointer;
+  background-color: rgb(250, 109, 109);
+}
+
+/* Admin card part is here */
+.teacher-card {
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 15px;
+}
+.teacher-card:hover {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+    rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+.teacher-card img {
+  width: 100px;
+  height: 100px;
+}
+.parent {
+  display: grid;
+  grid-template-columns: repeat(3, 250px);
+  gap: 20px;
+}
