@@ -37,6 +37,7 @@ function studentBoxClick(){
 
 function teacherBoxClick(){
     console.log(teacherData);
+    renderTeachersData(teacherData);
 }
 
 function eventBoxClick(){
@@ -89,3 +90,47 @@ logOut.addEventListener('click',()=>{
 
 let adminName = document.getElementById('admin-name');
 adminName.innerText = localStorage.getItem('name');
+
+
+
+
+//Render the tutors data 
+
+function renderTeachersData(data){
+    changeOnClick.innerHTML = null;
+    data.forEach((element)=>{
+        let contentBox = document.createElement('div');
+        let box = document.createElement('div');
+        let avatar = document.createElement('img');
+        avatar.setAttribute('src',element.image);
+        let title = document.createElement('h2');
+        title.innerText = element.name;
+        let email = document.createElement('h3');
+        email.innerText = element.email;
+        let address = document.createElement('h3');
+        address.innerText = element.address;
+        let subject1 = document.createElement('p');
+        subject1.innerText = element.subjects[0].name;
+        let subject2 = document.createElement('p');
+        subject2.innerText = element.subjects[1].name;
+        let btn = document.createElement("button");
+        btn.innerText = "DELETE";
+
+        btn.addEventListener("click",()=>{
+            fetch(`${url}teachers/remove/${element._id}`,{
+                method:"DELETE",
+                headers:{
+                    "Content-type":"application/json"
+                }
+            })
+            .then((res)=>{
+                return res.json();
+            })
+            .then((data)=>{
+                renderTeachersData(data)
+            })
+        })
+        box.append(avatar,title,email,address,subject1,subject2,btn);
+        changeOnClick.append(box)
+    })
+}

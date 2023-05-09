@@ -92,8 +92,8 @@ teacherRoute.get("/one/:id", async (req, res) => {
 teacherRoute.delete('/remove/:id',async(req,res)=>{
   try{
       let id = req.params.id;
-      await UserModel.findByIdAndDelete({_id:id});
-      res.send(await UserModel.find());
+      await Teacher.findByIdAndDelete({_id:id});
+      res.send(await Teacher.find());
   }catch(err){
       res.send(err)
   }
