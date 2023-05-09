@@ -62,7 +62,6 @@ async function NEXT(bool) {
   }
 
 }
-}
 
 
   // console.log(name, email, password,role)
