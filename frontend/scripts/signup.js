@@ -65,6 +65,7 @@ async function NEXT(bool) {
 
 
 
+
   // console.log(name, email, password,role)
 
   async function addDetails(name, email, password, role) {
