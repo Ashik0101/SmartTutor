@@ -259,7 +259,8 @@
                  
             })
                 .then(result => {
-                    console.log(result)   // Otp is recieved or not
+                    console.log(result)  
+                    alert(`Your OTP is : ${result}`) // Otp is recieved or not
                     paaskey = result;
                     document.querySelector("#otp").style.display = "block";
                 }).catch(err=>{
