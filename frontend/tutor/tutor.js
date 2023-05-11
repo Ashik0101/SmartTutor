@@ -5,7 +5,7 @@ userName.innerText = localStorage.getItem("name");
 
 let storedData = {};
 
-fetch("http://localhost:9090/teachers/all")
+fetch("https://helpful-crow-sweatshirt.cyclic.app/teachers/all")
   .then((res) => {
     return res.json();
   })
@@ -173,7 +173,7 @@ function forData() {
   console.log(teacherDivs);
   teacherDivs.forEach((element) => {
     element.addEventListener("click", () => {
-      //  console.log(element.dataset.id)
+      console.log("ye hai email :", element.dataset.id);
       localStorage.setItem("id", element.dataset.id);
       location.href = "../teacher_disc.html";
     });

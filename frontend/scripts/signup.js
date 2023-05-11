@@ -19,7 +19,7 @@ links.forEach((link) => {
 // Next function
 let previousPageUrl = document.referrer;
 console.log(`url is ---- ${previousPageUrl}`);
-if (previousPageUrl == "http://127.0.0.1:5501/") {
+if (previousPageUrl == "") {
   let bool = true;
   NEXT(bool);
 }
@@ -60,48 +60,39 @@ async function NEXT(bool) {
       window.location.href = "./signup.html";
     }
   }
-
 }
 
+// console.log(name, email, password,role)
 
-
-
-  // console.log(name, email, password,role)
-
-  async function addDetails(name, email, password, role) {
-    if (name.length == 0 || email.length == 0 || password.length == 0) {
-      alert("fill all details");
-      return 2;
-    }
-
-    const url = "http://localhost:9090/users/register";
-
-    const data = {
-      name: name,
-      email: email,
-      password: password,
-      role: role,
-    };
-
-    let res = await fetch(url, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
-    });
-    let response = await res.json();
-    console.log(response);
-    if (response.msg == "user exists") {
-      alert("account already exists");
-      return 1;
-      // alert("account already exists")
-      // accountExists=true;
-    }
-
+async function addDetails(name, email, password, role) {
+  if (name.length == 0 || email.length == 0 || password.length == 0) {
+    alert("fill all details");
+    return 2;
   }
 
+  const url = "https://helpful-crow-sweatshirt.cyclic.app/users/register";
 
+  const data = {
+    name: name,
+    email: email,
+    password: password,
+    role: role,
+  };
 
-
+  let res = await fetch(url, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+  let response = await res.json();
+  console.log(response);
+  if (response.msg == "user exists") {
+    alert("account already exists");
+    return 1;
+    // alert("account already exists")
+    // accountExists=true;
+  }
+}
 
 // login function
 const Loginbutton = document.querySelector("#login");
@@ -112,7 +103,7 @@ Loginbutton.addEventListener("click", async (event) => {
   const email = Lform.querySelector('input[type="email"]').value;
   const password = Lform.querySelector('input[type="password"]').value;
 
-  const url = "http://localhost:9090/users/login";
+  const url = "https://helpful-crow-sweatshirt.cyclic.app/users/login";
 
   const data = {
     email: email,
@@ -334,7 +325,7 @@ Tform.addEventListener("submit", async function (event) {
   console.log(data);
 
   if (role == "teacher" || role == "Teacher") {
-    let td = "http://localhost:9090/teachers/";
+    let td = "https://helpful-crow-sweatshirt.cyclic.app/teachers/";
 
     let res = await fetch(td, {
       method: "POST",
@@ -410,7 +401,7 @@ Sform.addEventListener("submit", async function (event) {
   };
 
   console.log(data);
-  const sd = "http://localhost:9090/";
+  const sd = "https://helpful-crow-sweatshirt.cyclic.app/";
 
   console.log(data);
   let res = await fetch(sd, {
@@ -430,9 +421,9 @@ Sform.addEventListener("submit", async function (event) {
 
 // let authe = document.getElementById("google")
 
-// authe.onclick = async () => { location.href="http://localhost:9090/auth/google"
+// authe.onclick = async () => { location.href="https://helpful-crow-sweatshirt.cyclic.app/auth/google"
 //   console.log("hi")
-//   let res = await fetch("http://localhost:9090/auth/google/callback", {
+//   let res = await fetch("https://helpful-crow-sweatshirt.cyclic.app/auth/google/callback", {
 //     method: "GET"
 //   })
 
@@ -446,9 +437,9 @@ Sform.addEventListener("submit", async function (event) {
 let authe = document.getElementById("google");
 
 authe.onclick = async () => {
-  location.href = "http://localhost:9090/auth/google";
+  location.href = "https://helpful-crow-sweatshirt.cyclic.app/auth/google";
   console.log("hi");
-  // let res = await fetch("http://localhost:9090/auth/google/callback", {
+  // let res = await fetch("https://helpful-crow-sweatshirt.cyclic.app/auth/google/callback", {
   //   method: "GET",
   //   credentials: "include", // Include cookies in the request
   // });

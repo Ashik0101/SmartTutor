@@ -249,19 +249,28 @@
         }
         else {
             //=====================================fexhing otp here========================================//
-
-            fetch("http://localhost:9090/users/generate",{
-                method:"POST"
+         
+            fetch("https://helpful-crow-sweatshirt.cyclic.app/users/generate",{
+                method:"POST",
+                headers:{
+                    "Content-type":"application/json",
+                },
+                body:JSON.stringify({email:localStorage.getItem("userEmail")})
+                    
             })
                 .then(res => {
                     console.log(res)
+                    
                    return res.json()
                  
             })
                 .then(result => {
-                    console.log(result)   // Otp is recieved or not
+                    console.log(result) 
+                    alert(`Your OTP is : ${result}`);  // Otp is recieved or not
                     paaskey = result;
+
                     document.querySelector("#otp").style.display = "block";
+                    // validateOTP(result)
                 }).catch(err=>{
                     console.log(err);
                 })
@@ -269,6 +278,9 @@
         }
     }
 
+    // function validateOTP(otp){
+
+    // }
     let otpval = document.querySelector("#val")
     document.querySelector("#ok").addEventListener("click", () => {
         if (otpval.value == paaskey) {

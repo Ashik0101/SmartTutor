@@ -1,4 +1,4 @@
-const url = "http://localhost:9090";
+const url = "https://helpful-crow-sweatshirt.cyclic.app";
 let segregatedDateObject = {};
 
 function fetchData() {
