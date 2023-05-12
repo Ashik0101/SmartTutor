@@ -1,4 +1,4 @@
-const url = "https://helpful-crow-sweatshirt.cyclic.app/";
+const url = "http://localhost:9090/";
 let teacherCount = document.getElementById("teacher-count");
 let studentCount = document.getElementById("student-count");
 let studentBox = document.getElementById("student-box");

@@ -7,7 +7,7 @@ passport.use(
     {
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      callbackURL: `https://helpful-crow-sweatshirt.cyclic.app/auth/google/callback`,
+      callbackURL: `http://localhost:9090/auth/google/callback`,
       scope: ["profile", "email"],
       // passReqToCallback: true,
     },

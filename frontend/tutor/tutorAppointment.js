@@ -1,4 +1,4 @@
-const url = "https://helpful-crow-sweatshirt.cyclic.app";
+const url = "http://localhost:9090";
 let segregatedDateObject = {};
 
 function fetchData() {
@@ -13,6 +13,18 @@ function fetchData() {
     })
     .then((res) => {
       console.log(res);
+      if (res.length === 0) {
+        document.querySelector(
+          ".select-a-date-div"
+        ).innerHTML = `<h1> No Slots Available for this Tutor </h1>`;
+        document
+          .querySelector(".select-a-date-div")
+          .classList.add("select-a-date-div-after");
+        document.querySelector(".avalable-slot-div").style.display = "none";
+        document.querySelector(".selected-slot-div").style.display = "none";
+        document.querySelector("#schedule-btn").style.display = "none";
+        return;
+      }
       let sortedArrBasedOnTiming = sortBasedOnTiming(res);
       let sortedArrBasedOnDateTimeAndYear = sortBasedOnDateMonthYear(
         sortedArrBasedOnTiming
@@ -204,7 +216,6 @@ function fetchData() {
 
   function clickHandlerOnScheduleButton(id) {
     document.getElementById("schedule-btn").addEventListener("click", () => {
-      // console.log(id);
       patchIsBookToTrueFunction(id);
     });
   }
@@ -212,15 +223,23 @@ function fetchData() {
   function patchIsBookToTrueFunction(id) {
     fetch(`${url}/slot/book/${id}`, {
       method: "PATCH",
+
       headers: {
+        "Content-Type": "application/json",
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
     })
-      .then((res) => res.json())
+      .then((res) => {
+        console.log(res);
+        return res.json();
+      })
       .then((res) => {
         console.log(res);
         // alert(res.msg);
 
+        if (res.msg == "Please Login First" || res.msg == "Invalid Token") {
+          return (window.location.href = "../signup.html");
+        }
         // fetchData();
         // showSlots();
         location.href = "../payment.html";
@@ -235,9 +254,17 @@ function fetchData() {
   }
 }
 fetchData();
+function showTeacherName() {
+  let teacherNameShower = document.getElementById("tutor-name");
+  teacherNameShower.innerText = `${localStorage.getItem("teacherName")}`;
+  document.getElementById("subject-name").innerText = `${localStorage.getItem(
+    "firstSubject"
+  )} and ${localStorage.getItem("secondSubject")}`;
 
-function sendEmail() {
-  let tutorEmail = localStorage.getItem("teacherEmail");
-  let studentEmail = localStorage.getItem("studentEmail");
-  console.log(tutorEmail, studentEmail);
+  function sendEmail() {
+    let tutorEmail = localStorage.getItem("teacherEmail");
+    let studentEmail = localStorage.getItem("studentEmail");
+    console.log(tutorEmail, studentEmail);
+  }
 }
+showTeacherName();

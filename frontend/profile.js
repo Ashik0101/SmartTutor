@@ -112,7 +112,7 @@ async function Aage() {
 
     console.log(data);
 
-    let td = "https://helpful-crow-sweatshirt.cyclic.app/teachers/update";
+    let td = "http://localhost:9090/teachers/update";
 
     let res = await fetch(td, {
       method: "PATCH",

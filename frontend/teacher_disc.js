@@ -103,7 +103,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 let storedId = localStorage.getItem("id");
 console.log(storedId);
-const url = "https://helpful-crow-sweatshirt.cyclic.app/teachers/one";
+const url = "http://localhost:9090/teachers/one";
 
 fetch(`${url}/${storedId}`)
   .then((res) => res.json())

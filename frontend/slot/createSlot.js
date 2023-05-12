@@ -1,4 +1,4 @@
-const url = "https://helpful-crow-sweatshirt.cyclic.app";
+const url = "http://localhost:9090";
 let count = 10;
 let dateButton = document.getElementById("date");
 dateButton.addEventListener("input", (event) => {

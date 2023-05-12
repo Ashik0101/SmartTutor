@@ -315,7 +315,7 @@ html {
   margin: auto;
 }
 .fixed-inputs {
-  border: 2px solid red;
+  /* border: 2px solid red; */
   display: flex;
   align-items: center;
   justify-content: center;

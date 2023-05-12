@@ -127,9 +127,24 @@ html {
 }
 #schedule-btn:hover {
   background-color: darkblue;
+  cursor: pointer;
 }
 
 /* Applying display grid here */
 #dateCardContainer {
   border: 2px solid red;
+}
+
+/* selet a div when there is no slot available for that particular teacher */
+.select-a-date-div-after {
+  font-size: 5rem;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(
+    rgb(145, 175, 236),
+    rgb(255, 255, 255),
+    rgb(122, 160, 238)
+  );
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  color: indigo;
 }
