@@ -1,132 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tutor Page</title>
     <link rel="stylesheet" href="tutor.css" />
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
-</head>
+    <link
+      rel="shortcut icon"
+      href="../images/smart_tutor_image_3.jpg"
+      type="image/x-icon"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.8/css/line.css"
+    />
+    <link
+      rel="shortcut icon"
+      href="./images/smart_tutor_image_3.jpg"
+      type="image/x-icon"
+    />
+  </head>
 
-<body>
+  <body>
     <div id="mainContainer">
-        <div id="lineOne">
-            <div style="display: flex;align-items: center;gap: 4%;">
-                <i class="uil uil-user-square"></i>
-                <p id="userName"></p>
-            </div>
-            <div style="display: flex;align-items: center;gap: 4%;">
-                <i class="uil uil-envelope-edit"></i>
-                <p>Message</p>
-            </div>
+      <div id="lineOne">
+        <div style="display: flex; align-items: center; gap: 4%">
+          <i class="uil uil-user-square"></i>
+          <p id="userName"></p>
         </div>
-        <div id="header">
-            <div>
-                <img src="./Smart.png" alt="" width="100px" />
-            </div>
-            <div id="headerRight">
-                <div>
-                    <h4>My Posts</h4>
-                </div>
-                <div>
-                    <h4>Find Tutors</h4>
-                </div>
-                <div>
-                    <h4>Wallet</h4>
-                </div>
-                <div>
-                    <h4>Reviews</h4>
-                </div>
-                <div  id="postBtn">
-                    <h4>Post Requirement</h4>
-                </div>
-            </div>
+        <div style="display: flex; align-items: center; gap: 4%">
+          <i class="uil uil-envelope-edit"></i>
+          <p>Message</p>
         </div>
+      </div>
+      <div id="header">
+        <div>
+          <img src="./Smart.png" alt="" width="100px" />
+        </div>
+        <div id="headerRight">
+          <div>
+            <h4>My Posts</h4>
+          </div>
+          <div>
+            <h4>Find Tutors</h4>
+          </div>
+          <div>
+            <h4>Wallet</h4>
+          </div>
+          <div>
+            <h4>Reviews</h4>
+          </div>
+          <div id="postBtn">
+            <h4>Post Requirement</h4>
+          </div>
+        </div>
+      </div>
 
-        <!-- Work for the search inbox starts here! -->
+      <!-- Work for the search inbox starts here! -->
 
-        <div id="searchPortal">
-            <div>
-                <h1>Tutors from all countries</h1>
-            </div>
-            <div id="searchBoxes">
-                <input type="text" id="subjectInput" placeholder="Subject/Skill" />
-                <input type="text" id="locationInput" placeholder="Location" />
-                <button id="searchBtn">Search</button>
-            </div>
-            <div id="filterButtons">
-                <h4>All</h4>
-                <h4>Online</h4>
-                <h4>Home</h4>
-                <h4>Assignment</h4>
-            </div>
+      <div id="searchPortal">
+        <div>
+          <h1>Tutors from all countries</h1>
         </div>
+        <div id="searchBoxes">
+          <input type="text" id="subjectInput" placeholder="Subject/Skill" />
+          <input type="text" id="locationInput" placeholder="Location" />
+          <button id="searchBtn">Search</button>
+        </div>
+        <div id="filterButtons">
+          <h4>All</h4>
+          <h4>Online</h4>
+          <h4>Home</h4>
+          <h4>Assignment</h4>
+        </div>
+      </div>
 
-        <div id="content">
-            <div id="tutors">
-                <!-- Fetch the data from the Javascript -->
-            </div>
-            <div id="locations">
-                <h2>Locations</h2>
-                <div id="location-box">
-                    <div class="countryName">
-                        <p class="state">Anytown</p>
-                        <p class="state">New Delhi</p>
-                        <p class="state">Kolkata</p>
-                        <p class="state">Bengaluru</p>
-                        <p class="state">Karnataka</p>
-                        <p class="state">Delhi</p>
-                        <p class="state">London</p>
-                        <p class="state">Cairo</p>
-                        <p class="state">Vancouver</p>
-                        <p class="state">Mumbai</p>
-                        <p class="state">Chennai</p>
-                        <p class="state">Hyderabad</p>
-                        <p class="state">Jaipur</p>
-                        <p class="state">Ahmedabad</p>
-                    </div>
-                </div>
-            </div>
+      <div id="content">
+        <div id="tutors">
+          <!-- Fetch the data from the Javascript -->
         </div>
+        <div id="locations">
+          <h2>Locations</h2>
+          <div id="location-box">
+            <div class="countryName">
+              <p class="state">Anytown</p>
+              <p class="state">New Delhi</p>
+              <p class="state">Kolkata</p>
+              <p class="state">Bengaluru</p>
+              <p class="state">Karnataka</p>
+              <p class="state">Delhi</p>
+              <p class="state">London</p>
+              <p class="state">Cairo</p>
+              <p class="state">Vancouver</p>
+              <p class="state">Mumbai</p>
+              <p class="state">Chennai</p>
+              <p class="state">Hyderabad</p>
+              <p class="state">Jaipur</p>
+              <p class="state">Ahmedabad</p>
+            </div>
+          </div>
+        </div>
+      </div>
 
-        <!-- Work for the footer starts here -->
-        <div id="footer">
-            <ul type="none">
-                <h4>Resources</h4>
-                <li>Learning mind</li>
-                <li>About</li>
-                <li>Stay Safe</li>
-                <li>Blog</li>
-                <li>Refer & earn coins</li>
-                <li>FAQs</li>
-                <li>Coins & Pricing</li>
-                <li>How it works - Students</li>
-                <li>Pay teachers</li>
-            </ul>
-            <ul type="none">
-                <h4>For teachers</h4>
-                <li>Get paid</li>
-                <li>Premium membership</li>
-                <li>Online teaching guide</li>
-                <li>How it works - Teachers</li>
-                <li>How to get jobs</li>
-                <li>Applying to jobs</li>
-                <li>Teacher Rankings</li>
-                <li>Share a story</li>
-            </ul>
-            <ul type="none">
-                <h4>Help and Feedback</h4>
-                <li>Feedback</li>
-                <li>Testimonials</li>
-                <li>Contact Us</li>
-                <li>Refund Policy</li>
-                <li>Privacy Policy</li>
-                <li>Terms</li>
-            </ul>
-        </div>
+      <!-- Work for the footer starts here -->
+      <div id="footer">
+        <ul type="none">
+          <h4>Resources</h4>
+          <li>Learning mind</li>
+          <li>About</li>
+          <li>Stay Safe</li>
+          <li>Blog</li>
+          <li>Refer & earn coins</li>
+          <li>FAQs</li>
+          <li>Coins & Pricing</li>
+          <li>How it works - Students</li>
+          <li>Pay teachers</li>
+        </ul>
+        <ul type="none">
+          <h4>For teachers</h4>
+          <li>Get paid</li>
+          <li>Premium membership</li>
+          <li>Online teaching guide</li>
+          <li>How it works - Teachers</li>
+          <li>How to get jobs</li>
+          <li>Applying to jobs</li>
+          <li>Teacher Rankings</li>
+          <li>Share a story</li>
+        </ul>
+        <ul type="none">
+          <h4>Help and Feedback</h4>
+          <li>Feedback</li>
+          <li>Testimonials</li>
+          <li>Contact Us</li>
+          <li>Refund Policy</li>
+          <li>Privacy Policy</li>
+          <li>Terms</li>
+        </ul>
+      </div>
     </div>
-</body>
-<script src="./tutor.js"></script>
+  </body>
+  <script src="./tutor.js"></script>
 </html>

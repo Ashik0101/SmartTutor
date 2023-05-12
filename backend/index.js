@@ -4,7 +4,7 @@ const { connection } = require("./configs/connection");
 const { userRoute } = require("./route/userRoute.route");
 const { teacherRoute } = require("./route/teacherRoute.route");
 const { googleRouter } = require("./route/googleAuth.route");
-const { slotRoute } = require("../backend/route/slot/slot.route");
+const { slotRoute } = require("./route/slot/slot.route");
 
 require("dotenv").config();
 

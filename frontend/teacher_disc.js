@@ -110,7 +110,12 @@ fetch(`${url}/${storedId}`)
   .then((res) => {
     console.log(res.data[0]);
     display(res.data[0]);
-    showAvailabeSlots(res.data[0].email);
+    showAvailabeSlots(
+      res.data[0].email,
+      res.data[0].name,
+      res.data[0].subjects[0].name,
+      res.data[0].subjects[1].name
+    );
   })
   .catch((err) => {
     console.log(err);
@@ -137,12 +142,15 @@ function display(data) {
   imageElement.setAttribute("src", imageUrl);
 }
 
-function showAvailabeSlots(email) {
+function showAvailabeSlots(email, teacherName, firstSubject, secondSubject) {
   let scheduleButton = document.getElementById("schedule-meet-btn");
 
   scheduleButton.addEventListener("click", () => {
     localStorage.setItem("teacherEmail", email);
-    console.log("email is ", email);
+    localStorage.setItem("teacherName", teacherName);
+    localStorage.setItem("secondSubject", secondSubject);
+    localStorage.setItem("firstSubject", firstSubject);
+    console.log(email, teacherName, firstSubject, secondSubject);
     if (email == localStorage.getItem("userEmail")) {
       console.log("tutor email and student email is same");
       window.location.href = "slot/createSlot.html";

@@ -1,314 +1,417 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Profile</title>
-    <link rel="stylesheet" href="profile.css">
+    <link rel="stylesheet" href="profile.css" />
+    <link
+      rel="shortcut icon"
+      href="./images/smart_tutor_image_3.jpg"
+      type="image/x-icon"
+    />
+    <script
+      src="https://kit.fontawesome.com/b471923b50.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
 
-    <script src="https://kit.fontawesome.com/b471923b50.js" crossorigin="anonymous"></script>
-</head>
-
-<body>
+  <body>
     <nav class="navbar">
-        <div class="navbar-logo">
-            <img src="./images/smart_tutor_image_3.jpg" alt="Smart Tutor Logo" />
+      <div class="navbar-logo">
+        <img src="./images/smart_tutor_image_3.jpg" alt="Smart Tutor Logo" />
+      </div>
+      <div class="navbar-menu">
+        <div class="navbar-item">
+          <div>
+            <a href="#" class="navbar-link">Find Tutor</a>
+            <i class="bx bxs-chevron-down"></i>
+          </div>
+          <div class="navbar-dropdown">
+            <div><a href="#" class="navbar-dropdown-link">All Tutors</a></div>
+            <div>
+              <a href="#" class="navbar-dropdown-link">Online Tutors</a>
+            </div>
+            <div><a href="#" class="navbar-dropdown-link">Home Tutors</a></div>
+            <div>
+              <a href="#" class="navbar-dropdown-link">Request a Tutor</a>
+            </div>
+          </div>
         </div>
-        <div class="navbar-menu">
-            <div class="navbar-item">
-                <div>
-                    <a href="#" class="navbar-link">Find Tutor</a>
-                    <i class="bx bxs-chevron-down"></i>
-                </div>
-                <div class="navbar-dropdown">
-                    <div><a href="#" class="navbar-dropdown-link">All Tutors</a></div>
-                    <div>
-                        <a href="#" class="navbar-dropdown-link">Online Tutors</a>
-                    </div>
-                    <div><a href="#" class="navbar-dropdown-link">Home Tutors</a></div>
-                    <div>
-                        <a href="#" class="navbar-dropdown-link">Request a Tutor</a>
-                    </div>
-                </div>
-            </div>
-            <div class="navbar-item">
-                <div>
-                    <a href="#" class="navbar-link">Find Tutor Jobs</a>
-                    <i class="bx bxs-chevron-down"></i>
-                </div>
-                <div class="navbar-dropdown">
-                    <div><a href="#" class="navbar-dropdown-link">Job Option 1</a></div>
-                    <div><a href="#" class="navbar-dropdown-link">Job Option 2</a></div>
-                    <div><a href="#" class="navbar-dropdown-link">Job Option 3</a></div>
-                    <div><a href="#" class="navbar-dropdown-link">Job Option 4</a></div>
-                </div>
-            </div>
-            <div id="request-a-tutor-nav-sec" class="navbar-item request-a-tutor-nav-sec">
-                <a href="#" class="navbar-link">Request a Tutor</a>
-            </div>
-            <div class="navbar-item login-nav-sec">
-                <a href="#" class="navbar-link">Login</a>
-                <div id="navbar-login-dropdown" class="navbar-dropdown">
-                    <div id="Hnn">
-                        <a href="#" class="navbar-dropdown-link">Login</a>
-                    </div>
-                    <div><a href="#">or</a></div>
-                    <div id="signup">
-                        <a href="#" class="navbar-dropdown-link">Signup</a>
-                    </div>
-                </div>
-            </div>
+        <div class="navbar-item">
+          <div>
+            <a href="#" class="navbar-link">Find Tutor Jobs</a>
+            <i class="bx bxs-chevron-down"></i>
+          </div>
+          <div class="navbar-dropdown">
+            <div><a href="#" class="navbar-dropdown-link">Job Option 1</a></div>
+            <div><a href="#" class="navbar-dropdown-link">Job Option 2</a></div>
+            <div><a href="#" class="navbar-dropdown-link">Job Option 3</a></div>
+            <div><a href="#" class="navbar-dropdown-link">Job Option 4</a></div>
+          </div>
         </div>
+        <div
+          id="request-a-tutor-nav-sec"
+          class="navbar-item request-a-tutor-nav-sec"
+        >
+          <a href="#" class="navbar-link">Request a Tutor</a>
+        </div>
+        <div class="navbar-item login-nav-sec">
+          <a href="#" class="navbar-link">Login</a>
+          <div id="navbar-login-dropdown" class="navbar-dropdown">
+            <div id="Hnn">
+              <a href="#" class="navbar-dropdown-link">Login</a>
+            </div>
+            <div><a href="#">or</a></div>
+            <div id="signup">
+              <a href="#" class="navbar-dropdown-link">Signup</a>
+            </div>
+          </div>
+        </div>
+      </div>
     </nav>
 
     <div class="container">
-        <section class="userProfile card">
-            <div class="profile">
-                <figure><img src="./images/download.jpg" alt="profile" id="pic"></figure>
+      <section class="userProfile card">
+        <div class="profile">
+          <figure>
+            <img src="./images/download.jpg" alt="profile" id="pic" />
+          </figure>
+        </div>
+      </section>
+
+      <section class="userDetails card">
+        <section id="unp">
+          <div id="edit" style="width: 30px; height: 30px">
+            <i class="fa-regular fa-pen-to-square"></i>
+          </div>
+          <div class="userName pos">
+            <div>
+              <span> <b>Name:</b></span>
+              <input type="text" name="name" value="Amit Sir" readonly />
             </div>
-        </section>
 
+            <span> <b>Subject:</b></span>
+            <input
+              type="text"
+              name="title"
+              value="Full-stack Developer"
+              readonly
+            />
+          </div>
 
-        <section class="userDetails card ">
-            <section id="unp">
+          <div id="inform">
+            <div class="contact_Info" style="padding-left: 10px">
+              <h1 class="heading">Contact Information</h1>
+              <ul>
+                <li class="phone">
+                  <h1 class="label">Phone:</h1>
+                  <input
+                    type="number"
+                    name="phone"
+                    class="p"
+                    value="453262627"
+                    readonly
+                  />
+                </li>
 
-                <div id="edit" style="width: 30px; height: 30px;"><i  class="fa-regular fa-pen-to-square"></i></div>
-                <div class="userName pos">
-                    <div>
-                        <span> <b>Name:</b></span>
-                        <input type="text" name="name" value="Amit Sir" readonly>
-                    </div>
-
-                    <span> <b>Subject:</b></span>
-                    <input type="text" name="title" value="Full-stack Developer" readonly>
-
-                </div>
-
-                <div id="inform">
-                    <div class="contact_Info" style="padding-left:10px ;">
-                        <h1 class="heading">Contact Information</h1>
-                        <ul>
-                            <li class="phone">
-                                <h1 class="label">Phone:</h1>
-                                <input type="number" name="phone" class="p" value="453262627" readonly>
-                            </li>
-
-                            <!-- <li class="address">
+                <!-- <li class="address">
                             <h1 class="label">Address:</h1>
                             <input type="text" name="address" value="Amit@gmail.com" readonly>
                         </li> -->
 
-                            <li class="email">
-                                <h1 class="label">E-mail:</h1>
-                                <input type="text" name="email" class="p" value="Amit@gmail.com" readonly>
-                            </li>
+                <li class="email">
+                  <h1 class="label">E-mail:</h1>
+                  <input
+                    type="text"
+                    name="email"
+                    class="p"
+                    value="Amit@gmail.com"
+                    readonly
+                  />
+                </li>
 
-                            <li>
-                                <h1 class="label">Location:</h1>
-                            </li>
+                <li>
+                  <h1 class="label">Location:</h1>
+                </li>
 
-                            <div class="map">
-                                <i class="fa-solid fa-location-dot"></i>
-                                <input type="text" name="address" value="Bhilai,CG" readonly>
-                                <!-- <span>Bhilai, CG</span> -->
-                            </div>
-
-                        </ul>
-                    </div>
-                    <br>
-                    <div class="skills basic_info" style="padding-left:10px ;">
-                        <h1 class="heading">Skills:</h1>
-                        <ul>
-                            <li>Android</li>
-                            <li>Web-Design</li>
-                            <li>UI/UX</li>
-                            <li>Video Editing</li>
-                        </ul>
-                    </div>
-                    <br>
-                    <div class="basic_info" style="padding-left:10px ;">
-                        <h1 class="heading">Basic Information</h1>
-                        <ul>
-                            <li class="birthday">
-                                <h1 class="label">Birthday:</h1>
-                                <input type="date" name="birthdate" value="Amit@gmail.com" readonly>
-                            </li>
-
-                            <li class="sex">
-                                <h1 class="label">Gender:</h1>
-                                <p id="gen">Male</p>
-                            </li>
-                            <li class="rol">
-                                <h1 class="label">Role:</h1>
-                                <p id="gen2">Teacher</p>
-                            </li>
-                        </ul>
-                    </div>
+                <div class="map">
+                  <i class="fa-solid fa-location-dot"></i>
+                  <input
+                    type="text"
+                    name="address"
+                    value="Bhilai,CG"
+                    readonly
+                  />
+                  <!-- <span>Bhilai, CG</span> -->
                 </div>
+              </ul>
+            </div>
+            <br />
+            <div class="skills basic_info" style="padding-left: 10px">
+              <h1 class="heading">Skills:</h1>
+              <ul>
+                <li>Android</li>
+                <li>Web-Design</li>
+                <li>UI/UX</li>
+                <li>Video Editing</li>
+              </ul>
+            </div>
+            <br />
+            <div class="basic_info" style="padding-left: 10px">
+              <h1 class="heading">Basic Information</h1>
+              <ul>
+                <li class="birthday">
+                  <h1 class="label">Birthday:</h1>
+                  <input
+                    type="date"
+                    name="birthdate"
+                    value="Amit@gmail.com"
+                    readonly
+                  />
+                </li>
 
-                <button id="e_btn">Save & Continue</button>
-                <button id="e_btn2">More Details</button>
-            </section>
+                <li class="sex">
+                  <h1 class="label">Gender:</h1>
+                  <p id="gen">Male</p>
+                </li>
+                <li class="rol">
+                  <h1 class="label">Role:</h1>
+                  <p id="gen2">Teacher</p>
+                </li>
+              </ul>
+            </div>
+          </div>
 
-            <section id="unp2" style="display: none;">
-                <div id="Tf">
-
-                    <div class="content">
-                        <form action="# " id="TeacherDetails">
-                            <div class="user-details">
-
-                                <div class="input-box">
-                                    <span class="details">Gender</span>
-                                    <select name="tgen " id="tgen">
-                                        <option value="Male">Male</option>
-                                        <option value="Female">Female</option>
-                                        <option value="Other">Other</option>
-                                    </select>
-                                </div>
-
-                                <div class="input-box">
-                                    <span class="details">Teaches Online</span>
-                                    <select name="newOnline" id="newOnline">
-                                        <option value="Yes">Yes</option>
-                                        <option value="No">No</option>
-                                    </select>
-                                </div>
-
-                                <div class="input-box">
-                                    <span class="details">Homework Help</span>
-                                    <select name="newHomework" id="newHomework">
-                                        <option value="Yes">Yes</option>
-                                        <option value="No">No</option>
-                                    </select>
-                                </div>
-
-                                <div class="input-box">
-                                    <span class="details">Image</span>
-                                    <input type="text" placeholder="Image Link" id="newImage" required>
-                                </div>
-                                <div class="input-box">
-                                    <span class="details">Description</span>
-                                    <input type="text" placeholder="Description" id="newDesc" required>
-                                </div>
-                                <div class="input-box">
-                                    <span class="details">Fees</span>
-                                    <input type="text" placeholder="Fees" id="newFees" required>
-                                </div>
-                                <div class="input-box">
-                                    <span class="details">Qualification</span>
-                                    <input type="text" placeholder="Qualification" id="Qualification" required>
-                                </div>
-
-                                <div class="input-box">
-                                    <span class="details">Experience</span>
-                                    <input type="text" placeholder="Enter your Experience" id="Experience" required>
-                                </div>
-                                <div class="input-box">
-                                    <span class="details">Country</span>
-                                    <input type="text" placeholder="Enter Country name" id="newCountry" required>
-                                </div>
-
-                                <div class="input-box">
-                                    <span class="details">Designation</span>
-                                    <input type="text" placeholder="Designation" id="newDesignation" required>
-                                </div>
-
-                                <div class="input-box">
-                                    <span class="details">Working Hour</span>
-                                    <input type="number" placeholder="Enter Working Hour" id="newHour" required>
-                                </div>
-
-                                <div class="input-box">
-                                    <span class="details">Subjects</span>
-                                    <div
-                                        style="display: grid; grid-template-columns: repeat(2,1fr); border: 1px solid #ccc;border-bottom-width: 2px;border-color: #9b59b6; padding: 5px 5px 5px 8px; border-radius: 8px; ">
-                                        <div style="display: flex;align-items: center;">
-                                            <label for="">Maths</label>
-                                            <input type="checkbox" placeholder="Maths" id="tex1" value="Maths"
-                                                style="width: 8%; margin-left: 5%; ">
-                                        </div>
-                                        <div style="display: flex;align-items: center;">
-                                            <label for="">English</label>
-                                            <input type="checkbox" placeholder="Maths" id="tex2" value="English"
-                                                style="width: 8%; margin-left: 5%; ">
-                                        </div>
-                                        <div style="display: flex;align-items: center;">
-                                            <label for="">Science</label>
-                                            <input type="checkbox" placeholder="Maths" id="tex3" value="Science"
-                                                style="width: 8%; margin-left: 5%;">
-                                        </div>
-                                        <div style="display: flex;align-items: center;">
-                                            <label for="">Social Studies</label>
-                                            <input type="checkbox" placeholder="Maths" id="tex4" value="Social Studies"
-                                                style="width: 8%; margin-left: 5%;">
-                                        </div>
-                                        <div style="display: flex;align-items: center;">
-                                            <label for="">All subject</label>
-                                            <input type="checkbox" placeholder="Maths" id="tex5" value="All subject"
-                                                style="width: 8%; margin-left: 5%;">
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                            <div id="btnn">
-                                <a class="button" href="profile.html"><=Back</a>
-                                        <button onclick="Aage()" class="button">Save & Continue =></button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </section>
+          <button id="e_btn">Save & Continue</button>
+          <button id="e_btn2">More Details</button>
         </section>
 
+        <section id="unp2" style="display: none">
+          <div id="Tf">
+            <div class="content">
+              <form action="# " id="TeacherDetails">
+                <div class="user-details">
+                  <div class="input-box">
+                    <span class="details">Gender</span>
+                    <select name="tgen " id="tgen">
+                      <option value="Male">Male</option>
+                      <option value="Female">Female</option>
+                      <option value="Other">Other</option>
+                    </select>
+                  </div>
 
-        <!-- ===== ===== Timeline & About Sections ===== ===== -->
-        <!-- <section class="timeline_about card">
+                  <div class="input-box">
+                    <span class="details">Teaches Online</span>
+                    <select name="newOnline" id="newOnline">
+                      <option value="Yes">Yes</option>
+                      <option value="No">No</option>
+                    </select>
+                  </div>
+
+                  <div class="input-box">
+                    <span class="details">Homework Help</span>
+                    <select name="newHomework" id="newHomework">
+                      <option value="Yes">Yes</option>
+                      <option value="No">No</option>
+                    </select>
+                  </div>
+
+                  <div class="input-box">
+                    <span class="details">Image</span>
+                    <input
+                      type="text"
+                      placeholder="Image Link"
+                      id="newImage"
+                      required
+                    />
+                  </div>
+                  <div class="input-box">
+                    <span class="details">Description</span>
+                    <input
+                      type="text"
+                      placeholder="Description"
+                      id="newDesc"
+                      required
+                    />
+                  </div>
+                  <div class="input-box">
+                    <span class="details">Fees</span>
+                    <input
+                      type="text"
+                      placeholder="Fees"
+                      id="newFees"
+                      required
+                    />
+                  </div>
+                  <div class="input-box">
+                    <span class="details">Qualification</span>
+                    <input
+                      type="text"
+                      placeholder="Qualification"
+                      id="Qualification"
+                      required
+                    />
+                  </div>
+
+                  <div class="input-box">
+                    <span class="details">Experience</span>
+                    <input
+                      type="text"
+                      placeholder="Enter your Experience"
+                      id="Experience"
+                      required
+                    />
+                  </div>
+                  <div class="input-box">
+                    <span class="details">Country</span>
+                    <input
+                      type="text"
+                      placeholder="Enter Country name"
+                      id="newCountry"
+                      required
+                    />
+                  </div>
+
+                  <div class="input-box">
+                    <span class="details">Designation</span>
+                    <input
+                      type="text"
+                      placeholder="Designation"
+                      id="newDesignation"
+                      required
+                    />
+                  </div>
+
+                  <div class="input-box">
+                    <span class="details">Working Hour</span>
+                    <input
+                      type="number"
+                      placeholder="Enter Working Hour"
+                      id="newHour"
+                      required
+                    />
+                  </div>
+
+                  <div class="input-box">
+                    <span class="details">Subjects</span>
+                    <div
+                      style="
+                        display: grid;
+                        grid-template-columns: repeat(2, 1fr);
+                        border: 1px solid #ccc;
+                        border-bottom-width: 2px;
+                        border-color: #9b59b6;
+                        padding: 5px 5px 5px 8px;
+                        border-radius: 8px;
+                      "
+                    >
+                      <div style="display: flex; align-items: center">
+                        <label for="">Maths</label>
+                        <input
+                          type="checkbox"
+                          placeholder="Maths"
+                          id="tex1"
+                          value="Maths"
+                          style="width: 8%; margin-left: 5%"
+                        />
+                      </div>
+                      <div style="display: flex; align-items: center">
+                        <label for="">English</label>
+                        <input
+                          type="checkbox"
+                          placeholder="Maths"
+                          id="tex2"
+                          value="English"
+                          style="width: 8%; margin-left: 5%"
+                        />
+                      </div>
+                      <div style="display: flex; align-items: center">
+                        <label for="">Science</label>
+                        <input
+                          type="checkbox"
+                          placeholder="Maths"
+                          id="tex3"
+                          value="Science"
+                          style="width: 8%; margin-left: 5%"
+                        />
+                      </div>
+                      <div style="display: flex; align-items: center">
+                        <label for="">Social Studies</label>
+                        <input
+                          type="checkbox"
+                          placeholder="Maths"
+                          id="tex4"
+                          value="Social Studies"
+                          style="width: 8%; margin-left: 5%"
+                        />
+                      </div>
+                      <div style="display: flex; align-items: center">
+                        <label for="">All subject</label>
+                        <input
+                          type="checkbox"
+                          placeholder="Maths"
+                          id="tex5"
+                          value="All subject"
+                          style="width: 8%; margin-left: 5%"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div id="btnn">
+                  <a class="button" href="profile.html"><=Back</a>
+                  <button onclick="Aage()" class="button">
+                    Save & Continue =>
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <!-- ===== ===== Timeline & About Sections ===== ===== -->
+      <!-- <section class="timeline_about card">
           
         </section> -->
-
-
     </div>
     <div id="footer">
-        <ul type="none">
-            <h4>Resources</h4>
-            <li>Learning mind</li>
-            <li>About</li>
-            <li>Stay Safe</li>
-            <li>Blog</li>
-            <li>Refer & earn coins</li>
-            <li>FAQs</li>
-            <li>Coins & Pricing</li>
-            <li>How it works - Students</li>
-            <li>Pay teachers</li>
-        </ul>
-        <ul type="none">
-            <h4>For teachers</h4>
-            <li>Get paid</li>
-            <li>Premium membership</li>
-            <li>Online teaching guide</li>
-            <li>How it works - Teachers</li>
-            <li>How to get jobs</li>
-            <li>Applying to jobs</li>
-            <li>Teacher Rankings</li>
-            <li>Share a story</li>
-        </ul>
-        <ul type="none">
-            <h4>Help and Feedback</h4>
-            <li>Feedback</li>
-            <li>Testimonials</li>
-            <li>Contact Us</li>
-            <li>Refund Policy</li>
-            <li>Privacy Policy</li>
-            <li>Terms</li>
-        </ul>
-
+      <ul type="none">
+        <h4>Resources</h4>
+        <li>Learning mind</li>
+        <li>About</li>
+        <li>Stay Safe</li>
+        <li>Blog</li>
+        <li>Refer & earn coins</li>
+        <li>FAQs</li>
+        <li>Coins & Pricing</li>
+        <li>How it works - Students</li>
+        <li>Pay teachers</li>
+      </ul>
+      <ul type="none">
+        <h4>For teachers</h4>
+        <li>Get paid</li>
+        <li>Premium membership</li>
+        <li>Online teaching guide</li>
+        <li>How it works - Teachers</li>
+        <li>How to get jobs</li>
+        <li>Applying to jobs</li>
+        <li>Teacher Rankings</li>
+        <li>Share a story</li>
+      </ul>
+      <ul type="none">
+        <h4>Help and Feedback</h4>
+        <li>Feedback</li>
+        <li>Testimonials</li>
+        <li>Contact Us</li>
+        <li>Refund Policy</li>
+        <li>Privacy Policy</li>
+        <li>Terms</li>
+      </ul>
     </div>
-</body>
-
+  </body>
 </html>
 <script src="profile.js"></script>

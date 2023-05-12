@@ -4,6 +4,7 @@ const { UserModel } = require("../model/user.model");
 
 const teacherRoute = express.Router();
 
+//creating teachers here
 teacherRoute.post("/", async (req, res) => {
   const data = req.body;
 
@@ -18,7 +19,6 @@ teacherRoute.post("/", async (req, res) => {
     // }
     // console.log(teacher)
 
-
     let addDetails = new Teacher(data);
     await addDetails.save();
     res.send({
@@ -32,6 +32,7 @@ teacherRoute.post("/", async (req, res) => {
   }
 });
 
+//Getting a particular teacher here
 teacherRoute.get("/find", async (req, res) => {
   const email = req.body;
   try {
@@ -47,6 +48,7 @@ teacherRoute.get("/find", async (req, res) => {
   }
 });
 
+//finding all the teacher here
 teacherRoute.get("/all", async (req, res) => {
   try {
     let user = await Teacher.find();
@@ -59,6 +61,7 @@ teacherRoute.get("/all", async (req, res) => {
   }
 });
 
+// updating teachers details here
 teacherRoute.patch("/update", async (req, res) => {
   try {
     const data = req.body;
@@ -88,15 +91,14 @@ teacherRoute.get("/one/:id", async (req, res) => {
   }
 });
 
-
-teacherRoute.delete('/remove/:id',async(req,res)=>{
-  try{
-      let id = req.params.id;
-      await Teacher.findByIdAndDelete({_id:id});
-      res.send(await Teacher.find());
-  }catch(err){
-      res.send(err)
+teacherRoute.delete("/remove/:id", async (req, res) => {
+  try {
+    let id = req.params.id;
+    await Teacher.findByIdAndDelete({ _id: id });
+    res.send(await Teacher.find());
+  } catch (err) {
+    res.send(err);
   }
-})
+});
 
 module.exports = { teacherRoute };

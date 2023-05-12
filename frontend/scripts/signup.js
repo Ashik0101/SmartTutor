@@ -19,7 +19,7 @@ links.forEach((link) => {
 // Next function
 let previousPageUrl = document.referrer;
 console.log(`url is ---- ${previousPageUrl}`);
-if (previousPageUrl == "http://127.0.0.1:5501/") {
+if (previousPageUrl == "") {
   let bool = true;
   NEXT(bool);
 }
@@ -60,48 +60,39 @@ async function NEXT(bool) {
       window.location.href = "./signup.html";
     }
   }
-
 }
 
+// console.log(name, email, password,role)
 
-
-
-  // console.log(name, email, password,role)
-
-  async function addDetails(name, email, password, role) {
-    if (name.length == 0 || email.length == 0 || password.length == 0) {
-      alert("fill all details");
-      return 2;
-    }
-
-    const url = "http://localhost:9090/users/register";
-
-    const data = {
-      name: name,
-      email: email,
-      password: password,
-      role: role,
-    };
-
-    let res = await fetch(url, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
-    });
-    let response = await res.json();
-    console.log(response);
-    if (response.msg == "user exists") {
-      alert("account already exists");
-      return 1;
-      // alert("account already exists")
-      // accountExists=true;
-    }
-
+async function addDetails(name, email, password, role) {
+  if (name.length == 0 || email.length == 0 || password.length == 0) {
+    alert("fill all details");
+    return 2;
   }
 
+  const url = "http://localhost:9090/users/register";
 
+  const data = {
+    name: name,
+    email: email,
+    password: password,
+    role: role,
+  };
 
-
+  let res = await fetch(url, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+  let response = await res.json();
+  console.log(response);
+  if (response.msg == "user exists") {
+    alert("account already exists");
+    return 1;
+    // alert("account already exists")
+    // accountExists=true;
+  }
+}
 
 // login function
 const Loginbutton = document.querySelector("#login");

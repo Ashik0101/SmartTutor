@@ -24,25 +24,33 @@ slotRoute.post("/create", authenticate, async (req, res) => {
     });
     console.log(slot);
   } catch (error) {
-    res.send({ msg: "Some Error in creating the slot", error: error.message });
+    res.send({
+      msg: "Some Error in creating the slot",
+      error: error.message,
+    });
     console.log(`Some Error in creating the slot : ${error}`);
   }
 });
 
 /* Get the slots of a particular tutor here */
-slotRoute.get("/one-tutor/all", authenticate, async (req, res) => {
-  const userEmail = req.body.userEmail;
-  try {
-    const slots = await SlotModel.find({ userEmail: userEmail });
-    return res.send(slots);
-  } catch (error) {
-    res.send({
-      msg: "Some Error in getting the slot",
-      error: error.message,
-    });
-    console.log(`Some Error in getting all the slot : ${error}`);
+slotRoute.get(
+  "/one-tutor/all",
+  authenticate,
+
+  async (req, res) => {
+    const userEmail = req.body.userEmail;
+    try {
+      const slots = await SlotModel.find({ userEmail: userEmail });
+      return res.send(slots);
+    } catch (error) {
+      res.send({
+        msg: "Some Error in getting the slot",
+        error: error.message,
+      });
+      console.log(`Some Error in getting all the slot : ${error}`);
+    }
   }
-});
+);
 /*Get alll the slot of selected tutor by email id (for students) */
 slotRoute.get("/one-tutor/all/:id", async (req, res) => {
   const userEmail = req.params.id;
@@ -112,7 +120,9 @@ slotRoute.delete("/delete/:id", authenticate, async (req, res) => {
       return res.send({ msg: "No Slots Available with this ID" });
     }
     if (data.userEmail !== userEmail) {
-      return res.send({ msg: "You are not authorized to delete this slot !" });
+      return res.send({
+        msg: "You are not authorized to delete this slot !",
+      });
     }
     const deletedSlot = await SlotModel.findByIdAndDelete({ _id: slotId });
     res.status(200).send({
@@ -151,7 +161,9 @@ slotRoute.patch("/update/:id", authenticate, async (req, res) => {
       return res.send({ msg: "No Slots Available with this ID" });
     }
     if (data.userEmail !== userEmail) {
-      return res.send({ msg: "You are not authorized to update this slot !" });
+      return res.send({
+        msg: "You are not authorized to update this slot !",
+      });
     }
     const updatedSlot = await SlotModel.findByIdAndUpdate({ _id: slotId }, obj);
     res.status(200).send({
@@ -173,9 +185,10 @@ slotRoute.patch("/update/:id", authenticate, async (req, res) => {
 slotRoute.patch("/book/:id", userAuthenticate, async (req, res) => {
   const slotId = req.params.id;
   const studentEmail = req.body.studentEmail;
+  console.log("slotId :", slotId, "studentEmail :", studentEmail);
   if (!studentEmail) {
     return res.send({
-      msg: "Either Student Email is missing or isBooked is still false.",
+      msg: "Student Email is missing.",
     });
   }
 

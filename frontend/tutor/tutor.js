@@ -173,7 +173,7 @@ function forData() {
   console.log(teacherDivs);
   teacherDivs.forEach((element) => {
     element.addEventListener("click", () => {
-      //  console.log(element.dataset.id)
+      console.log("ye hai email :", element.dataset.id);
       localStorage.setItem("id", element.dataset.id);
       location.href = "../teacher_disc.html";
     });

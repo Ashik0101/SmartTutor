@@ -82,6 +82,8 @@ userRoute.post("/login", async (req, res) => {
   }
 });
 
+// here getting all the users data, means teachers and students combined.
+// it can be accessed by admin
 userRoute.get("/all", async (req, res) => {
   try {
     let user = await UserModel.find();
@@ -93,6 +95,8 @@ userRoute.get("/all", async (req, res) => {
   }
 });
 
+//this route finds user based on role
+// can be accessed by admin only.
 userRoute.get("/find", async (req, res) => {
   let role = req.query.role;
   try {
@@ -107,6 +111,7 @@ userRoute.get("/find", async (req, res) => {
   }
 });
 
+//generating ranom OTP here
 userRoute.post("/generate", async (req, res) => {
   try {
     let { email } = req.body;

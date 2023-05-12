@@ -7,6 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Payment</title>
     <link rel="stylesheet" href="index.css">
+    <link
+    rel="shortcut icon"
+    href="./images/smart_tutor_image_3.jpg"
+    type="image/x-icon"
+  />
     <style>
         * {
             font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -249,20 +254,29 @@
         }
         else {
             //=====================================fexhing otp here========================================//
-
+         
             fetch("http://localhost:9090/users/generate",{
-                method:"POST"
+                method:"POST",
+                headers:{
+                    "Content-type":"application/json",
+                },
+                body:JSON.stringify({email:localStorage.getItem("userEmail")})
+                    
             })
                 .then(res => {
                     console.log(res)
+                    
                    return res.json()
                  
             })
                 .then(result => {
-                    console.log(result)  
-                    alert(`Your OTP is : ${result}`) // Otp is recieved or not
+                    console.log(result);
+                    alert(`Your OTP is : ${result}`);  // Otp is recieved or not
+
                     paaskey = result;
+
                     document.querySelector("#otp").style.display = "block";
+                    // validateOTP(result)
                 }).catch(err=>{
                     console.log(err);
                 })
@@ -270,15 +284,18 @@
         }
     }
 
+    // function validateOTP(otp){
+
+    // }
     let otpval = document.querySelector("#val")
     document.querySelector("#ok").addEventListener("click", () => {
         if (otpval.value == paaskey) {
             document.querySelector("#otp").style.display = "none";
-            document.querySelector("#succ").style.display = "block"
+            // document.querySelector("#succ").style.display = "block"
             alert("Your slot has been booked, cheers!!!")
             setTimeout(() => {
                 window.location.href = "tutor/tutorAppointment.html"
-            }, 5000)
+            }, 1000)
         } else {
             alert("Wrong OTP")
         }
