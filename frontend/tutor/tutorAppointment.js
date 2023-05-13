@@ -1,4 +1,4 @@
-const url = "http://localhost:9090";
+const url = "https://dull-cyan-jellyfish-cuff.cyclic.app";
 let segregatedDateObject = {};
 
 function fetchData() {

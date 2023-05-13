@@ -7,7 +7,7 @@ passport.use(
     {
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      callbackURL: `http://localhost:9090/auth/google/callback`,
+      callbackURL: `https://dull-cyan-jellyfish-cuff.cyclic.app/auth/google/callback`,
       scope: ["profile", "email"],
       // passReqToCallback: true,
     },

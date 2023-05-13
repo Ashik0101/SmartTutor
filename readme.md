@@ -1,6 +1,12 @@
-# Tutoring Appointment Booking Application
 
-This is a web application that allows tutors to register themselves and students to register themselves. Students can book appointments with tutors for a particular subject. Additionally, an admin user can manage the system, including the ability to ban students or teachers.
+<span style="font-size:46px"> Tutoring Appointments Booking System</span>
+
+
+<span style="font-size:20px">This is a web application that allows tutors to register themselves and students to register themselves. Students can book appointments with tutors for a particular subject. Additionally, an admin user can manage the system, including the ability to ban students or teachers.</span>
+
+## ![Alt Text](./frontend/images/smartTutorImage/1.png)
+
+<span>**\*\***\*\***\*\***-----------------------------------\***\***\*\***\*\***<span>
 
 ## Features
 
@@ -22,13 +28,15 @@ The application is built using the following technologies:
 - MongoDB: a NoSQL document database for storing application data
 - HTML, CSS and JavaScript for building the user interfaces.
 
-# Tooth Tracker API documentation
+<span>**\*\***\*\***\*\***-----------------------------------\***\***\*\***\*\***<span>
 
-- This repository contains API documentation for Tooth-Tracker
+# SmartTutor API documentation
+
+- This repository contains API documentation for SmartTutor
 
 ## 1. Overview
 
-- Basic API endpoint = `https://tooth-tracker.cyclic.app/`.
+- Basic API endpoint = `https://dull-cyan-jellyfish-cuff.cyclic.app/`.
 - All requests must be secure, i.e. `https`, not `http`.
 
 ## 2. Authentication
@@ -36,194 +44,225 @@ The application is built using the following technologies:
 - This API uses Role based authrization.
 - In order to perform user or admin operations, Token is required.
 - Token can be obtained by creating account and logging in to the system.
-- No saperate login routes for users and admins.
-- System Redirects users/admins to respective locations i'e users landing page or admin page according to user role in DB.
+- No saperate login routes for users, Tutors and admins.
+- System Redirects users/admins to respective locations i.e, users landing page or admin page according to user role in DB.
 
-## 2. User
+## (i). User
 
 - Registration
 
-  - URL: `https://tooth-tracker.cyclic.app/register`
-  - Method: POST
-  - Parameters:
+![Alt Text](./frontend/images/smartTutorImage/signup.png)
 
-  ```
-  {
-      name: string (required),
-      date_of_birth: YYYY-MM-DD (required),
-      phone: 123456789 (7 characters or more) (required),
-      email: string (required),
-      password: user_password (5 characters or more) (required),
-      role: (admin or default user)
-  }
-  ```
+- URL: `https://dull-cyan-jellyfish-cuff.cyclic.app/register`
+- Method: POST
+- Parameters:
 
-  - Responses
-    - 200 (Ok): `{msg: Registration successful as ${user.role}}`
-    - 409 (account already exists): `{"msg": "Email is already registered"}`
-    - 401 (missing credentails): `{"msg": "Please provide name, date_of_birth(YYYY-MM-DD) ,phone, e-mail & Password"}`
-    - 411 (invalid credentails): `{"msg": "Password must be of length 5"}`
-    - 422 (invalid credentails): `{"msg": "Please provide valid phone number"}`
+```
+
+{
+    name: string (required),
+    email: string (required),
+    password: user_password (5 characters or more) (required),
+    role: (teacher or default user)
+}
+```
+
+- Responses
+
+  - 200 (Ok): `{msg: "Successfully Registered!"}}`
+  - 409 (account already exists): `{"msg": "user exists"}`
+  - 400 (error in hashing): `{"msg": "Error while hashing the password"}`
+  - 500 (error): `{"msg": "Something went wrong"}`
 
 - Login
 
-  - URL: `https://tooth-tracker.cyclic.app/login`
+  - URL: `https://dull-cyan-jellyfish-cuff.cyclic.app/login`
   - Method: POST
   - Parameters:
 
   ```
   {
       email: string (required),
-      password: user_password (5 characters or more) (required)
+      password: user_password (required)
   }
   ```
 
   - Responses
-    - 200 (Ok): `{msg: Login successful as 'role', token: token, role: 'role'}`
-    - 401 (account does not exists): `{"msg": "Account does not exists"}`
-    - 401 (missing credentails): `{"msg": "Please provide, e-mail & Password"}`
-    - 411 (invalid credentails): `{"msg": "Password must be of length 5"}`
+    - 200 (Ok): `{msg: Login successful, token: token, email: email,data:data}`
+    - 401 (account does not exists): `{"msg": "Wrong Credentials"}`
+    - 404 (missing credentails): `{"msg": "User not found!"}`
+    - 500 (some error): `{"msg": "Something went wrong!"}`
 
 - Check Providers
 
-  - URL: `https://tooth-tracker.cyclic.app/doctors`
+  - URL: `https://dull-cyan-jellyfish-cuff.cyclic.app/teachers/all`
   - Method: GET
   - Parameters: none
-  - Response: `[doctor's data...]`
+  - Response: `[...tutor's data]`
 
-- Check Slots
+- Get the details about a particular teacher
 
-  - URL: `https://tooth-tracker.cyclic.app/slots`
-  - Method: GET
-  - Parameters: none
-  - Response: `[slot's data...]`
+![Alt Text](./frontend/images/smartTutorImage/individual_teacher.png)
 
-- Get slot Cost
+- URL: `https://dull-cyan-jellyfish-cuff.cyclic.app/teachers/one`
+- Method: GET
+- Parameters: {
+  teacher_id:string(required)
+  }
+- Response: `[one tutor's data]`
 
-  - URL: `https://tooth-tracker.cyclic.app/getCost/:sLotId`
-  - Method: GET
-  - Parameters: Slot Id as params
-  - Responses:
-    - 404 (Not Found): `{msg: 'Slot not available'}`
-    - 200 (Ok): `{cost: 'cost'}`
+- Check Slots of a tutor
+
+![Alt Text](./frontend/images/smartTutorImage/appointment.png)
+
+- URL: `https://dull-cyan-jellyfish-cuff.cyclic.app/slot/one-tutor/all/${id}`
+- Method: GET
+- Parameters: {
+  teacher_id : string(required)
+  }
+- Response: `[slot's data of a particular teacher]`
+  `
 
 - Book Appointment
 
-  - URL: `https://tooth-tracker.cyclic.app/newMeeting`
-  - Method: POST
+  - URL: `https://dull-cyan-jellyfish-cuff.cyclic.app/slot/book/${slotID}`
+  - Method: PATCH
   - Parameters:
 
   ```
   {
-      category: string (required),
-      sub_category: string (required),
-      slotId: number (required),
-      doctorId: number (required)
+      token: string (required),
+      slotId: string (required),
+      studentEmail: string (required)
   }
   ```
 
-  - Responses
-    - 200 (Ok): `{msg: Meeting Initialised, rows}`
-    - 401 (Missing Credentials) : `{"msg": "Please provide category, sub category and slotId"}`
+  - Responses:
+
+````
+    - 200 (Ok): {  msg: `Slot having id ${slotId} is booked !!`,
+
+      bookedSlot:
+
+      ```
+      {
+       dateMonthName: data.dateMonthName,
+       slot_timing: data.slot_timing,
+       isBooked: true,
+       tutorEmail: data.userEmail,
+       studentEmail: req.body.studentEmail,
+      }`
+
+
+     } ```
+
+    - 401 (missing credentails): `{"msg": msg: "Student Email is missing.""}
     - 404 (Not found) : `{msg: Slot Not available}`
-    - 409 (Conflicting categories): `{"msg": "This slot is not available for provided category or sub_category"}`
+    - 500 (some error): `{msg: "Something went Wrong while booking of the slot !"}`
 
-- Save paymanet info to database
-  - URL: `https://tooth-tracker.cyclic.app/pay`
-  - Method: POST
-  - Parameters:
-  ```
-  {
-      userId: Id (number),
-      slotId: Id (number),
-      amount: amount (number),
-      method: any one of (cash, card, netbanking, upi)
-  }
-  ```
-  - Reaponses
-    - 401 (Missing Credentials): `{ msg: 'Please provide userId, slotId, amount and method' }`
-    - 401 (Missing Credentials): `{msg: "Please select method from cash, card, upi and netbanking",}`
-    - 200 (OK): `{ msg: "Transaction saved to DB successfully", rows }`
+````
 
-## 3. Admin
+## (ii). Tutor
 
-**Note**- You need to login with admin account to perform below operations.
+- Get All Slots
 
-- Users
+  ![Alt Text](./frontend/images/smartTutorImage/create_slot.png)
 
-  - URL: `https://tooth-tracker.cyclic.app/admin/users`
+  - URL: `https://dull-cyan-jellyfish-cuff.cyclic.app/slot/one-tutor/all/${id}`
   - Method: GET
-  - Parameters: none
-  - Response: `[users data...]`
 
-- Delete a User
-
-  - URL: `https://tooth-tracker.cyclic.app/admin/deleteuser/:id`
-  - Method: DELETE
-  - Parameters: userId as params
-  - Responses
-    - 404 (Not Found): `{msg: User does not exist}`
-    - 200 (Ok): `{msg: User deletion successful}`
-
-- Get all slots
-
-  - URL: `https://tooth-tracker.cyclic.app/admin/allSlots`
-  - Method: GET
-  - Parameters: none
-  - Response: `[all slots data...]`
-
-- Get all meetings
-
-  - URL: `https://tooth-tracker.cyclic.app/admin/allMeeetings`
-  - Method: GET
-  - Parameters: none
-  - Response: `[all meetings data...]`
-
-- Add Provider
-
-  - URL: `https://tooth-tracker.cyclic.app/admin/addDoctor`
-  - Method: POST
   - Parameters:
 
-  ```
+```
+
+        {
+          teacher_id : string(required)
+          slot_id : string(required)
+        }
+
+```
+
+- - Responses:
+
+  - 200 (Ok): { msg: `Slot having id ${slotId} is booked !!`,
+
+  bookedSlot:
+
+  ````
   {
-      name: string (required),
-      speciality: string (required),
-      sub_speciality: string (required),
-      degree: string (required)
-  }
-  ```
+   dateMonthName: data.dateMonthName,
+   slot_timing: data.slot_timing,
+   isBooked: true,
+   tutorEmail: data.userEmail,
+   studentEmail: req.body.studentEmail,
+  }`
+
+
+  } ```
+
+  ````
+
+- 401 (missing credentails): `{"msg": msg: "Student Email is missing.""}
+- 404 (Not found) : `{msg: Slot Not available}`
+- 500 (some error): `{msg: "Something went Wrong while booking of the slot !"}`
+
+- Create Slot
+
+  - URL: `https://dull-cyan-jellyfish-cuff.cyclic.app/slot/create`
+  - Method: POST
+
+  - Parameters:
+    {
+    userEmail : string(required),
+    dateMonthName : string(required),
+    slot_timing : string(required),
+    isBooked : string(required),
+    studentEmail : string(required),
+    }
 
   - Responses:
-    - 401 (Missing credentials): `{msg:'Please provide name ,speciality and degree'}`
-    - 200 (Ok): `{msg: 'Doctor registration successful'}`
 
-- Add Slot
-
-  - URL: `https://tooth-tracker.cyclic.app/admin/addSlot`
-  - Method: POST
-  - Parameters:
-
-  ```
+- 200 (Ok): {msg: `Slot Created for ${dateMonthName}, from ${slot_timing[0]} to ${slot_timing[1]} ! `}
+- 500 (some error):
   {
-      category: string (required),
-      sub_category: string (required),
-      date: YYYY-MM-DD, (required)
-      start: HH:MM (24Hrs clock) (required),
-      duration: minutes (number) (required)
-  }
-  ```
-
-- DB Operations
-  - **Important** - This operation has access to complete database, be careful while using this route
-  - URL: `https://tooth-tracker.cyclic.app/admin/query`
-  - Method: POST
-  - Parameters:
-  ```
   {
-      query: 'write your MySQL query here' (string)
+  msg: "Some Error in creating the slot",
+  error: error.message,
   }
-  ```
-  - Responses:
-    - 404 (Not found): `{msg : 'please write your queries inside an object with key as 'query''}`
-    - Query Response
+  }
+
+{
+dateMonthName: data.dateMonthName,
+slot_timing: data.slot_timing,
+isBooked: true,
+tutorEmail: data.userEmail,
+studentEmail: req.body.studentEmail,
+}`
+
+- Delete A Slot
+
+- URL: `https://dull-cyan-jellyfish-cuff.cyclic.app/slot/delete/${slotID}`
+- Method: DELETE
+- Parameters:
+
+{
+
+    slotId: string (required),
+    teacher_id: string (required)
+
+}
+
+-Responses:
+{
+
+    msg: `Slot deleted !!`,
+    deletedSlot: {
+      dateMonthName: deletedSlot.dateMonthName,
+      slot_timing: deletedSlot.slot_timing,
+    },
+
+}
+
+```
+
+```
