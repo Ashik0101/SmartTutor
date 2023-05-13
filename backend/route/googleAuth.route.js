@@ -43,7 +43,7 @@ googleRouter.get(
       if (userExists) {
         console.log("user exists");
         //  Id = userExists._id;
-        res.redirect("http://127.0.0.1:5501/frontend/signup.html");
+        res.redirect("https://shiny-torrone-da7559.netlify.app/frontend/signup.html");
       } else {
         let newUser = new UserModel({
           name,
@@ -54,7 +54,7 @@ googleRouter.get(
         let data = await newUser.save();
         //  Id = data._id
         console.log(data);
-        res.redirect("http://127.0.0.1:5501/frontend/index.html");
+        res.redirect("https://shiny-torrone-da7559.netlify.app/frontend/index.html");
       }
 
       //  res.send("welcome to smartTutor")
