@@ -1,4 +1,6 @@
+
 <span style="font-size:46px"> Tutoring Appointments Booking System</span>
+
 
 <span style="font-size:20px">This is a web application that allows tutors to register themselves and students to register themselves. Students can book appointments with tutors for a particular subject. Additionally, an admin user can manage the system, including the ability to ban students or teachers.</span>
 
