@@ -3,7 +3,7 @@
 
 <span style="font-size:20px">This is a web application that allows tutors to register themselves and students to register themselves. Students can book appointments with tutors for a particular subject. Additionally, an admin user can manage the system, including the ability to ban students or teachers.</span>
 
-## ![Alt Text](./frontend/images/smartTutorImage/1.png)
+## ![Alt Text](https://drive.google.com/drive/u/0/folders/17WfMtaqgaRhq6GMV2zLwJ8UaScAv1VVa)
 
 <span>**\*\***\*\***\*\***-----------------------------------\***\***\*\***\*\***<span>
 
