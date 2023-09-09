@@ -70,7 +70,7 @@ async function addDetails(name, email, password, role) {
     return 2;
   }
 
-  const url = "http://localhost:9090/users/register";
+  const url = "https://dull-cyan-jellyfish-cuff.cyclic.app/users/register";
 
   const data = {
     name: name,
@@ -103,7 +103,7 @@ Loginbutton.addEventListener("click", async (event) => {
   const email = Lform.querySelector('input[type="email"]').value;
   const password = Lform.querySelector('input[type="password"]').value;
 
-  const url = "http://localhost:9090/users/login";
+  const url = "https://dull-cyan-jellyfish-cuff.cyclic.app/users/login";
 
   const data = {
     email: email,
@@ -325,7 +325,7 @@ Tform.addEventListener("submit", async function (event) {
   console.log(data);
 
   if (role == "teacher" || role == "Teacher") {
-    let td = "http://localhost:9090/teachers/";
+    let td = "https://dull-cyan-jellyfish-cuff.cyclic.app/teachers/";
 
     let res = await fetch(td, {
       method: "POST",
@@ -401,7 +401,7 @@ Sform.addEventListener("submit", async function (event) {
   };
 
   console.log(data);
-  const sd = "http://localhost:9090/";
+  const sd = "https://dull-cyan-jellyfish-cuff.cyclic.app/";
 
   console.log(data);
   let res = await fetch(sd, {
@@ -421,9 +421,9 @@ Sform.addEventListener("submit", async function (event) {
 
 // let authe = document.getElementById("google")
 
-// authe.onclick = async () => { location.href="http://localhost:9090/auth/google"
+// authe.onclick = async () => { location.href="https://dull-cyan-jellyfish-cuff.cyclic.app/auth/google"
 //   console.log("hi")
-//   let res = await fetch("http://localhost:9090/auth/google/callback", {
+//   let res = await fetch("https://dull-cyan-jellyfish-cuff.cyclic.app/auth/google/callback", {
 //     method: "GET"
 //   })
 
@@ -437,9 +437,9 @@ Sform.addEventListener("submit", async function (event) {
 let authe = document.getElementById("google");
 
 authe.onclick = async () => {
-  location.href = "http://localhost:9090/auth/google";
+  location.href = "https://dull-cyan-jellyfish-cuff.cyclic.app/auth/google";
   console.log("hi");
-  // let res = await fetch("http://localhost:9090/auth/google/callback", {
+  // let res = await fetch("https://dull-cyan-jellyfish-cuff.cyclic.app/auth/google/callback", {
   //   method: "GET",
   //   credentials: "include", // Include cookies in the request
   // });
