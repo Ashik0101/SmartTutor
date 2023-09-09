@@ -5,7 +5,7 @@ userName.innerText = localStorage.getItem("name");
 
 let storedData = {};
 
-fetch("http://localhost:9090/teachers/all")
+fetch("https://dull-cyan-jellyfish-cuff.cyclic.app/teachers/all")
   .then((res) => {
     return res.json();
   })

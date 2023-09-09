@@ -1,4 +1,4 @@
-const url = "http://localhost:9090/";
+const url = "https://dull-cyan-jellyfish-cuff.cyclic.app/";
 let teacherCount = document.getElementById("teacher-count");
 let studentCount = document.getElementById("student-count");
 let studentBox = document.getElementById("student-box");
